@@ -1,13 +1,13 @@
-ms.ContentId: 3C63F9A8-30E4-40F4-BC7B-A001C1E90779
-title: Step 4: Create a Windows virtual machine from an .iso file
+ms。ContentId:3C63F9A8-30E4-40F4-BC7B-A001C1E90779
+タイトル:手順 4:.Iso ファイルから Windows の仮想マシンを作成します。
 
-#Step 4: Create a Windows virtual machine from an .iso file
+#手順 4:.Iso ファイルから Windows の仮想マシンを作成します。
 
-For this step, if you already have a .iso file for a supported 64-bit operating system, you can use that.
-If not, you can download the .iso for [Windows 8.1 Enterprise](http://www.microsoft.com/en-us/evalcenter/evaluate-windows-8-1-enterprise) and choose the 64-bit edition.
+この手順で、サポートされている 64 ビットのオペレーティング システム用の .iso ファイルが既にある場合は、使用できますです。
+ない場合は、.iso をダウンロードすることができます。 [Windows 8.1 Enterprise](http://www.microsoft.com/en-us/evalcenter/evaluate-windows-8-1-enterprise) 64 ビット エディションを選択します。
 
-1.  In Hyper-V Manager, click on the **Action** menu > **New** > **Virtual machine**.
-2.  In the virtual machine wizard, make the following choices:
+1.  HYPER-V マネージャーでは、クリックして、 **操作** メニュー > **新規** > **仮想マシン**。
+2.  バーチャル マシンのウィザードで、次の選択肢を行います。
     
     <table>
       <tr>
@@ -45,14 +45,14 @@ If not, you can download the .iso for [Windows 8.1 Enterprise](http://www.micros
           <b caps_internal_Id="eec0fd47-b85d-4a17-bbcc-2f510dc17128">Install an operating system from a bootable CD/DVD-ROM</b>. Under <b caps_internal_Id="5b94d02f-0cbf-4a32-8d9c-1d48fe09027d">Media</b>, select <b caps_internal_Id="3f9d1060-ed99-4f7b-9cc8-a636c94a6730">Image file (iso)</b> and then click <b caps_internal_Id="54c5a109-9ed5-44f7-810d-52a143d62577">Browse</b> to point to the .iso file.</td>
       </tr>
     </table>
-3.  When everything looks right, click **Finish**.
+3.  右がなければ、ときに、以下の] をクリックします。 **完了**。
 
-> **Note:** If you only have 32-bit version of Windows, you need to choose Generation 1 in the **Generation** section of the wizard.
-> Generation 2 VMs only support 64-bit operating systems.
+> **注: ** 32 ビット バージョンの Windows のみの場合で第 1 世代を選択する必要があります、。 **生成** ウィザードのセクション。
+> 第 2 世代仮想マシンは、64 ビット オペレーティング システムのみをサポートします。
 > 
 
-##Next Step:
+##次の手順:
 
-[Step 5: Connect to the virtual machine and finish the installation](walkthrough_vmconnect.md)
+[手順 5:仮想マシンに接続し、インストールを完了](walkthrough_vmconnect.md)
 
 

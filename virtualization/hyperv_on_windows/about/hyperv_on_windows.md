@@ -1,85 +1,86 @@
-ms.ContentId: 93EDAAF5-E4FC-4F3F-AB55-669D2BF47D78
-title: Introduction to Hyper-V on Windows 10
+ms。ContentId:93EDAAF5-E4FC-4F3F-AB55-669D2BF47D78
+タイトル:10 の Windows で HYPER-V の概要
 
-#Introduction to Hyper-V on Windows 10 test
+#Windows 10 台のテストでは、HYPER-V の概要
 
-Whether you are a software developer, an ITPro, or a tech enthusiast, many of you need to run multiple operating systems, occasionally on many different machines.
-Not all of us have access to a full suite of labs to house all these machines, and so virtualization can be a space and time saver.
+ホー HB プロセスをテストするためには、この文を追加します。
+ソフトウェア開発者、it プロフェッショナル、または、テクノロジ愛好家であるかどうかは、さまざまなマシンで、場合によって複数のオペレーティング システムを実行するは、多く必要があります。
+これらすべてのマシンを格納するために、ラボの完全なスイートにアクセス権を持つすべての人と、仮想化することが、領域と時間の節約します。
 
-##Uses for virtualization
+##仮想化の使用
 
-Virtualization enables anyone to easily maintain multiple test environments consisting of many operating systems, software configurations, and hardware configurations.
-Hyper-V provides virtualization on Windows as well as a simple mechanism to quickly switch between these environments without incurring additional hardware costs.
+仮想化により、多くのオペレーティング システム、ソフトウェア構成、およびハードウェア構成で構成される複数のテスト環境を簡単に維持するためにすべてのユーザー。
+HYPER-V では、Windows だけでなく、単純なメカニズムを追加のハードウェアのコストを発生させることがなくこのような環境をすばやく切り替えるで仮想化を提供します。
 
-Hyper-V can be used in many ways, for example:
+たとえば、HYPER-V は、さまざまな方法で使用できます。
 
-*   A test environment consisting of multiple virtual machines can be created on a single desktop or laptop computer.
-    Once testing has completed, these virtual machines can be exported and then imported into any other Hyper-V system.
-*   Developers can use Hyper-V on their computer to test software on multiple operating systems.
-    For example, if you have an application that must be tested on Windows 8, Windows 7 and a Linux operating system, multiple virtual machines can be created on your development system, one containing each of these operating systems.
-*   You can use Hyper-V to troubleshoot virtual machines from any Hyper-V deployment.
-    You can export a virtual machine from your production environment, open it on your desktop running Hyper-V, perform your required troubleshooting, and then export it back into the production environment.
-*   Using virtual networking, you can create a multi-machine environment for test/development/demonstration that is secure from affecting the production network.
-*   Enthusiasts can use it to experiment with other operating systems.
-    Hyper-V makes it very easy to bring up and tear down different operating systems.
-*   You can use Hyper-V on a laptop for demonstrating older versions of Windows or non-Windows operating systems.
+*   1 台のデスクトップまたはラップトップ コンピューターでは、複数の仮想マシンで構成されるテスト環境を作成できます。
+    テストが完了した後は、これらの仮想マシンをエクスポートして、その他のシステムの HYPER-V にインポートします。
+*   開発者は、自分のコンピューターで HYPER-V を使用して、複数のオペレーティング システム上のソフトウェアをテストします。
+    たとえば、Windows 8、Windows 7、および Linux オペレーティング システムでテストする必要のあるアプリケーションの場合は、複数の仮想マシンはそれぞれこれらのオペレーティング システムを含む開発システムを作成できます。
+*   すべての HYPER-V の展開からの仮想マシンのトラブルシューティングを行うには、HYPER-V を使用できます。
+    運用環境から仮想マシンをエクスポートして HYPER-V を実行しているデスクトップで開いて、その、必要なトラブルシューティングを実行するか、および実稼働環境にエクスポートすることができます。
+*   仮想ネットワークを使用して、テスト/開発/デモについては、実稼働ネットワークに影響を与えるからセキュリティで保護されて、複数コンピューター環境を作成できます。
+*   熱心なユーザーは、他のオペレーティング システムをテストすることを使用できます。
+    HYPER-V では、非常に簡単を起動し、さまざまなオペレーティング システムを破棄します。
+*   ラップトップ コンピューターで HYPER-V を使用するには、Windows または Windows 以外のオペレーティング システムの以前のバージョンを示すためです。
 
-##System requirements
+##システム要件
 
-Hyper-V requires a 64-bit system that has Second Level Address Translation (SLAT). SLAT is a feature present in the current generation of 64-bit processors by Intel & AMD. You’ll also need a 64-bit version of Windows 8 or greater, and at least 4GB of RAM. Hyper-V does support creation of both 32-bit and 64-bit operating systems in the VMs.
+HYPER-V では、64 ビットのシステムを Second Level Address Translation (SLAT) を持つ必要があります。 SLAT とは、機能では、Intel と AMD 64 ビット プロセッサの現在の世代に存在です。 また、64 ビット バージョンの Windows 8 以降のバージョン、および少なくとも 4 GB の RAM も必要です。 HYPER-V では、Vm に 32 ビットおよび 64 ビットの両方のオペレーティング システムの作成をサポートします。
 
-Hyper-V’s dynamic memory allows memory needed by the VM to be allocated and de-allocated dynamically (you specify a minimum and maximum) and share unused memory between VMs.
-You can run 3 or 4 VMs on a machine that has 4GB of RAM but you'll need more RAM for 5 or more VMs.
-On the other end of the spectrum, you can also create large VMs with 32 processors and 512GB RAM, depending on your physical hardware.
+HYPER-V の動的メモリが割り当てられ、動的に割り当て解除の VM に必要なメモリを許可 (最小値と最大値を指定) と Vm 間で使用されていないメモリを共有します。
+4 GB の RAM を持つコンピューターで、3 ～ 4 の Vm を実行することができますが、5 つ以上の Vm の RAM を増設する必要があります。
+スペクトルのもう一方の端に、物理ハードウェアによって大規模の仮想マシンでプロセッサと 512 GB の RAM が 32 で作成することもできます。
 
-##Operating systems you can run in a virtual machine
+##オペレーティング システムの仮想マシンで実行することができます。
 
-The term "guest" refers to a virtual machine and "host" refers to the computer running the virtual machine.
-Hyper-V on Windows supports many different guest operating systems including various releases of Linux, FreeBSD and Windows.
-For information about which operating systems are supported as guests in Hyper-V on Windows, see [Supported Windows Guest Operating Systems](supported_guest_os.md) and [Linux and FreeBSD Virtual Machines on Hyper-V](https://technet.microsoft.com/library/dn531030.aspx).
+"Guest"という用語は、仮想マシンを参照し、"host"は、仮想マシンを実行するコンピューターを参照します。
+Windows 上の HYPER-V では、Linux、FreeBSD および Windows のさまざまなリリースを含む、多くのさまざまなゲスト オペレーティング システムをサポートしています。
+Windows 上の HYPER-V でゲストとしてについては、オペレーティング システムがサポートされているについては、次を参照してください。 [サポートされている Windows ゲスト オペレーティング システム](supported_guest_os.md) 」と「 [Linux および Hyper V 上のバーチャル マシンの FreeBSD](https://technet.microsoft.com/library/dn531030.aspx)。
 
-##Differences between Hyper-V on Windows and Hyper-V on Windows Server
+##Windows HYPER-V と Windows server HYPER-V の違い
 
-There are some features that work differently in Hyper-V on Windows than they do Hyper-V running on Windows Server.
-These include the following:
+異なる動作を HYPER-V には、Windows、Windows Server で実行されている HYPER-V よりもいくつかの機能があります。
+次のような方法があります。
 
-*   The memory management model is different for Hyper-V on Windows.
-    On a server, Hyper-V memory is managed with the assumption that only the virtual machines are running on the server.
-    In Hyper-V on Windows, memory is managed with the understanding most client machines are running software in addition to running virtual machines.
-    For example, a developer might be running Visual Studio as well as several virtual machines on the same computer.
-*   SR-IOV on a 64-bit guest works normally, but 32-bit does not and is not supported.
+*   メモリ管理のモデルでは、Windows 上の HYPER-V に異なります。
+    サーバーでは、HYPER-V でメモリをバーチャル マシンのみが、サーバーで実行されていることを前提に管理されます。
+    Windows では、HYPER-V では、メモリは、ほとんどのクライアント マシンには、実行中のソフトウェアの仮想マシンを実行しているだけでなく、理解したうえで管理されます。
+    たとえば、開発者可能性がありますで実行されている複数の仮想マシンと同様に Visual Studio、同じコンピューターです。
+*   64 ビットのゲストには、SR-IOV が正常では、32 ビットがないし、はサポートされていません。
 
-###Windows Server features not avilable in Windows Hyper-V
+###Windows Server の機能 Windows HYPER-V で使用できます。
 
-There are some features included in Hyper-V on server that are not included in Hyper-V on Windows.
-These include the following:
+サーバーに HYPER-V の含まれる Windows 上の HYPER-V に含まれていないいくつかの機能があります。
+次のような方法があります。
 
-*   The Remote FX capability to virtualize GPUs 
-*   Live migration of virtual machines from one host to another
-*   Hyper-V Replica
-*   Virtual Fibre Channel
-*   SR-IOV networking
-*   Shared .VHDX
+*   Gpu を仮想化するリモート FX の機能 
+*   別のホストにバーチャル マシンのライブ マイグレーション
+*   Hyper-V レプリカ
+*   仮想ファイバー チャネル
+*   SR-IOV ネットワー キング
+*   共有されます。VHDX
 
-> **Warning**: Virtual machines running on Hyper-V do not automatically handle moving from a wired to a wireless connection.
-> You must change the virtual machines network adapter settings manually.
+> **警告**:HYPER-V で実行されている仮想マシンでは、ワイヤード (有線) から、ワイヤレス接続への移行は自動的に処理できませんしないでください。
+> 仮想マシンのネットワーク アダプターの設定を変更する必要があります手動でします。
 > 
 
-##Limitations
+##制限事項
 
-Using virtualization does have limitations.
-Features or applications that depend on specific hardware will not work well in a VM.
-For example, games or applications that require processing with GPUs (without providing software fallback) might not work well.
-Also, applications relying on sub 10ms timers, like latency-sensitive high-precision apps such as live music mixing apps, etc. could have issues running in a VM.
-The root OS is also running on top of the Hyper-V virtualization layer, but it is special in that it has direct access to all the hardware.
-This is why applications with special hardware requirements continue to work unhindered in the root OS but latency-sensitive, high-precision apps could still have issues running in the root OS.
+仮想化は制限事項があります。
+機能または特定のハードウェアに依存するアプリケーションは、VM では機能しません。
+たとえば、ゲームや (ソフトウェアのフォールバックを提供するには) なしの Gpu の処理を必要とするアプリケーションが機能しないもします。
+また、サブ 10 ミリ秒のタイマーに依存するアプリケーションでは、ライブの音楽などの待機時間を区別と精度の高いアプリケーションのようにアプリなどを混在させることができます、VM で実行の問題。
+ルート OS は、HYPER-V の仮想化層の上に実行しているが、すべてのハードウェアへの直接アクセスがある点で特殊なです。
+これは、特殊なハードウェアの要件を持つアプリケーションは引き続きルート OS で問題なく動作するのに、待機時間の区別およびと精度の高いアプリも問題がルート OS で実行されていることができます。
 
-As a reminder, you'll need to have a valid license for any operating systems you use in the VMs.
+なおに、仮想マシンで使用するすべてのオペレーティング システムの有効なライセンスを持っている必要があります。
 
-##Next step:
+##次の手順:
 
-[Walkthrough Hyper-V on Windows 10](..\quick_start\walkthrough.md)
+[チュートリアル: Hyper-v について Windows 10](..\quick_start\walkthrough.md)
 
-Check out [What's New](whats_new.md) in Hyper-V on Windows 10.
+チェック アウト [新機能](whats_new.md) HYPER-V の 10 の Windows にします。
 
 

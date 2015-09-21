@@ -1,36 +1,37 @@
-ms.ContentId: 8DE9250B-556B-47BC-AD9A-8992B3D3D0F9
-title: PowerShell Snippets
+ms。ContentId:8DE9250B-556B-47BC-AD9A-8992B3D3D0F9
+タイトル:PowerShell のスニペット
 
-#PowerShell Snippets
+#PowerShell のスニペット
 
-PowerShell is an awesome scripting, automation, and management tool for Hyper-V.  Here is a toolbox for exploring some of the cool things it can do!
+ホー HB プロセスをテストするためには、この文を追加します。
+PowerShell は、素晴らしいスクリプティング、オートメーション、および管理ツール HYPER-V 用です。ここでは、いくつかのすばらしいものを実行できる検証用のツールボックスです。
 
-All Hyper-V management requires running as administrator so assume all scripts and snippets must be run as administrator from a Hyper-V Administrator account.
+すべての HYPER-V 管理では、すべてのスクリプトと管理者とスニペットは、HYPER-V の管理者アカウントから管理者として実行する必要があります、実行が必要です。
 
-If you aren't sure if you have the right permissions, type `Get-VM` and if it runs with no errors, you're ready to go.
+適切なアクセス許可があるかどうか不明でない場合は、入力します。 `Get-VM` 移動する準備ができたら、エラーなしで実行している場合。
 
-##PowerShell Direct tools
+##PowerShell の直接のツール
 
-All of the scripts and snippets in this section will rely on the following basics.
+すべてのスクリプトとスニペットでは、このセクションでは、次の基本原則に依頼します。
 
-**Requirements** :  
+**要件** :  
 
-*   PowerShell Direct.
-    Windows 10 guest and host OS.
+*   PowerShell のダイレクトします。
+    Windows の 10 のゲストとホスト OS です。
 
-**Common Variables** :  
-`$VMName` -- this is a string with the VMName.
-See a list of available VMs with `Get-VM``$cred` -- Credential for the guest OS.
-Can be populated using `$cred = Get-Credential`
+**共通変数** :  
+`$VMName` -VMName での文字列です。
+使用可能な Vm の一覧を参照してください。 `Get-VM``$cred` -ゲスト OS の資格情報です。
+使用して設定できます。 `$cred = Get-Credential`
 
-###Check if the guest has booted
+###ゲストが起動されているかどうかの確認します。
 
-Hyper-V Manager doesn't give you visibility into the guest operating system which often makes it difficult to know whether the guest OS has booted.
+HYPER-V マネージャーでは、多くの場合、ゲスト OS が起動されているかどうかがわかりにくく、ゲスト オペレーティング システムに可視性を提供します。
 
-Use this command to check whether the guest has booted.
+ゲストが起動されているかどうかを確認するのにには、このコマンドを使用します。
 
-``` PowerShell
-if((Invoke-Command -VMName $VMName -Credential $cred {"Test"}) -ne "Test"){Write-Host "Not Booted"} else {Write-Host "Booted"}
+'' PowerShell
+場合 ((Invoke-command-VMName $VMName-資格情報の $cred {"Test"}) ne"Test") {「起動されていない」Write-host} else {Write-host"Booted"}
 
 
 ```
@@ -50,47 +51,47 @@ function waitForPSDirect([string]$VMName, $cred){
 
 ```
 
-**Outcome**  
-Prints a friendly message and locks until the connection to the VM succeeds.
-Succeeds silently.
+**結果**  
+VM への接続が成功するまでは、わかりやすいメッセージとロックを出力します。
+サイレント モードでは成功します。
 
-###Script locking until the guest has a network
+###スクリプトは、ゲストには、ネットワーク時までロック
 
-With PowerShell Direct it is possible to get connected to a PowerShell session inside a virtual machine before the virtual machine has received an IP address.
+PowerShell の直接仮想マシンを前に仮想マシン内の PowerShell セッションに接続することは、IP アドレスを受け取りました。
 
-``` PowerShell
+'' PowerShell
 
-#Wait for DHCP
+#DHCP を待機します。
 
-while ((Get-NetIPAddress | ?
-AddressFamily -eq IPv4 | ?
-IPAddress -ne 127.0.0.1).SuffixOrigin -ne "Dhcp") {sleep -Milliseconds 10}
+中に ((Get NetIPAddress | でしょうか。
+アドレスファ ・ リ-eq IPv4 か?
+IPAddress - ne 127.0.0.1)。「Dhcp」ne SuffixOrigin) {スリープ-(ミリ秒) の 10}
 ```
 
-** Outcome **
-Locks until a DHCP lease is recieved.
-Since this script is not looking for a specific subnet or IP address, it works no matter what network configuration you're using.
-Succeeds silently.
+** 結果の **
+DHCP リースを受信するまでロックされます。
+このスクリプトはしない検索、特定のサブネットまたは IP アドレスの場合は、どのようなネットワークの構成に関係なく、機能しています。
+サイレント モードでは成功します。
 
-##Managing credentials with PowerShell
+##PowerShell を使用した資格情報の管理
 
-Hyper-V scripts frequently require handling credentials for one or more virtual machines, Hyper-V host, or both.
+HYPER-V のスクリプトでは、1 つまたは複数の仮想マシン、HYPER-V ホスト、またはその両方の資格情報の処理を頻繁に必要です。
 
-There are multiple ways you can achieve this when working with PowerShell Direct or standard PowerShell remoting:
+これを実現する PowerShell の直接接続または標準の PowerShell リモート処理を使用するときに複数の方法はあります。
 
-1.  The first (and simplest) way is to have the same user credentials be valid in the host and the guest or local and remote host.
-    This is quite easy if you are logging in with your Microsoft account - or if you are in a domain environment.
-    In this scenario you can just run `Invoke-Command -VMName "test" {get-process}`.
-2.  Let PowerShell prompt you for credentials  
-    If your credentials do not match you will automatically get a credential prompt allowing you to provide the appropriate credentials for the virtual machine.
-3.  Store credentials in a variable for reuse.
-    Running a simple command like this:  
+1.  最初の (そして最も単純な) 方法は、ホストとゲスト、またはローカルおよびリモート ホストで有効であるのと同じユーザー資格情報です。
+    これはやドメイン環境である場合は、Microsoft アカウントでログインしている場合に非常に簡単です。
+    このシナリオでのみ実行できます。 `Invoke-Command -VMName "test" {get-process}`。
+2.  資格情報を要求する PowerShell を使用します。
+    資格情報が一致しない場合は、資格情報プロンプトが、仮想マシンの適切な資格情報を提供することができますを自動的に表示されます。
+3.  再利用するための変数には、資格情報を格納します。
+    次のような単純なコマンドを実行しています。  
     ` PowerShell
     $localCred = Get-Credential
     `
-    And then running something like this:
-    ``` PowerShell
-    Invoke-Command -VMName "test" -Credential $localCred  {get-process}
+    次のように何かを実行しています。
+    '' PowerShell
+    Invoke-command VMName"test"- 資格情報 $localCred {get プロセスしました
 
 
   ```
@@ -105,7 +106,7 @@ There are multiple ways you can achieve this when working with PowerShell Direct
 
   ```
 
-Grossly insecure - but useful for testing.
-Now you get no prompts at all in this session.
+大きな安全でないがテストに役立ちます。
+ようになりましたが表示ないこのセッションですべての画面の指示します。
 
 

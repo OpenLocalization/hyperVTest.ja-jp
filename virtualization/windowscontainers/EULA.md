@@ -1,189 +1,189 @@
-ms.ContentId: 24f01c9c-55e9-4f08-b3b4-714465d01ad8
-title: Windows Server EULA
+ms。ContentId:24f01c9c-55e9-4f08-b3b4-714465d01ad8
+タイトル:Windows Server の使用許諾契約書
 
-#Windows Server EULA
+#Windows Server の使用許諾契約書
 
-MICROSOFT LICENSE TERMS FOR A VIRTUAL HARD DISK IMAGE OF THE FOLLOWING SOFTWARE:  
+次のソフトウェアの仮想ハード ディスク イメージのマイクロソフト ソフトウェア ライセンス条項。
 MICROSOFT WINDOWS SERVER 
 
 ---------------------
 
-These license terms are an agreement between Microsoft Corporation (or based on where you live, one of its affiliates) and you.
-Please read them.
-They apply to the software product identified above and any documentation, which includes the media on which you received it (collectively referred to as the "software" or "VHD").
-The terms also apply to any Microsoft Internet-based services for this software.
+本ライセンス条項は、お客様と Microsoft Corporation (またはお客様のお住いの地域のマイクロソフト関連会社) との契約を構成します。
+以下のライセンス条項をお読みください。
+これらは、前に識別されたソフトウェアの製品と任意のドキュメントでは、メディア受信した (総称して「ソフトウェア」、"VHD"と呼ばれます) にはが含まれていますに適用します。
+条件は、このソフトウェアの Microsoft インター ネット ベース サービスにも適用されます。
 
-**BY USING THE SOFTWARE, YOU ACCEPT THESE TERMS.
-IF YOU DO NOT ACCEPT THEM, DO NOT USE THE SOFTWARE.
-AS DESCRIBED BELOW, USING SOME FEATURES ALSO OPERATES AS YOUR CONSENT TO THE TRANSMISSION OF CERTAIN STANDARD COMPUTER INFORMATION FOR INTERNET-BASED SERVICES.
-YOUR RIGHT TO USE THE SOFTWARE IS LIMITED TO A SPECIFIED PERIOD OF TIME.
-PLEASE REFER TO SECTION 3 FOR DETAILS.**
+* * を使用して、ソフトウェア、これらの条項に同意します。
+それらを受け取らない場合は、ソフトウェアは使用できません。
+以下に示すようは一部の機能を使用して、お客様のインターネット ベースのサービスの特定の標準的なコンピューター情報の送信に同意としても動作します。
+お客様がソフトウェアを使用する権利は、指定した期間に制限されます。
+このオプションを参照するくださいとセクション 3 FOR DETAILS.* *
 
 ---------------------
 
-If you comply with these license terms, you have the rights below.
+これらのライセンス条項を遵守することがある場合は、次の権限を持っています。
 
-1.  **INSTALLATION AND USE RIGHTS.**
+1.  **インストールおよび使用に関する権利。**
     
-    *   Supersede other terms.
-        The terms of this license supersede the terms of any Microsoft software license term agreement that requires “acceptance” of a separate license term agreement during installation.
-    *   Installation.
-        You may install and use the software on your device of which you are running any virtualization software able to run Virtual Hard Disk (VHD) formats, including Microsoft Virtual Server.
-    *   Limited use rights.
-        You may use the software in the virtual hard disk image only to internally demonstrate and evaluate it.
-        You may not use the software in a live operating environment.
-    *   No separation.
-        The Microsoft software in the virtual hard disk image is licensed as a single piece of software.
-        The software may include tools and components to support new features of the operating system.
-        You may not separate, use, or redistribute these tools or components for any purpose other than for use by those new features that are distributed as part of the operating system.
-        For example, Service Fabric is a software component that may be used by the Network Controller feature of the operation system only.
-    *   Third party programs.
-        The software may contain third party software programs that are licensed under proprietary terms that are presented to you.
-        The software may also contain third party open source programs that Microsoft, not the third party, licenses to you under Microsoft’s license terms.
-        Notices, if any, for the third party open source programs are included for your information only.
-2.  **INTERNET-BASED SERVICES.**  
-    Microsoft may provide Internet-based services with the software.
-    It may change or cancel them at any time.
-    Should the Virtual Hard Drive Image be configured to transmit over the Internet the following terms apply:  
-    Consent for Internet-Based Services.
-    Because this software is a pre-release version, we have turned on some internet-based features by default to obtain feedback about them.
-    The software features described below and in the Windows Privacy Statement connect to Microsoft or service provider computer systems over the Internet.
-    In some cases, you will not receive a separate notice when they connect.
-    In some cases, you may switch off these features or not use them.
-    For more information about these features, see go.microsoft.com/fwlink/?LinkId=506737.
-    By using these features, you consent to the transmission of this information to any country Microsoft operates in.
-    The list below may not be fully-inclusive.
-    Computer Information.
-    Some software features use Internet protocols, which send to Microsoft (or its suppliers or service providers) computer information, such as your Internet protocol address, the type of operating system, browser and name and version of the software you are using, and the language code of the device where you installed the software.
-    Microsoft uses this information to make the Internet-based services available to you, in accordance with the Privacy Statement at go.microsoft.com/fwlink/?LinkId=506737.
-3.  **TIME-SENSITIVE SOFTWARE.**
-    The software will stop running on 07/15/2016 (day/month/year).
-    You will not receive any other notice.
-    You may not be able to access data used with the software when it stops running.
-4.  **ACTIVATION.**  
-    Activation associates the use of the software with a specific device.
-    During activation, the software will send information about the software and the device to Microsoft.
-    This information includes the version, language and product key of the software, the Internet protocol address of the device, and information derived from the hardware configuration of the device.
-    For more information, see go.microsoft.com/fwlink/?LinkId=39157.
-    By using the software, you consent to the transmission of this information.
-    If properly licensed, you have the right to use the version of the software installed during the installation process up to the time permitted for activation.
-    Unless the software is activated, you have no right to use the software after the time permitted for activation.
-    This is to prevent its unlicensed use.
-    You are not permitted to bypass or circumvent activation.
-    If the device is connected to the Internet, the software may automatically connect to Microsoft for activation.
-    You can also activate the software manually by Internet or telephone.
-    If you do so, Internet and telephone service charges may apply.
-    Some changes to your computer components or the software may require you to reactivate the software.
-    The software will remind you to activate it until you do.
-5.  **PRODUCT KEYS.**  
-    The software may require a key to install or access it.
-    If it does, you are responsible for the use of keys assigned to you.
-    You should not share the keys with third parties.
-6.  **PRE-RELEASE SOFTWARE.**  
-    This software is a pre-release version.
-    It may not work the way a final version of the software will.
-    We may change it for the final, commercial version.
-    We also may not release a commercial version.
-7.  **FEEDBACK.**
-    If you give feedback about the software to Microsoft, you give to Microsoft, without charge, the right to use, share and commercialize your feedback in any way and for any purpose.
-    You also give to third parties, without charge, any patent rights needed for their products, technologies and services to use or interface with any specific parts of a Microsoft software or service that includes the feedback.
-    You will not give feedback that is subject to a license that requires Microsoft to license its software or documentation to third parties because Microsoft includes your feedback in them.
-    These rights survive this agreement.
-8.  **.NET FRAMEWORK SOFTWARE.**
-    The software includes one or more components of the .NET Framework, which you may use only as described at go.microsoft.com/fwlink/?linkid=66406, if you use the .NET Framework components to conduct internal benchmark testing.
-9.  **H.264/AVC AND MPEG-4 VISUAL STANDARDS AND VC-1 AND MPEG-2 VIDEO STANDARDS**
-    This software may include H.264/AVC, VC-1, and MPEG-4 Part 2, and MPEG-2 visual compression technology.
+    *   その他の条件に代わるものです。
+        本ライセンスの条項には、すべて Microsoft ソフトウェア ライセンス契約の条項用語のインストール時に別のライセンスという用語の契約には、「承認」を必要とするよりも優先します。
+    *   インストールします。
+        インストールしてするは、仮想化ソフトウェアを Microsoft Virtual Server をなどの仮想ハード_ディスク (VHD) 形式を実行することを実行しているデバイスで、ソフトウェアを使用することがあります。
+    *   制限付きでは、権限を使用します。
+        内部的に試行して、評価のみ、仮想ハード ディスク イメージにソフトウェアを使用する場合があります。
+        実際の運用環境で、ソフトウェアを使用することがあります。
+    *   空白のないです。
+        マイクロソフトのソフトウェア仮想ハード ディスク イメージでは、ソフトウェアの 1 つとしてライセンスされます。
+        ソフトウェアには、ツールと、オペレーティング システムの新機能をサポートするためにコンポーネントがあります。
+        分離を使用する、またはオペレーティング システムの一部として配布されるこれらの新機能によって、これらのツールやコンポーネントを使用する以外の目的の再配布しない可能性があります。
+        たとえば、サービス ファブリックは、オペレーティング システムのみのネットワークのコント ローラーの機能で使用できるソフトウェア コンポーネントです。
+    *   サード パーティ プログラムです。
+        ソフトウェアに画面に表示する独自の条件に基づいて許諾されているサード パーティ製のソフトウェア プログラムが含まれます。
+        ソフトウェアは、サード パーティのオープン ソース プログラムがその Microsoft では、サード パーティ製、マイクロソフトのライセンス条項でライセンスを付与しないを含めるも可能性があります。
+        通知は、いずれかのサード パーティ製ソース プログラムを開く場合は、情報のみ含まれます。
+2.  **インターネットベースのサービス。**  
+    Microsoft では、ソフトウェアのインター ネット ベースのサービスを提供できます。
+    マイクロソフトは、いつでもこのサービスを変更または中止できるものとします。
+    以下の条項が適用される、インターネット経由で転送する、仮想ハード ドライブ イメージを構成する必要があります。
+    インターネット ベースのサービスに関する同意します。
+    このソフトウェアは、以前のバージョンであるためが既定で有効にいくつかのインター ネット ベースの機能に関するフィードバックを取得します。
+    以下の説明および Windows のプライバシーに関する声明でソフトウェアの機能では、Microsoft への接続や、プロバイダーのコンピューター システムをインターネット経由でサービスです。
+    場合によっては、接続するときに、別に注意してくださいをしない受信はします。
+    場合によっては、これらの機能をオフまたは使用しないする可能性があります。
+    これらの機能についての詳細については、go.microsoft.com/fwlink/?LinkId=506737 を参照してください。
+    これらの機能を使用するは、任意の国で Microsoft が動作するには、この情報の送信に同意します。
+    次の一覧は、包括的に完全にない場合があります。
+    コンピューター情報。
+    ソフトウェアがインストールされている、インターネット プロトコルなどの Microsoft 変数 (またはそのサプライヤーまたはサービス プロバイダー) を送信するコンピューター情報のアドレス、オペレーティング システム、ブラウザー、および名前の種類とを使用しているソフトウェアのバージョンのインターネット プロトコルとデバイスの言語コード、いくつかのソフトウェアの機能が使用されます。
+    Microsoft では、この情報を使用して、go.microsoft.com/fwlink/?LinkId=506737 のプライバシーに関する声明に従ってにインター ネット ベースのサービスを使用できるようにします。
+3.  **ソフトウェアの時間を区別します。**
+    ソフトウェアでは、07/15/2016 (日、月、年) の実行を停止します。
+    その場合、通知は受け取りません。
+    実行を停止すると、ソフトウェアに使用されるデータにアクセスすることはできません。
+4.  **アクティブ化します。**  
+    アクティブ化では、特定のデバイスをソフトウェアの使用を関連付けます。
+    アクティブ化、時に、ソフトウェアでは、ソフトウェアおよびデバイスに関する情報をマイクロソフトに送信されます。
+    この情報には、ソフトウェアのバージョン、言語、および製品キー、インターネット プロトコル アドレスのデバイス、およびデバイスのハードウェア構成から派生した情報が含まれます。
+    詳細については、go.microsoft.com/fwlink/?LinkId=39157 を参照してください。
+    ソフトウェアを使用して、この情報の送信に同意することにします。
+    ライセンスが適切である場合は、ライセンス認証のために許可されている時間まで、インストール プロセス中にインストールされているソフトウェアのバージョンを使用する権限を持っています。
+    ソフトウェアがアクティブになる場合を除きする権限を持っているない時間に許可されるアクティブ化した後は、ソフトウェアを使用します。
+    これは、ライセンスされていない使用を防ぐためです。
+    バイパスをアクティブ化を回避するは使用できません。
+    場合は、デバイスが、インターネットに接続されている、ソフトウェアは Microsoft にライセンス認証のために自動的に接続できます。
+    インターネットまたは電話によって手動でソフトウェアをアクティブ化することができます。
+    これを行うには、インターネットと電話サービスの料金が表示される場合があります。
+    コンピューター コンポーネントまたはソフトウェアの変更では、ソフトウェアの再アクティブ化が必要となる場合もあります。
+    ソフトウェアを使用して、操作を行うまでにライセンス認証を行うがわかります。
+5.  **プロダクト キーです。**  
+    ソフトウェアには、インストール、またはそれにアクセスするためにキーを必要があります。
+    そのような場合は、ユーザーの環境は自分に割り当てられたキーの使用を担当します。
+    サード パーティのキーを共有しないでください。
+6.  **プレリリース ソフトウェアです。**  
+    このソフトウェアは、以前のバージョンです。
+    ソフトウェアの最終バージョンとは方法が機能しません。
+    最終の市販バージョンを変更することがあります。
+    私たちも可能性がありますを解放できません、市販バージョン。
+7.  **フィードバックします。**
+    場合は、ソフトウェアに関するフィードバックをマイクロソフトに付与した権限を与えることを Microsoft に対価の支払いなしを使用して、共有、および商用のお客様からのフィードバック、方法および目的を問わずにします。
+    ことも、対価の支払いなしに第三者に、製品、テクノロジやサービスの Microsoft ソフトウェアや、フィードバックを含むサービスの特定部分とのインターフェイスを使用するために必要な特許権できます。
+    マイクロソフトにフィードバックがマイクロソフトに含まれているために、そのソフトウェアまたはサード パーティにドキュメントをライセンス付与する必要があるライセンスの対象であるフィードバックを与えません。
+    これらの権限には、本ライセンス条項が失われます。
+8.  **.NET FRAMEWORK ソフトウェア。**
+    ソフトウェアには、使用することが、go.microsoft.com/fwlink/?linkid=66406 に記載されている場合のみ、.NET Framework コンポーネントを使用して、内部ベンチマーク テストを実施する場合、.NET Framework の 1 つまたは複数のコンポーネントが含まれています。
+9.  **H.264/AVC および MPEG ～ 4 のビジュアルの標準と VC-1 および MPEG-2 ビデオの標準**
+    このソフトウェアは、H.264/AVC を含めることが、vc-1 と mpeg-4 第 2 部、mpeg-2 画像圧縮テクノロジです。
     MPEG LA, L.L.C.
-    requires this notice:
+    この通知が必要です。
     
-    THIS PRODUCT IS LICENSED UNDER THE AVC, THE VC-1, THE MPEG-4 PART 2 VISUAL, AND THE MPEG-2 VIDEO PATENT PORTFOLIO LICENSES FOR THE PERSONAL AND NON-COMMERCIAL USE OF A CONSUMER TO (i) ENCODE VIDEO IN COMPLIANCE WITH THE ABOVE STANDARDS (“VIDEO STANDARDS”) AND/OR (ii) DECODE AVC, VC-1, MPEG-4 PART 2 AND MPEG-2 VIDEO THAT WAS ENCODED BY A CONSUMER ENGAGED IN A PERSONAL AND NON-COMMERCIAL ACTIVITY AND/OR WAS OBTAINED FROM A VIDEO PROVIDER LICENSED TO PROVIDE SUCH VIDEO.
-    NO LICENSE IS GRANTED OR SHALL BE IMPLIED FOR ANY OTHER USE.
-    ADDITIONAL INFORMATION MAY BE OBTAINED FROM MPEG LA, L.L.C SEE WWW.MPEGLA.COM.
+    この製品はライセンスの下、AVC、vc-1、mpeg-4 一部 2 VISUAL、および、mpeg-2 ビデオ特許ポートフォリオ ライセンスの個人と非商用使用の A コンシューマーに (i)、上述の標準 (「ビデオ標準」) に準拠してビデオをエンコード、および (ii) AVC をデコードする vc-1、mpeg-4 一部 2 と mpeg-2 ビデオことがエンコードされたで A コンシューマー ENGAGED IN A 個人と非商用アクティビティやが取得したから A ビデオ プロバイダー ライセンスを提供そのようなビデオです。
+    ライセンスの、その他の黙示的が許可されてにもしません。
+    MPEG LA から取得できる追加情報、L.L.C WWW.MPEGLA.COM を参照してください。
 10.  **ADOBE FLASH PLAYER**
-    The software may include a version of Adobe Flash Player.
-    You agree that your use of the Adobe Flash Player is governed by the license terms for Adobe Systems Incorporated, at go.microsoft.com/fwlink/?LinkID=248532.
-    Adobe and Flash are either registered trademarks or trademarks of Adobe Systems Incorporated in the United States and/or other countries.
-11.  **SCOPE OF LICENSE.**
-    The software is licensed, not sold.
-    This agreement only gives you some rights     to use the software.
-    Microsoft reserves all other rights.
-    Unless applicable law gives you more rights despite this limitation, you may use the software only as expressly permitted in this agreement.
-    In doing so, you must comply with any technical limitations in the software that only allow you to use it    in certain ways.
-    You may not
+    ソフトウェアには、Adobe Flash Player のバージョンが含まれます。
+    Adobe Flash Player の使用はによって管理されますライセンス条項の Adobe Systems Incorporated、go.microsoft.com/fwlink/?LinkID=248532 で同意します。
+    Adobe および Flash は登録商標またはの米国およびその他の国の Adobe Systems Incorporated の商標です。
+11.  **ライセンスの適用範囲**
+    ソフトウェアはライセンスが、販売対象外です。
+    このアグリーメントは、ソフトウェアを使用して権限をいくつかのみ与えます。
+    マイクロソフトはその他の権利をすべて留保します。
+    適用される法令により上記の制限を超える権利が与えられる場合を除き、お客様は本ライセンス条項で明示的に許可された方法でのみ本ソフトウェアを使用することができます。
+    操作中は、技術的な制限、ソフトウェアのみを許可すると、特定の方法で使用するを順守する必要があります。
+    お客様は以下のことを行うことはできません。
     
-    *   disclose the results of any benchmark tests of the software, other than the Microsoft .NET Framework (see separate term above), to any third party without Microsoft’s prior written approval;
-    *   work around any technical limitations in the software;
-    *   reverse engineer, decompile, or disassemble the software, except and only to the extent that applicable law expressly permits, despite this limitation;
-    *   make more copies of the software than specified in this agreement or allowed by applicable law, despite this limitation;
-    *   publish the software for others to copy;
-    *   rent, lease, or lend the software;
-    *   transfer the software or this agreement to any third party; or
-    *   use the software for commercial software hosting services.
-12.  **EXPORT RESTRICTIONS.**
-    The software is subject to United States export laws and  regulations.
-    You must comply with all domestic and international export laws and regulations that apply to the software.
-    These laws include restrictions on destinations, end users and end use.
-    For additional information, see www.microsoft.com/exporting.
-13.  **SUPPORT SERVICES.**
-    Because this software is “as is,” Microsoft may not provide support services  for it.
-14.  **ENTIRE AGREEMENT.**
-    This agreement, and the terms for supplements, updates, Internet-based services and support services that you use, are the entire agreement for the software and support services.
-15.  **APPLICABLE LAW.**  
-    a.
-    United States.
-    If you acquired the software in the United States, Washington state law governs the interpretation of this agreement and applies to claims for breach of it, regardless of conflict of laws principles.
-    The laws of the state where you live govern all other claims, including claims under state consumer protection laws, unfair competition laws, and in tort.
+    *   Microsoft .NET Framework 以外のソフトウェアのベンチマーク テストの結果を開示 (上記別項を参照してください) にも Microsoft ことがなく、サード パーティの前に書面承認します。
+    *   本ソフトウェアの技術的な制限を回避して使用すること。
+    *   リバース エンジニア リング、逆コンパイル、または逆アセンブル、ソフトウェアをします。
+    *   本ライセンス条項で規定されている数を超える数の本ソフトウェアの複製を作成すること。ただし、適用される法令により認められている場合を除きます。
+    *   第三者が複製できるように本ソフトウェアを公開すること。
+    *   レンタル、リース、または貸与すること、ソフトウェアです。
+    *   本ソフトウェアまたは本ライセンス条項を第三者に譲渡すること。
+    *   本ソフトウェアを商用ソフトウェア ホスティング サービスで使用すること。
+12.  **輸出規制。**
+    本ソフトウェアはアメリカ合衆国法律および規制します。
+    お客様は、本ソフトウェアに適用されるすべての国内法および国際法
+    (輸出対象国、エンド ユーザーおよびエンド ユーザーによる使用に関する制限を含みます) を遵守しなければなりません。
+    詳細については、www.microsoft.com/exporting を参照してください。
+13.  **サポート サービス**
+    このソフトウェアは、「そのまま」にはため、Microsoft がサポート サービスを示さない場合があります。
+14.  **完全合意。**
+    このアグリーメントでは、および、条項、ならびに追加物、更新プログラム、インター ネット ベースのサービスおよびサポート サービスを使用する場合のソフトウェアおよびサポート サービスの完全な合意です。
+15.  **準拠法。**  
+    」を参照します。
+    アメリカ合衆国。
+    米国のソフトウェアを入手した場合、ワシントン州法は本契約の解釈を制御し、抵触に関係なく、侵害に対する要求に適用します。
+    消費者保護法、公正取引法、および違法行為を含みますがこれに限定されない他の主張については、お客様が所在する地域の法律に準拠します。
     b.
-    Outside the United States.
-    If you acquired the software in any other country, the laws of that country apply.
-16.  **LEGAL EFFECT.**
-    This agreement describes certain legal rights.
-    You may have other rights under    the laws of your country.
-    You may also have rights with respect to the party from whom you  acquired the software.
-    This agreement does not change your rights under the laws of your country if     the laws of your country do not permit it to do so.
-17.  **DISCLAIMER OF WARRANTY.
-    THE SOFTWARE IS LICENSED “AS-IS.”
-    YOU BEAR THE RISK OF USING IT.
-    MICROSOFT GIVES NO EXPRESS WARRANTIES, GUARANTEES OR CONDITIONS.
-    YOU MAY HAVE ADDITIONAL CONSUMER RIGHTS OR STATUTORY GUARANTEES UNDER YOUR LOCAL LAWS WHICH THIS AGREEMENT CANNOT CHANGE.
-    TO THE EXTENT PERMITTED UNDER YOUR LOCAL LAWS, MICROSOFT EXCLUDES THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
-    FOR AUSTRALIA – YOU HAVE STATUTORY GUARANTEES UNDER THE AUSTRALIAN CONSUMER LAW AND NOTHING IN THESE TERMS IS INTENDED TO AFFECT THOSE RIGHTS.**
-18.  **LIMITATION ON AND EXCLUSION OF REMEDIES AND DAMAGES.
-    YOU CAN RECOVER FROM MICROSOFT AND ITS SUPPLIERS ONLY DIRECT DAMAGES UP TO U.S. $5.00.
-    YOU CANNOT RECOVER ANY OTHER DAMAGES, INCLUDING CONSEQUENTIAL, LOST PROFITS, SPECIAL, INDIRECT OR INCIDENTAL DAMAGES.**
+    アメリカ合衆国以外の国。
+    その他の国を問わず、ソフトウェアを入手した場合は、その国の法律に準拠が適用されます。
+16.  **法的効力。**
+    このアグリーメントには、特定の法的権利について説明します。
+    その他の権限は、お住まいの国の法律に準拠の下にあるがあります。
+    先には、ソフトウェアを購入した第三者に関する権利をすることもできます。
+    お住まいの国の法律に準拠されない限り、これを行う場合、このアグリーメントは、お住まいの国の法律お客様の権利を変更されません。
+17.  * * あらゆる保証の免責。
+    本ソフトウェアは許諾される"AS は"。
+    使用に伴う危険を負担するとします。
+    マイクロソフトには、現状の保証または条件はありません。
+    このアグリーメントを変更することはできませんが、地域の法律によって、追加の消費者権利または法定保証があります。
+    MICROSOFT は、ローカルの法律によって認められる範囲において、商品性、非侵害性、特定目的に対する適合性の黙示の保証をいたしませんを除外します。
+    オーストラリア – は、オーストラリア消費者法に基づく法定保証があるし、それら RIGHTS.* * に影響するためのものがこれらの用語ではありません。
+18.  * * 制限および救済手段および責任の除外します。
+    MICROSOFT から回復することができ、その供給者は、5.00 米国ドル損害を直接するだけです。
+    その他の損害、派生的損害、逸失利益、特別な間接損害、付随的損害 DAMAGES.* * などを回復することはできません。
     
-    This limitation applies to
+    この制限は、以下に適用されるものとします。
     
-    *   anything related to the software, services, content (including code) on third party Internet sites, or third party programs; and
-    *   claims for breach of contract, breach of warranty, guarantee or condition, strict liability, negligence, or other tort to the extent permitted by applicable law.
+    *   本ソフトウェア、サービス、第三者のインターネットのサイト上のコンテンツ (コードを含みます)、または第三者のプログラムに関連した事項
+    *   契約違反、保証違反、厳格責任、過失、または不法行為等の請求 (適用される法令により認められている範囲において)
     
-    It also applies even if Microsoft knew or should have known about the possibility of the damages.
-    The above limitation or exclusion may not apply to you because your country may not allow the exclusion or limitation of incidental, consequential or other damages.
-    If your local law allows you to recover other damages from Microsoft even though we do not, you cannot recover more than $5.00 USD, or the amount you paid for the software, whichever is higher.
+    マイクロソフトがこのような損害の可能性について知っていた場合または知り得た場合も、この制限は適用されます。
+    上記の制限または除外は、一部の国では付随的、派生的、およびその他の損害の免責、または責任の制限を認めないため、適用されない場合があります。
+    場合は、地域の法律を使用すると、行っていない場合でも、マイクロソフトの他の損害を回復すると、複数の 5.00 米ドルを回復することはできませんまたはソフトウェアの支払い額大きい方にします。
 
-**Please note: As this software is distributed in Quebec, Canada, some of the clauses in this agreement are provided below in French.**
+**注意してください。このソフトウェアはカナダのケベック州で分散このアグリーメントの一部はフランス語で以下です。**
 
-**Remarque : Ce logiciel étant distribué au Québec, Canada, certaines des clauses dans ce contrat sont fournies ci-dessous en français.**
+**Remarque:Ce logiciel étant distribué au Québec、カナダ、certaines des 句 dans ce contrat sont fournies ci dessous en フランス語です。**
 
-**EXONÉRATION DE GARANTIE.** Le logiciel visé par une licence est offert « tel quel ».
-Toute utilisation de ce logiciel est à votre seule risque et péril.
-Microsoft n’accorde aucune autre garantie expresse.
-Vous pouvez bénéficier de droits additionnels en vertu du droit local sur la protection dues consommateurs, que ce contrat ne peut modifier.
-La ou elles sont permises par le droit locale, les garanties implicites de qualité marchande, d’adéquation à un usage particulier et d’absence de contrefaçon sont exclues.
+**EXONÉRATION DE GARANTIE します。** Le logiciel visé par une に est offert «tel quel» をライセンスします。
+Toute utilisation de ce logiciel est à votre seule risque et péril します。
+Microsoft n'accorde aucune autre garantie expresse.
+Vous pouvez bénéficier de droits additionnels en vertu du droit ローカル sur la protection dues consommateurs, que ce contrat ne peut 修飾子です。
+La ou elles sont permises le droit ロケールの par les garanties implicites de qualité marchande、d'adéquation à 解除の使用状況 particulier et d'absence de contrefaçon sont exclues です。
 
-**LIMITATION DES DOMMAGES-INTÉRÊTS ET EXCLUSION DE RESPONSABILITÉ POUR LES DOMMAGES.**  Vous pouvez obtenir de Microsoft et de ses fournisseurs une indemnisation en cas de dommages directs uniquement à hauteur de 5,00 $ US.
-Vous ne pouvez prétendre à aucune indemnisation pour les autres dommages, y compris les dommages spéciaux, indirects ou accessoires et pertes de bénéfices.
+**制限 DES DOMMAGES INTÉRÊTS ET EXCLUSION DE RESPONSABILITÉ POUR LES DOMMAGES です。**  Vous pouvez obtenir de Microsoft et de ses fournisseurs une indemnisation en cas de dommages 指示 uniquement à hauteur de 5,00 $ US です。
+Vous ne pouvez prétendre à aucune indemnisation は pour les autres dommages、y compris les dommages spéciaux、indirects ou accessoires et de bénéfices の pertes です。
 
-Cette limitation concerne :
+Cette 制限 concerne:
 
-*   tout  ce qui est relié au logiciel, aux services ou au contenu (y compris le code) figurant sur des sites Internet tiers ou dans des programmes tiers ; et
-*   les réclamations au titre de violation de contrat ou de garantie, ou au titre de responsabilité stricte, de négligence ou d’une autre faute dans la limite autorisée par la loi en vigueur.
+*   ce qui est relié au logiciel などをほめちぎる aux サービス ou au contenu (y compris le コード) figurant サー des サイト インターネット層 ou dans des プログラム層です。et
+*   les réclamations au titre de 違反 de contrat ou de garantie、ou au titre de responsabilité stricte de négligence ou d'une autre faute dans la limite autorisée par la loi en vigueur です。
 
-Elle s’applique également, même si Microsoft connaissait ou devrait connaître l’éventualité d’un tel dommage.
-Si votre pays n’autorise pas l’exclusion ou la limitation de responsabilité pour les dommages indirects, accessoires ou de quelque nature que ce soit, il se peut que la limitation ou l’exclusion ci-dessus ne s’appliquera pas à votre égard.
+Elle 'applique également, même si Microsoft connaissait ou devrait connaître l'éventualité d' un tel dommage します。
+Si votre n'autorise pas l'exclusion ou la 制限 de responsabilité 流し込み les dommages indirects、accessoires ou de quelque 性質 que ce いるため、il se peut que la 制限 ou l'exclusion ci dessus ne s'appliquera pas à votre égard を支払います。
 
 **EFFET JURIDIQUE.**  Le présent contrat décrit certains droits juridiques.
-Vous pourriez avoir d’autres droits prévus par les lois de votre pays.
-Le présent contrat ne modifie pas les droits que vous confèrent les lois de votre pays si celles ci ne le permettent pas.
+Vous pourriez avoir d ' autres droits prévus par の les lois de votre pays します。
+Le présent contrat ne modifie pas les droits que vous confèrent les lois de votre 支払う si celles ci ne le permettent pas します。
 
 

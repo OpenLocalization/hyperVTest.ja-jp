@@ -1,26 +1,26 @@
-ms.ContentId: e586a11a-870f-403b-8af8-4c2931589d26
-title: Manage Windows with PowerShell Direct 
+ms。ContentId: e586a11a-870f-403b-8af8-4c2931589d26
+タイトル:Windows PowerShell のダイレクトとの管理します。 
 
-#Manage Windows with PowerShell Direct
+#Windows PowerShell のダイレクトとの管理します。
 
-You can use PowerShell Direct to remotely manage a Windows 10 or Windows Server Technical Preview virtual machine from a Windows 10 or Windows Server Technical Preview Hyper-V host.
-PowerShell Direct allows PowerShell management inside a virtual machine regardless of the network configuration or remote management settings on either the Hyper-V host or the virtual machine.
-This makes it easier for Hyper-V Administrators to automate and script virtual machine management and configuration.
+PowerShell のダイレクトを使用すると、Windows 10 または Windows Server テクニカル プレビュー HYPER-V ホストから 10 の Windows または Windows Server に関するテクニカル プレビューの仮想マシンをリモートで管理します。
+PowerShell のダイレクトでは、ネットワークの構成またはいずれかの HYPER-V ホスト上のリモート管理の設定に関係なく、virtual machine または仮想マシン内の PowerShell の管理ができます。
+これにより、HYPER-V の管理者を自動化し、仮想マシン管理と構成スクリプトを作成しやすくなります。
 
-There are two ways to run PowerShell Direct:  
+直接の PowerShell を実行する 2 つの方法はあります。  
 
-*   Create and exit a PowerShell Direct session using PSSession cmdlets
-*   Run script or command with the Invoke-Command cmdlet
+*   作成し、PSSession コマンドレットを使用して、直接の PowerShell セッションを終了します。
+*   Invoke-command コマンドレットにスクリプトまたはコマンドを実行します。
 
-If you're managing older virtual machines, use Virtual Machine Connection (VMConnect) or [configure a virtual network for the virtual machine](http://technet.microsoft.com/library/cc816585.aspx).
+古い仮想マシンを管理している場合は、仮想マシン接続 (VMConnect) を使用しますまたは。 [仮想マシンの仮想ネットワークを構成します。](http://technet.microsoft.com/library/cc816585.aspx)。
 
-##Create and exit a PowerShell Direct session using PSSession cmdlets
+##作成し、PSSession コマンドレットを使用して、直接の PowerShell セッションを終了します。
 
-1.  On the Hyper-V host, open Windows PowerShell as Administrator.
-2.  Run the one of the following commands to create a session by using the virtual machine name or GUID:  
-    ``` PowerShell
-    Enter-PSSession -VMName <VMName>
-    Enter-PSSession -VMGUID <VMGUID>
+1.  HYPER-V ホストでは、Windows PowerShell を管理者として開きます。
+2.  バーチャル マシンの名前または GUID を使用してセッションを作成するには、次のコマンドのいずれかを実行します。
+    '' PowerShell
+    入力 PSSession-VMName < VMName >
+    < VMGUID > を入力して PSSession VMGUID
 
 
 ```
@@ -33,18 +33,18 @@ Exit-PSSession
 ```
 
 
-> Note:  If you're session won't connect, make sure you're using credentials for the virtual machine you're connecting to -- not the Hyper-V host.
+> 注: ならセッションは接続しないを確認してください - HYPER-V ホストではなくに接続する仮想マシンの資格情報を使用しています。
 > 
 
-To learn more about these cmdlets, see [Enter-PSSession](http://technet.microsoft.com/library/hh849707.aspx) and [Exit-PSSession](http://technet.microsoft.com/library/hh849743.aspx).
+これらのコマンドレットの詳細については、次を参照してください。 [Enter-PSSession](http://technet.microsoft.com/library/hh849707.aspx) 」と「 [Exit-PSSession](http://technet.microsoft.com/library/hh849743.aspx)。
 
-##Run script or command with Invoke-Command cmdlet
+##Invoke-command コマンドレットにスクリプトまたはコマンドを実行します。
 
-You can use the [Invoke-Command](http://technet.microsoft.com/library/hh849719.aspx) cmdlet to run a pre-determined set of commands on the virtual machine.
-Here is an example of how you can use the Invoke-Command cmdlet where PSTest is the virtual machine name and the script to run (foo.ps1) is in the script folder on the C:/ drive:
+このデータを取得するには、 [Invoke-Command](http://technet.microsoft.com/library/hh849719.aspx) 仮想マシンで事前に決められた一連のコマンドを実行するコマンドレットを使用します。
+Invoke-command コマンドレットを使用する方法の例を次に示します PSTest が仮想マシンの名前であり、(foo.ps1) を実行するスクリプトが、スクリプトのフォルダー、c:/ドライブします。
 
- ``` PowerShell
- Invoke-Command -VMName PSTest -FilePath C:\script\foo.ps1 
+ '' PowerShell
+Invoke-command VMName PSTest - FilePath C:\script\foo.ps1 
 
 
  ```
@@ -57,20 +57,20 @@ To run a single command, use the **-ScriptBlock** parameter:
  ```
 
 
-##What's required to use PowerShell Direct?
+##PowerShell を使用して何が必要なでしょうか。
 
-To create a PowerShell Direct session on a virtual machine,
+バーチャル マシンの場合は、直接の PowerShell セッションを作成するには
 
-*   The virtual machine must be running locally on the host and booted.
-*   You must be logged into the host computer as a Hyper-V administrator.
-*   You must supply valid user credentials for the virtual machine.
-*   The host operating system must run Windows 10, Windows Server Technical Preview, or a higher version.
-*   The virtual machine must run Windows 10, Windows Server Technical Preview, or a higher version.
+*   仮想マシンでは、ホスト上でローカルに実行する必要があり、起動します。
+*   HYPER-V の管理者として、ホスト コンピューターには、ログインする必要があります。
+*   仮想マシンの有効なユーザーの資格情報を指定する必要があります。
+*   ホストのオペレーティング システムには、10 の Windows、Windows サーバーに関するテクニカル プレビュー、または以降のバージョンを実行する必要があります。
+*   仮想マシンには、10 の Windows、Windows サーバーに関するテクニカル プレビュー、または以降のバージョンを実行する必要があります。
 
-You can use the [Get-VM](http://technet.microsoft.com/library/hh848479.aspx) cmdlet to check that the credentials you're using have the Hyper-V administrator role and to see which VMs are running locally on the host and booted.
+このデータを取得するには、 [Get-VM](http://technet.microsoft.com/library/hh848479.aspx) コマンドレットを使用する、資格情報を使用しているが、HYPER-V の管理者ロールにあることを確認して確認すると、Vm がホストにローカルで実行しているし、起動、します。
 
-##What can you do with PowerShell Direct?
+##PowerShell のダイレクトでは、何をことができますか。
 
-See [PowerShell Direct snippets](../develop/powershell_snippets.md) for numerous examples of how to use PowerShell Direct in your environment as well as tips and tricks for writing Hyper-V scripts with PowerShell.
+記憶域スペース構成からすべてを完全に消去するときに役立つスクリプトについては、「 [PowerShell の直接のスニペット](../develop/powershell_snippets.md) PowerShell を使用した HYPER-V のスクリプトを記述するため、環境だけでなくヒントとテクニックで PowerShell ダイレクトを使用する方法のさまざまな例についてはします。
 
 

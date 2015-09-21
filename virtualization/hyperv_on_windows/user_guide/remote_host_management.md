@@ -1,109 +1,109 @@
-ms.ContentId: 7dcd6da0-dd72-422d-8752-5eccc8116e02
-title: Managing remote Hyper-V hosts
+ms。ContentId:7dcd6da0-dd72-422d-8752-5eccc8116e02
+タイトル:リモートの HYPER-V ホストを管理します。
 
-#Manage Remote Hyper-V Hosts with Hyper-V Manager
+#Hyper V マネージャーをリモートの HYPER-V ホストを管理します。
 
-Hyper-V Manager provides tools for diagnosing and managing your local Hyper-V host and a small number of remote hosts.
-This article documents the configuration steps for connecting to Hyper-V hosts using Hyper-V Manager in all supported configurations.
+HYPER-V マネージャーでは、診断、および、ローカルの HYPER-V ホストとリモート ホストの数が少ないを管理するためのツールを提供します。
+この記事では、サポートされているすべての構成で HYPER-V Manager を使用する HYPER-V ホストに接続するための構成手順を説明します。
 
-To connect to a Hyper-V host in Hyper-V Manager, make sure **Hyper-V Manager** is selected in the left hand pane and then select **Connect to Server...** in the right-hand pane.
+HYPER-V Manager での HYPER-V ホストに接続するには、ことを確認してください。 **Hyper V マネージャー** 選択された状態で、左側のウィンドウ] を選択 **サーバーに接続してください.** で、右側のペインです。
 
 !(media/HyperVManager-ConnectToHost.png)
 
-##Supported Hyper-V host combinations with Hyper-V Manager
+##HYPER-V マネージャーでサポートされている HYPER-V ホストの組み合わせ
 
-Hyper-V Manager in Windows 10 allows you to manage:
+Windows の 10 の HYPER-V マネージャーでは管理を行うことができます。
 
 *   Windows 10
-*   Windows 8.1 and Windows Server 2012 R2 Hyper-V hosts
-*   Windows 8 and Windows 2012 Hyper-V hosts
+*   Windows 8.1 と Windows Server 2012 R2 HYPER-V ホスト
+*   Windows 8 および Windows 2012 HYPER-V ホスト
 
-Hyper-V Manager in Windows 8.1 and Windows Server 2012 R2 allows you to manage:
+Windows 8.1 と Windows Server 2012 R2 で Hyper-v マネージャーでは管理を行うことができます。
 
-*   Windows 8.1 and Windows Server 2012 R2 Hyper-V hosts
-*   Windows 8 and Windows 2012 Hyper-V hosts
+*   Windows 8.1 と Windows Server 2012 R2 HYPER-V ホスト
+*   Windows 8 および Windows 2012 HYPER-V ホスト
 
-> **Note:** Not all Hyper-V Manager functionality works for all host versions.
+> **注: ** すべての HYPER-V マネージャーの機能は、ホストのすべてのバージョンに対して動作します。
 > 
 
-##Manage localhost
+##ローカル ホストを管理します。
 
-To add localhost to Hyper-V Manager as a Hyper-V host, select **Local computer** in the **Select Computer** dialogue box.
+HYPER-V ホストとして、HYPER-V マネージャーには、localhost を追加するに次のように選択します。 **ローカル コンピューター** で、 **コンピューターを選択します。** ダイアログ ボックス。
 
 !(media/HyperVManager-ConnectToLocalHost.png)
 
-If a connection can't be established:
+接続を確立することはできません。 場合
 
-*   Make sure the Hyper-V server role is enabled.
-    See the [walkthrough section for checking compatability](../quick_start/walkthrough_compatibility.md).
-*   Confirm that your user account is part of the Hyper-V Administrator group.
+*   HYPER-V サーバーの役割が有効になっていることを確認します。
+    参照してください、 [互換性をチェックするためのチュートリアル セクション](../quick_start/walkthrough_compatibility.md)。
+*   自分のユーザー アカウントが、HYPER-V の管理者グループの一部であることを確認します。
 
-##Manage a Hyper-V host in your domain
+##ドメイン内の HYPER-V ホストを管理します。
 
-To add a remote Hyper-V host to Hyper-V Manager, select **Another computer** in the **Select Computer** dialogue box and enter the remote host's hostname, NetBIOS, or FQDN into the text field.
+HYPER-V マネージャーをリモートの HYPER-V ホストを追加するには、次のように選択します。 **別のコンピューター** で、 **コンピューターを選択します。** ダイアログ ボックスをテキスト フィールドに、リモート ホストのホスト名、NetBIOS、または FQDN を入力します。
 
 !(media/HyperVManager-ConnectToRemoteHost.png)
 
-Windows 10 greatly expanded the possible combinations of remote connection types.
-Now you can connect to a remote Windows 10 or later host using either the host name or IP address.
-Hyper-V Manager now supports alternate credentials as well.
+Windows 10 では、リモート接続の種類の有効な組み合わせが大幅に拡張されています。
+これで、リモートの Windows 10 またはホスト名または IP アドレスのいずれかを使用して、後のホストに接続できます。
+HYPER-V マネージャーでは、代替の資格情報もできるようになりました。
 
-In order to manage remote Hyper-V hosts, remote management must be enabled on both computers.
+リモートの HYPER-V ホストを管理するためには両方のコンピューターでリモート管理を有効にする必要があります。
 
-You can do this through `System Properties -> Remote Management Settings` or by running the following PowerShell command as Administrator:  
+これを行うことができます。 `System Properties -> Remote Management Settings` または、次の PowerShell を実行して、管理者としてコマンドします。  
 
 ` PowerShell
 winrm quickconfig
 `
 
-If your current user account matches a Hyper-V Administrator account on the remote host, go ahead and press **OK** to Connect.
+現在のユーザー アカウントには、リモート ホスト上の HYPER-V 管理者アカウントが一致すると、クリックしてください。 **OK** 接続します。
 
-This is the only supported way to manage a remote host in Hyper-V Manager in Windows 8 or Windows 8.1.
+これは、Windows 8 または Windows 8.1 での HYPER-V Manager でのリモートのホストを管理するサポートされている唯一の方法です。
 
-###Connect to the remote host as a different user
+###別のユーザーとして、リモート ホストへの接続します。
 
-In Windows 10, if you are not running with the correct user account for the remote host, you can connect as another user with alternate credentials.
+Windows 10 では、リモート ホストの場合、適切なユーザー アカウントで実行されていない場合は、代替の資格情報を持つ別のユーザーとして接続できます。
 
-To specify credentials for the remote Hyper-V host, select **Connect as another user: ** in the **Select Computer** dialogue box then select **Set User...**.
+リモートの HYPER-V ホストの資格情報を指定するには、次のように選択します。 **別のユーザーとして接続します * * で、* * [コンピューターの選択。** クリックする] ダイアログ ボックス **ユーザーを設定するには.**。
 
 !(media/HyperVManager-ConnectToRemoteHostAltCreds.png)
 
-> Note:  It's very easy to forget to set the user and click OK with user not specified.
-> If your connection fails, make sure you actually did set the user.
+> 注: ユーザーを設定して、ユーザーが指定されていないと、[ok] をクリックすることを忘れ、非常に簡単です。
+> 接続に失敗した場合は、実際には、ユーザーが設定でしたを確認します。
 > 
 
-###Connect to the remote host using IP address
+###IP アドレスを使用して、リモート ホストへの接続します。
 
-Sometimes it's easier to connect using IP address rather than host name.
-Windows 10 allows your to do just that.
+IP アドレスではなくホスト名を使用して接続を簡単に場合があります。
+Windows の 10 の使用と、そのためにします。
 
-To connect using IP address, enter the IP address into the **Another Computer** text field.
+IP アドレスを使用して接続するに IP アドレスを入力してください、 **別のコンピューター** テキスト フィールドです。
 
-##Manage a Hyper-V host outside your domain (or with no domain)
+##ドメインの外部 (またはドメインがありません) は、HYPER-V ホストを管理します。
 
-<!--Assuming this isn't done yet...again needs context.-->
-Local Hyper-V Host:
+<!-この場合は行われないまだ... もう一度ニーズのコンテキスト-->。
+ローカルの HYPER-V ホスト:
 
 1.  Enable-PSRemoting
-    Came back with netowork set to public.
-    Ran
-    Set-NetConnectionProfile -Name "name" -NetworkCategory private
-2.  Set-Item WSMan:\localhost\Client\TrustedHosts * -Force
-3.  Enable-WSManCredSSP -Role client -DelegateComputer *
+    Netowork がパブリックに設定に戻ります。
+    実行
+    セット NetConnectionProfile-名前の"name"- NetworkCategory プライベート
+2.  Set-item WSMan:\localhost\Client\TrustedHosts * の強制
+3.  Enable-wsmancredssp-ロール クライアント - DelegateComputer *
 
-For workgroup only:
+ワークグループの場合のみ。
 
-1.  (should be done) Computer Policy\Administrative Templates\System\Credentials Delegation\Allow Delegating Fresh Credentials → Set to enabled and add WSMAN/* ].
-    To list of computers, check the box forConcatenate OS defaults with input above
-2.  Computer Policy\Administrative Templates\System\Credentials Delegation\Allow Delegating Fresh Credentials with NTLM-only server authentication → Set to enabled and add WSMAN/* to list of computers, check the box for Concatenate OS defaults with input above
-3.  Computer Policy\Administrative Templates\Windows Components\Windows Remote Management (WinRM)\WinRM Client\Allow CredSSP authentication → Set to enabled
+1.  (実行する必要があります)。コンピューター Policy\Administrative システム \ Delegation\Allow を委任する新しい資格情報の → が有効に設定し、WSMAN の追加/*] です。
+    コンピューターの一覧は、チェック ボックス forConcatenate OS の既定値と上記の入力
+2.  コンピューター Policy\Administrative システム \ Delegation\Allow 委任することで新しい資格情報 NTLM のみのサーバー認証 → が有効に設定し、WSMAN を追加/* コンピューターの一覧は、チェック ボックスをオンと上記の入力の連結の OS の既定値について
+3.  コンピューター Policy\Administrative 用テンプレート \windows コンポーネント \windows Remote Management (WinRM) \WinRM Client\Allow CredSSP 認証 → の設定を有効になっています。
 
-Remote Hyper-V Host:
+リモートの HYPER-V ホスト:
 
-1.  Disabled the firewall :)
+1.  :)、ファイアウォールを無効になっています
 2.  Enable-PSRemoting
-3.  Set-Item WSMan:\localhost\Client\TrustedHosts * -Force
-    So that's the demo-only instructions I used.
-    Replace * and turn off firewall with a single computer and letting credssp and winRM through
+3.  Set-item WSMan:\localhost\Client\TrustedHosts * の強制
+    これを使用してデモ専用の命令です。
+    置き換える * 1 台のコンピューターでファイアウォールを無効にして、credssp と winRM を使用できるようにすること
 
 

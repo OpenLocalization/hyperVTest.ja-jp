@@ -1,41 +1,41 @@
-ms.ContentId: 71a03c62-50fd-48dc-9296-4d285027a96a
-title: Setup Windows Containers in a local VM
+ms。ContentId:71a03c62-50fd-48dc-9296-4d285027a96a
+タイトル:ローカルの VM で Windows のコンテナーをセットアップします。
 
-#Preparing Windows Server Technical Preview for Windows Server Containers
+#Windows Server のコンテナーのための Windows サーバーに関するテクニカル プレビューの準備
 
-In order to create and manage Windows Server Containers, the Windows Server 2016 Technical Preview environment must be prepared.
-This guide will walk through configuring Windows Server Containers in a Hyper-V Virtual Machine.
+作成して、Windows Server のコンテナーの管理をするためには、Windows Server 2016 に関するテクニカル プレビュー環境を準備する必要があります。
+このガイドは、HYPER-V 仮想マシンで Windows Server のコンテナーの構成方法を説明します。
 
-> Other getting started guides:
+> その他のファースト ステップ ガイド。
 > 
 
-*   Run Windows Server Containers in [Azure](./azure_setup.md).
-*   Run Windows Server Containers in [an existing virtual machine](./inplace_setup.md).
-*   Setup Windows Server Containers [on a physical Windows Server Core installation](./inplace_setup.md).
+*   Windows Server のコンテナーを実行します。 [Azure](./azure_setup.md)。
+*   Windows Server のコンテナーを実行します。 [既存のバーチャル マシン](./inplace_setup.md)。
+*   Windows Server のコンテナーをセットアップします。 [物理的な Windows Server Core インストール上](./inplace_setup.md)。
     
-    **PLEASE READ PRIOR TO INSTALLING THE CONTAINER OS IMAGE:**  The license terms of the Microsoft Windows Server Pre-Release software (“License Terms”) apply to your use of the Microsoft Windows Container OS Image supplement (the “supplemental software).
-    By downloading and using the supplemental software, you agree to the License Terms, and you may not use it if you have not accepted the License Terms.
-    Both the Windows Server Pre-Release software and the supplemental software are licensed by Microsoft Corporation.
+    **コンテナーの OS イメージをインストールする前に」を参照してください。**  Microsoft Windows Server のプレリリース版ソフトウェア (以下、「ライセンス条項」) のライセンス条項は、Microsoft Windows のコンテナーの OS イメージは、(以下「補足的なソフトウェア) 本追加ソフトウェア使用に適用されます。
+    をダウンロードして、追加のソフトウェアを使用して、ライセンス条項に同意して、ライセンス条項に同意していない場合に使用できません。
+    Microsoft Corporation によっては、Windows Server のプレリリース版のソフトウェアと追加のソフトウェアの両方がライセンス供与します。
     
-    *   System running Windows 10 / Windows Server Technical Preview 2 or later.
-    *   Hyper-V role enabled ([see instructions](https://msdn.microsoft.com/virtualization/hyperv_on_windows/quick_start/walkthrough_install#UsingPowerShell)).
-    *   20GB available storage for container host image, OS Base Image and setup scripts.
-    *   Administrator permissions on the Hyper-V host.
+    *   Windows の 10 を実行しているシステムと Windows Server 技術のプレビュー 2 またはそれ以降。
+    *   HYPER-V ロールが有効になっている ([手順を参照してください。](https://msdn.microsoft.com/virtualization/hyperv_on_windows/quick_start/walkthrough_install#UsingPowerShell)).
+    *   コンテナーのホスト イメージ、OS ベース イメージおよびセットアップ スクリプトの使用可能記憶域を 20 GB です。
+    *   HYPER-V ホスト上の管理者のアクセス許可。
 
-> Windows Server Containers do not require Hyper-V however to keep things simple this guide assumes that a Hyper-V environment is being used to run the Windows Server Container host.
+> Windows Server のコンテナーでは、このガイドわかりやすくには、Windows Server のコンテナーのホストを実行する HYPER-V 環境が使用されていると仮定していますが、HYPER-V は必要ありません。
 > 
 
-##Setup a New Container Host on a New Virtual Machine
+##新しいバーチャル マシン上の新しいコンテナー ホストのセットアップ
 
-Windows Server Containers consist of several components such as the Windows Server Container Host and Container OS Base Image.
-We have put together a script that will download and configure these items for you.
-Follow these steps to deploy a new Hyper-V Virtual Machine and configure this system as a Windows Server Container Host.
+Windows Server のコンテナーは、Windows Server のコンテナーのホスト OS ベース イメージのコンテナーなどのいくつかのコンポーネントで構成されます。
+まとめたものをダウンロードおよびをこれらの項目を構成するスクリプトです。
+新しい HYPER-V バーチャル マシンを展開し、Windows Server のコンテナーのホストとしてこのシステムを構成するには、この手順に従います。
 
-Start a PowerShell session as Administrator.
-This can be done by right clicking on the PowerShell icon and selecting ‘Run as Administrator’, or by running the following command from any PowerShell session.
+管理者として PowerShell セッションを開始します。
+これは、PowerShell アイコンを右クリックして [管理者として実行] を選択すると、または任意の PowerShell セッションから、次のコマンドを実行して行うことができます。
 
-``` powershell
-start-process powershell -Verb runAs
+'' powershell
+powershell の起動プロセスの動詞 runAs
 
 
 ```
@@ -47,10 +47,10 @@ wget -uri https://aka.ms/newcontainerhost -OutFile New-ContainerHost.ps1
 
 ```
 
-Run the following command to create and configure the container host where `<containerhost>` will be the virtual machine name and `<password>` will be the password assigned to the Administrator account.
+作成し、コンテナーのホストを構成するには、次のコマンドを実行する場所 `<containerhost>` 仮想マシンの名前になり、 `<password>` パスワードに割り当てる管理者のアカウント。
 
-``` powershell
-.\New-ContainerHost.ps1 –VmName <containerhost> -Password <password>
+'' powershell
+.\New-ContainerHost.ps1 – VmName < containerhost >-< パスワード >
 
 
 ```
@@ -60,15 +60,15 @@ When the script begins you will be asked to read and accept licensing terms.
 
 ```
 
-Before installing and using the Windows Server Technical Preview 3 with Containers virtual machine you must:
-    1.
-Review the license terms by navigating to this link: http://aka.ms/WindowsServerTP3ContainerVHDEula
-    2.
-Print and retain a copy of the license terms for your records.
-By downloading and using the Windows Server Technical Preview 3 with Containers virtual machine you agree to such
-license terms.
-Please confirm you have accepted and agree to the license terms.
-[N] No  [Y] Yes  [?] Help (default is "N"): Y
+インストールとコンテナーの仮想マシンと Windows Server テクニカル プレビュー 3 を使用する前に次の操作を行う必要があります。
+   1.
+このリンクに移動して、ライセンス条項を確認します http://aka.ms/WindowsServerTP3ContainerVHDEula。
+   2.
+記録用にライセンス条項を印刷し、保持します。
+このようなに同意するをダウンロードし、コンテナーの仮想マシンでの Windows Server Technical Preview 3 の使用
+ライセンス条項。
+ライセンス条項に同意して受け入れましたであることを確認してください。
+[N] [Y] はい [?]ヘルプ (既定値は"N")。Y
 
 
 ```
@@ -79,8 +79,8 @@ You may receive the following message during the Window Server Container host de
 
 ```
 
-This VM is not connected to the network. To connect it, run the following:
-Get-VM | Get-VMNetworkAdapter | Connect-VMNetworkAdapter -Switchname <switchname>
+この VM は、ネットワークに接続されていません。 それを接続するには次の手順を実行します。
+Get VM |Get VMNetworkAdapter |接続 VMNetworkAdapter Switchname の < switchname >
 
 
 ```
@@ -91,28 +91,28 @@ Get-VM | Get-VMNetworkAdapter | Connect-VMNetworkAdapter -Switchname <switchname
 
 ```
 
-When the configuration script has completed, start the virtual machine.
-The VM is configured with Windows Server 2016 Core and will look like the following.
+構成スクリプトの実行が完了すると、仮想マシンを起動します。
+VM では、Windows Server 2016 core が構成されは、次のようになります。
 
-<center>!(./media/containerhost2.png)</center><br />
+< センター >!(./media/containerhost2.png)</center >< br/>
 
-Finally log into the virtual machine using the password specified during the configuration process and make sure that the Virtual Machine has a valid IP address.
-With these items completed your system should be ready for Windows Server Containers.
+最後に、構成プロセス中に指定したパスワードを使用して仮想マシンにログインし、バーチャル マシンが有効な IP アドレスを持つかどうかを確認します。
+完了した次の項目を含む、システムは、Windows Server のコンテナーの準備ができてする必要があります。
 
-##Video Walkthrough
+##ビデオ チュートリアル
 
 <iframe src="https://channel9.msdn.com/Blogs/containers/Quick-Start-Configure-Windows-Server-Containers-on-a-Local-System/player" width="800" height="450" allowFullScreen="true" frameBorder="0" scrolling="no" caps_internal_Id="0f9e3ac7-296f-45ec-9be4-6e903d571ccf" />
 
-##Next Steps - Start Using Containers
+##次の手順 - は、コンテナーの使用を開始します。
 
-Now that you have a Windows Server 2016 system running the Windows Server Container feature jump to the following guides to begin working with Windows Server Containers and Windows Server Container images.
+Windows Server のコンテナーの機能を実行しているシステムがイメージを Windows のサーバーのコンテナーおよび Windows Server のコンテナーを作業を開始する、次のガイドにジャンプ、Windows Server 2016 をしたとします。
 
-[Quick Start: Windows Server Containers and Docker](./manage_docker.md)
+[クイック スタート:Windows Server のコンテナーと Docker](./manage_docker.md)
 
-[Quick Start: Windows Server Containers and PowerShell](./manage_powershell.md)
+[クイック スタート:Windows Server のコンテナーと PowerShell](./manage_powershell.md)
 
 -------------------
 
-[Back to Container Home](../containers_welcome.md)[Known Issues for Current Release](../about/work_in_progress.md)
+[コンテナーのホームに戻る](../containers_welcome.md)[現在のリリースに関する既知の問題](../about/work_in_progress.md)
 
 

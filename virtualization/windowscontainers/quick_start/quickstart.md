@@ -1,19 +1,19 @@
-ms.ContentId: 98d3e714-c5c9-4f63-81c0-2403513229f9
-title: Containers Quick Start
+ms。ContentId:98d3e714-c5c9-4f63-81c0-2403513229f9
+タイトル:コンテナーのクイック スタート
 
-#Windows Server Containers Quick Start
+#Windows Server のコンテナーのクイック スタート
 
-These guides will first walk you through creating a Windows Server Container environment in Azure or Hyper-V.
-Next you can work through a quick start for creating and managing Window Server Containers using either PowerShell or Docker.
+これらのガイドまずいただくことで、Azure または HYPER-V、Windows Server のコンテナーの環境を作成できます。
+次に作成および管理、PowerShell または Docker を使用して、ウィンドウのサーバー コンテナのクイック スタートを進めることができます。
 
-[Get started with Windows Server Containers in Windows Azure.](./azure_setup.md)
+[Windows Azure での Windows Server のコンテナーで開始します。](./azure_setup.md)
 
-[Get started with Windows Server Containers in a new Hyper-V Virtual Machine.](./container_setup.md)
+[Windows Server のコンテナー、新規の HYPER-V 仮想マシンで使ってみる。](./container_setup.md)
 
-[Get started with Windows Server Containers in an existing Windows Server TP3 Core installation.](./inplace_setup.md)
+[既存の Windows Server TP3 Core インストールで Windows サーバーのコンテナーで開始を取得します。](./inplace_setup.md)
 
-[Quick Start: Windows Server Containers and PowerShell.](./manage_powershell.md)
+[クイック スタート:Windows Server のコンテナーおよび PowerShell です。](./manage_powershell.md)
 
-[Quick Start: Windows Server Containers and Docker.](./manage_docker.md)
+[クイック スタート:Windows Server のコンテナーと Docker です。](./manage_docker.md)
 
 

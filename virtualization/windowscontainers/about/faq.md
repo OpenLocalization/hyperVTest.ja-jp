@@ -1,102 +1,102 @@
-ms.ContentId: F0D47E70-0BA1-4A06-B2F3-0232C496709D
-title: Frequently asked questions
+ms。ContentId:F0D47E70-0BA1-4A06-B2F3-0232C496709D
+タイトル:よく寄せられる質問
 
-#Frequently Asked Questions
+#AppLocker: Frequently Asked Questions (AppLocker: よく寄せられる質問)
 
-Last updated: May 1, 2015
+最終更新日:2015 5 月 1 日
 
-##What is a Windows Server Container?
+##Windows Server のコンテナーとは何ですか。
 
-Windows Server Containers are a lightweight operating system virtualization method used to separate applications or services from other services running on the same container host.
-To enable this, each container has its own view of the operating system, processes, file system, registry, and IP addresses.
+Windows Server のコンテナーは、同じコンテナーのホストで実行されているその他のサービスからのアプリケーションまたはサービスを分離するために使用軽量のオペレーティング システムの仮想化方法です。
+これを有効にするには、各コンテナーでは、オペレーティング システム、プロセス、ファイル システム、レジストリ、および IP アドレスの独自のビューがあります。
 
-##What is the difference between Linux and Windows Server Containers?
+##Linux と Windows Server のコンテナーの違いは何ですか。
 
-Linux and Windows Server Containers are similar -- both implement similar technologies within their kernel and core operating system.
-The difference comes from the platform and workloads that run within the containers.
-When a customer is using Windows Server Containers, they can integrate with existing Windows technologies such as .NET, ASP.NET, PowerShell and more.
+Linux と Windows Server のコンテナーは似ています--、どちらも、カーネルとコアのオペレーティング システム内での同様のテクノロジを実装します。
+違いは、プラットフォームと、コンテナー内で実行されるワークロードに由来します。
+顧客が Windows Server のコンテナーを使用する場合は、.NET、ASP.NET、PowerShell などの既存の Windows テクノロジと統合できます。
 
-##What is a Hyper-V Container?
+##HYPER-V のコンテナーとは何ですか。
 
-You can think of a Hyper-V Container as a Windows Server Container running inside of a Hyper-V partition.
+HYPER-V のパーティション内で実行される Windows Server のコンテナーとして、HYPER-V のコンテナーの考えることができます。
 
-Hyper-V Containers offer an additional deployment option between the highly efficient, high-density Windows Server Container and the highly isolated hardware-virtualized Hyper-V virtual machine.
-For environments where applications from different trust boundaries on the same host, additional isolation may be required.
-Hyper-V Containers will provide higher isolation using an optimized virtualization and Windows Server operating system that separates containers from each other and from the host operating system.
-Both container deployment options utilize the same management APIs, tools and image formats, at deployment time, customers can simply choose which deployment mode best meets their requirements.
+HYPER-V のコンテナーには、非常に効率的で高密度の Windows Server のコンテナーと、分離性の高いハードウェア仮想化-HYPER-V バーチャル マシンの間追加の展開オプションが提供されています。
+さまざまなアプリケーションが、同じホスト上の境界を信頼環境では、追加の分離が必要な可能性があります。
+HYPER-V のコンテナーでは、最適化された仮想化と、ホストのオペレーティング システムからは、コンテナーを分離する、Windows Server オペレーティング システムを使用して、高い分離を提供します。
+両方のコンテナーの展開オプションは、展開時に同じ管理 Api、ツール、およびイメージの形式を利用、お客様は、最適な展開モードは、その要件を満たしている。 単に選択できます。
 
-##When will Hyper-V Containers be available for use?
+##HYPER-V のコンテナーが使用可能にする場合をでしょうか。
 
-We expect to deliver a preview of Hyper-V Containers this calendar year.
+このカレンダー年度の HYPER-V のコンテナーのプレビューを提供しようと思っています。
 
-##Will Hyper-V Containers also be available to the Docker ecosystem?
+##HYPER-V のコンテナーも使用可能になります Docker エコシステムですか。
 
-Yes – Hyper-V Containers will provide the same level of integration and management with Docker as Windows Server Containers.
-The goal is to have an open, consistent, cross-platform experience.
-The Docker platform will also greatly simplify and enhance the experience of working across our container options.
-An application developed using Windows Server Containers can be deployed as a Hyper-V Container without change.
+[はい-HYPER-V コンテナーは同じレベルの統合および Windows Server のコンテナーとして Docker と管理を提供します。
+目標は、開く、一貫性のある、クロスプラット フォーム エクスペリエンスです。
+Docker プラットフォームを大幅に簡略化し、コンテナー オプション間で作業のエクスペリエンスを強化します。
+Windows Server のコンテナーを使用して開発されたアプリケーションは、変更されることがなく、HYPER-V のコンテナーとして展開することができます。
 
-##Why do I have to pick between Docker and PowerShell for Windows Server Container management?
+##なぜ Docker と Windows Server のコンテナーの PowerShell の管理の間での選択があるのでしょうか。
 
-**This isn't desired behavior nor our long term plan.**  PowerShell container management tools and Docker container management tools will work side by side in the future.
+**これは、目的の動作も、長期的な計画はありません。**  PowerShell コンテナーの管理のツールと Docker コンテナーの管理ツールはサイド バイ サイドで後で。
 
-With that said, using multiple management interfaces to manage the same container can be difficult.
+言ったことを複数の管理インターフェイスを使用して、同じコンテナーを管理する困難になります。
 
-Take, for example, creating a container with PowerShell and naming the image with an upper case character.
-Docker doesn’t support caps, PowerShell does.
-While that specific example is very manageable, what gets much harder are handing state changes (race conditions and different expectations), feature set differences or versions…
+Take、たとえば、PowerShell でのコンテナーを作成して、大文字に変換する文字を使用してイメージの名前を付けします。
+Docker cap をサポートしていない、PowerShell が実行されます。
+その具体的な例は非常に管理しやすいですが、どのような取得は非常に難しくなります (競合状態、およびさまざまな予測) の状態の変更を処理は、機能の違いやバージョンを設定しています.
 
-Our short term decision was that management interfaces (in this case Docker and PowerShell) only see containers they created – you create a container with Docker and PowerShell doesn’t see it, you create it with PowerShell and Docker doesn’t see it.
+短期的な決定は、こと管理インターフェイス (このケース Docker と PowerShell を使用して) を参照してくださいコンテナーが作成されると – Docker でコンテナーを作成する、PowerShell が認識されないと PowerShell を使用して作成する、および Docker が認識されないだけでした。
 
-##As a developer, do I have to re-write my app for each type of container?
+##開発者は、する必要はコンテナーの種類ごとにアプリをもう一度記述ですか。
 
-No, Windows container images are common across both Windows Server Containers and Hyper-V Containers.
-The choice of container type is made when you start the container.
-From a developer standpoint, Windows Server Containers and Hyper-V Containers are two flavors of the same thing.
-They offer the same development, programming and management experience, are open and extensible and will include the same level of integration and support via Docker.
+残念ですが、コンテナーの Windows イメージは、Windows Server のコンテナーと HYPER-V のコンテナーの両方で共通です。
+コンテナーを開始すると、コンテナーの種類の選択が行われます。
+開発者の観点では、Windows Server のコンテナーおよびコンテナーの HYPER-V は、同じことの 2 つの種類があります。
+オープンで拡張可能なは、および同じレベルの統合と Docker 経由でのサポートが含まれますが、同じ開発、プログラミング、および管理のエクスペリエンスを提供します。
 
-A developer can create a container image using a Windows Server Container and deploy it as a Hyper-V Container or vice-versa without any changes other than specifying the appropriate runtime flag.
+開発者は、Windows Server のコンテナーを使用して、コンテナーのイメージを作成し、HYPER-V コンテナーまたはその逆の適切な実行時フラグを指定する以外には、何も変更せずとして展開できます。
 
-Windows Server Containers will offer greater density and performance (e.g. lower spin up time, faster runtime performance compared to nested configurations) for when speed is key.
-Hyper-V Containers offer greater isolation, ensuring that code running in one container can't compromise or impact the host operating system or other containers running on the same host.
-This is useful for multitenant scenarios (with requirements for hosting untrusted code) including SaaS applications and compute hosting.
+Windows Server のコンテナーは、密度とパフォーマンス (入れ子になった構成と比較して、時間、高速なランタイムのパフォーマンスの低いスピンなど) が格段に向上が実現の速度がキーの場合。
+HYPER-V のコンテナーでは、1 つのコンテナーで実行されるコードが危険にさらすことはできないかどうか、または、ホスト オペレーティング システムまたは同じホストで実行されている他のコンテナーに影響を与えることを保証する分離を向上を提供しています。
+これはマルチ テナント シナリオに役立ちます (信頼されていないコードをホストするための要件) の SaaS アプリケーションやコンピューティングをホストしているなどです。
 
-##Are Hyper-V/Windows Server Containers an add-on, or will they integrated within Windows Server?
+##ハイパー V/Windows Server のコンテナー、アドオンは、または Windows Server 内に組み込まれているでしょうか。
 
-The container capabilities will be integrated into Windows Server 2016.
-Stay tuned for more information closer to the general availability.
+コンテナーの機能は、Windows Server 2016 に統合されます。
+次回にご期待の一般提供する詳細については近い。
 
-##What are the prerequisites for Windows Server Containers and Hyper-V Containers?
+##Windows Server のコンテナーおよびコンテナーの HYPER-V の前提条件とは
 
-Both Window Server Containers and Hyper-V Containers require Windows Server 2016.
-These technologies will not work with previous versions of Windows.
+ウィンドウのサーバーのコンテナーと HYPER-V のコンテナーの両方には、Windows Server 2016 が必要です。
+これらのテクノロジは、以前のバージョンの Windows では機能しません。
 
-##Are Nano Server based containers supported?
+##ナノ サーバー ベースのコンテナーがサポートされているでしょうか。
 
-For the TP3 release, no they are not.
-Only Server Core based containers are currently supported.
+TP3 リリースでは、不要ではありません。
+唯一の Server Core ベースのコンテナーがサポートされています。
 
-##Can I run Windows Server Containers on ESXi or another non Hyper-V hypervisor?
+##ESXi または他の非 HYPER-V ハイパーバイザーで Windows Server のコンテナーを実行できますか。
 
-Yes, Windows Server Container run on any TP3 Server Core installation.
-Follow the instructions for [enabling the containers feature in-place](../quick_start/inplace_setup.md).
+はい、Windows Server のコンテナーは、いかなる TP3 の Server Core インストールを実行します。
+手順に従います [コンテナー機能インプレースを有効にします。](../quick_start/inplace_setup.md)。
 
-##Is Microsoft participating in the Open Container Initiative (OCI)?
+##Microsoft には、開いているコンテナー Initiative (OCI) が参加しているでしょうか。
 
-To guarantee the packaging format remains universal, Docker recently organized the Open Container Initiative (OCI), aiming to ensure container packaging remains an open and foundation-led format with Microsoft as one of the founding members.
+保証するため、パッケージ形式のままユニバーサル、Docker には、コンテナーのパッケージ化は、当初からのメンバーの 1 つとしてマイクロソフトのオープンで foundation 主導の書式設定を引き続きをねらった開く・ コンテナー ・ Initiative (OCI) は、最近整理されています。
 
-##Is Microsoft really partnering with Docker?
+##Microsoft 本当との提携 Docker でしょうか。
 
-Yes.
-Our partnership with Docker enables developers to create, manage and deploy both Windows Server and Linux containers using the same Docker tool set.
-Developers targeting Windows Server will no longer have to make a choice between using the vast range of Windows Server technologies and building containerized applications.
+対応
+Docker とのパートナーシップでは、作成、管理、および同じ Docker ツール セットを使用して、Windows Server と Linux の両方のコンテナーを展開することができます。
+Windows Server を対象とした開発者は、Windows Server のさまざまなテクノロジを使用して、コンテナー化アプリケーションの構築との間を選択するしなくなります。
 
-Docker is two things, the open source group of projects and Docker the company.
-We consider this partnership to include both.
-Docker is successful, in part, because of the vibrant ecosystem that has built up around the Docker container technology.
-Microsoft is contributing to the Docker Project, enabling support for Windows Server Containers and Hyper-V Containers.
+Docker は次の 2 つのプロジェクトおよび Docker、会社のオープン ソースのグループです。
+私たちは、両方を含めるには、このパートナーシップを検討してください。
+Docker 成功すると、一部をためは Docker コンテナー テクノロジに関する作成が強力なエコシステムです。
+Docker プロジェクトは、Windows Server のコンテナーおよびコンテナーの HYPER-V のサポートを有効にするのには、Microsoft が関係しています。
 
-For more information, see the [New Windows Server containers and Azure support for Docker](http://azure.microsoft.com/blog/2014/10/15/new-windows-server-containers-and-azure-support-for-docker/?WT.mc_id=Blog_ServerCloud_Announce_TTD) blog post.
+詳細については、次を参照してください、。 [Windows Server の新しいコンテナーおよび Docker の Azure のサポート](http://azure.microsoft.com/blog/2014/10/15/new-windows-server-containers-and-azure-support-for-docker/?WT.mc_id=Blog_ServerCloud_Announce_TTD) ブログの投稿します。
 
 -------------------
 [Back to Container Home](../containers_welcome.md)

@@ -1,12 +1,12 @@
-ms.ContentId: 09eacb3a-bcd2-4724-9c73-6d47ec06f385
-title: Hyper-V on Windows 10
+ms。ContentId:09eacb3a-bcd2-4724-9c73-6d47ec06f385
+タイトル:Hyper-v Windows 10
 
-#Hyper-V on Windows 10
+#Hyper-v Windows 10
 
-Hyper-V lets you run more than one 32-bit or 64-bit x86 operating system at the same time on the same computer.
-Instead of running directly on the computer’s hardware, the operating systems run inside of a virtual machine (VM).
+HYPER-V では、1 つ以上の 32 ビットまたは 64 ビットの x 86 を同じコンピューターに同時にオペレーティング システムを実行することができます。
+コンピューターのハードウェア上で直接実行すると、代わりには、オペレーティング システムは、仮想マシン (VM) の内部で実行します。
 
-Hyper-V in Windows is sometimes referred to as Client Hyper-V.
+Hyper-V では、Windows が呼ばクライアント HYPER-V として。
 
 <table border="1" style="background-color:FFFFCC;border-collapse:collapse;border:1px solid FFCC00;color:000000;width:100%" cellpadding="15" cellspacing="3">
   <tr valign="top">
@@ -71,12 +71,12 @@ Hyper-V in Windows is sometimes referred to as Client Hyper-V.
     </td>
   </tr>
 </table>
-**Important:** You must license the software running on each of the guest virtual machines according to their operating system requirements.
+**重要:** 各、オペレーティング システムの要件に従って、ゲストの仮想マシンで実行されているソフトウェアのライセンスを取得する必要があります。
 
-Here are a few links to other versions of Hyper-V:
+ここで他のバージョンの Hyper-v: へのいくつかのリンクには
 
-*   [Hyper-V on Windows Server 2016 Technical Preview](https://technet.microsoft.com/en-us/library/mt126117.aspx)
-*   [Hyper-V on Windows Server 2012 R2](https://technet.microsoft.com/en-us/library/hh831531.aspx)
-*   [Microsoft Hyper-V Server](https://technet.microsoft.com/library/hh923062.aspx)
+*   [Hyper-v については、Windows Server 2016 に関するテクニカル プレビュー](https://technet.microsoft.com/en-us/library/mt126117.aspx)
+*   [Windows Server 2012 R2 の Hyper-V](https://technet.microsoft.com/en-us/library/hh831531.aspx)
+*   [Microsoft HYPER-V Server](https://technet.microsoft.com/library/hh923062.aspx)
 
 

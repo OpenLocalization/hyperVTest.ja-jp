@@ -1,5 +1,5 @@
 #HyperV
 
-##[Community Overview](community_overview.md)
+##[コミュニティの概要](community_overview.md)
 
 

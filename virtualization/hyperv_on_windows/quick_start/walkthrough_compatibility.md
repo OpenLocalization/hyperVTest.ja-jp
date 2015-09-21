@@ -1,42 +1,42 @@
-ms.ContentId: C2593EA1-B182-4C71-8504-49691F619158
-title: Step 1: Make sure your machine is compatible
+ms。ContentId:C2593EA1-B182-4C71-8504-49691F619158
+タイトル:手順 1:コンピューターが互換性のあることを確認します。
 
-#Step 1: Make sure your machine can run Hyper-V
+#手順 1:コンピューターは、HYPER-V を実行できるかどうかを確認します。
 
-Only Windows 10 Pro and Windows 10 Enterprise support Hyper-V.
+のみ Windows 10 Pro および Windows 10 Enterprise は、HYPER-V をサポートします。
 
-> If you're running Windows 10 Home -- you can upgrade to Win 10 Pro in the Activation page located in the security settings.
-> The "Go to store" link will take you to a page for upgrading.
+> Windows 10 Home--を実行している場合は、セキュリティ設定にあるライセンス認証] ページで 10 Pro の獲得にアップグレードすることができます。
+> 「を格納する参照してください」リンクは、アップグレードするためのページにを見ていきます。
 > 
 
-Hyper-V is not available in Windows 10 Mobile / Windows 10 Mobile Enterprise
+HYPER-V では使用できません Windows 10 Mobile または Windows 10 モバイル Enterprise
 
-Hyper-V requires at least 4 GB of RAM but you might need more if you want to run multiple virtual machines at the same time.
+HYPER-V には、少なくとも 4 GB の RAM が必要ですが、同時に複数の仮想マシンを実行する場合の詳細に必要な。
 
-Starting in Windows 10, Hyper-V requires a 64-bit processor with Second Level Address Translation (SLAT).
+以降では、Windows 10 は、HYPER-V には、64 ビット プロセッサ Second Level Address Translation (SLAT) とが必要です。
 
-##Verify hardware compatability
+##ハードウェアの互換性を確認します。
 
-To verify compatability, open PowerShell or a Windows command prompt (cmd.exe) and type: `systeminfo.exe`.
-This will give you information about your computer.
+互換性を確認するには、PowerShell を開くまたは Windows コマンド プロンプト (cmd.exe) と種類。 `systeminfo.exe`。
+お客様のコンピューターに関する情報が提供されます。
 
-All of the items under **Hyper-V Requirements** must have the value if **Yes**.
+すべての下にある項目 **Hyper-V の要件** 場合に、値が必要 **はい**。
 
 !(media\systeminfo.png)
 
-Relevant sections:
+関連するセクション:
 
-*   `OS Name` -- Must be Windows 8 or higher and either Profession or Enterprise.
-*   `Hyper-V Requirements` -- all of these must be true (value of "Yes") but some can be configured in BIOS.
+*   `OS Name` --Windows 8 以上と職業または Enterprise のいずれかである必要があります。
+*   `Hyper-V Requirements` -すべての必要があります ("Yes"の値) は true ですが、一部は、BIOS で構成できます。
     
-    *   `VM Monitor Mode Extensions` -- Property of the hardware.
-        Hyper-V can not run on this machine.
-    *   `Virtualization Enabled in Firmware` -- Can be enabled in BIOS
-    *   `Second Level Address Translation` -- Property of the hardware.
-        Hyper-V can not run on this machine.
-    *   `Data Execution Prevention Available` -- Can be enabled in BIOS
+    *   `VM Monitor Mode Extensions` -ハードウェアのプロパティです。
+        このコンピューターで HYPER-V を実行できません。
+    *   `Virtualization Enabled in Firmware` -BIOS で有効にすることができます。
+    *   `Second Level Address Translation` -ハードウェアのプロパティです。
+        このコンピューターで HYPER-V を実行できません。
+    *   `Data Execution Prevention Available` -BIOS で有効にすることができます。
 
-If Hyper-V is already enabled, the Hyper-V Requirements section will read:  
+HYPER-V が既に有効なかどうか、HYPER-V の要件セクションが表示されます。  
 
 
 ```
@@ -45,8 +45,8 @@ Hyper-V Requirements: A hypervisor has been detected. Features required for Hype
 ```
 
 
-##Next Step:
+##次の手順:
 
-[Step 2: Install Hyper-V](walkthrough_install.md)
+[手順 2:Hyper-V をインストールする](walkthrough_install.md)
 
 

@@ -1,37 +1,37 @@
-ms.ContentId: 44b138bb-962f-4474-a0c4-284646a872e2
-title: Setup Windows Containers in place
+ms。ContentId:44b138bb-962f-4474-a0c4-284646a872e2
+タイトル:Windows のコンテナーの場所でのセットアップします。
 
-#Preparing a physical machine or an existing virtual machine for Windows Server Containers
+#Windows Server のコンテナーの物理マシンまたは既存のバーチャル マシンを準備します。
 
-In order to create and manage Windows Server Containers, the Windows Server 2016 Technical Preview environment must be prepared.
-This guide will walk through configuring Windows Server Containers on bare metal or in an existing virtual machine running Windows Server 2016 Technical Preview.
+作成して、Windows Server のコンテナーの管理をするためには、Windows Server 2016 に関するテクニカル プレビュー環境を準備する必要があります。
+このガイドは、ベア メタルまたは Windows Server 2016 に関するテクニカル プレビューを実行している既存のバーチャル マシンで Windows Server のコンテナーの構成方法を説明します。
 
-> Other getting started guides:
+> その他のファースト ステップ ガイド。
 > 
 
-*   Run Windows Server Containers in [Azure](./azure_setup.md).
-*   Run Windows Server Containers in [a new Hyper-V VM](./container_setup.md).
+*   Windows Server のコンテナーを実行します。 [Azure](./azure_setup.md)。
+*   Windows Server のコンテナーを実行します。 [新しい HYPER-V 仮想マシン](./container_setup.md)。
     
-    **PLEASE READ PRIOR TO INSTALLING THE CONTAINER OS IMAGE:**  The license terms of the Microsoft Windows Server Pre-Release software (“License Terms”) apply to your use of the Microsoft Windows Container OS Image supplement (the “supplemental software).
-    By downloading and using the supplemental software, you agree to the License Terms, and you may not use it if you have not accepted the License Terms.
-    Both the Windows Server Pre-Release software and the supplemental software are licensed by Microsoft Corporation.
+    **コンテナーの OS イメージをインストールする前に」を参照してください。**  Microsoft Windows Server のプレリリース版ソフトウェア (以下、「ライセンス条項」) のライセンス条項は、Microsoft Windows のコンテナーの OS イメージは、(以下「補足的なソフトウェア) 本追加ソフトウェア使用に適用されます。
+    をダウンロードして、追加のソフトウェアを使用して、ライセンス条項に同意して、ライセンス条項に同意していない場合に使用できません。
+    Microsoft Corporation によっては、Windows Server のプレリリース版のソフトウェアと追加のソフトウェアの両方がライセンス供与します。
 
-**System (or VM) requirements:**
+**システム (または VM) の要件:**
 
-*   System running Windows Server Technical Preview 3 Server Core.
-*   10GB available storage for OS Base Image and setup scripts.
-*   Administrator permissions on the machine or VM.
+*   Windows Server テクニカル プレビュー 3 の Server Core を実行しているシステム。
+*   10 GB OS ベース イメージおよびセットアップのスクリプトの使用可能なストレージです。
+*   コンピューターまたは VM で管理者権限です。
 
-##Setup an existing Virtual Machine or Bare Metal host for Containers
+##コンテナーの既存のバーチャル マシンまたはベア メタル ホストのセットアップ
 
-Windows Server Containers require the Container OS Base Image.
-We have put together a script that will download and install this for you.
-Follow these steps to configure your system as a Windows Server Container Host.
+Windows Server のコンテナーでは、コンテナーの OS のベース イメージが必要です。
+まとめたものをダウンロードして、このクライアントをインストールするのスクリプトです。
+Windows Server のコンテナーのホストとして、システムを構成する次の手順に従います。
 
-Start a PowerShell session as administrator.
-This can be done by running the following command from the command line.
+管理者として PowerShell セッションを開始します。
+これは、コマンドラインから次のコマンドを実行して実行できます。
 
-``` powershell
+'' powershell
 powershell.exe
 
 
@@ -44,11 +44,11 @@ start-process powershell -Verb runas
 
 ```
 
-Use the following command to download the setup script.
-The script can also be manually downloaded from this location - [Configuration Script](http://aka.ms/setupcontainers).
+セットアップ スクリプトをダウンロードするのにには、次のコマンドを使用します。
+スクリプトはこの場所 - からは手動でダウンロードもすることができます。 [構成スクリプト](http://aka.ms/setupcontainers)。
 
-``` PowerShell
-wget -uri https://aka.ms/setupcontainers -OutFile C:\ContainerSetup.ps1
+'' PowerShell
+wget uri https://aka.ms/setupcontainers-OutFile C:\ContainerSetup.ps1
 
 
 ```
@@ -59,23 +59,23 @@ C:\ContainerSetup.ps1
 
 ```
 
-The script will then begin to download and configure the Windows Server Container components.
-This process may take quite some time due to the large download.
-The machine may reboot during the process.
-When finished your machine will be configured and ready for you to create and manage Windows Server Containers and Windows Server Container Images with both PowerShell and Docker.
+ダウンロードして、Windows Server のコンテナーのコンポーネントを構成するスクリプトが再開されます。
+このプロセスでは、大きなファイルをダウンロードするためには、かなり時間がかかります。
+処理中に、コンピューターが再起動可能性があります。
+コンピューターを構成が完了すると、Windows Server のコンテナーおよび PowerShell と Docker の両方の Windows Server コンテナーのイメージ作成および管理の準備ができています。
 
-With these items completed your system should be ready for Windows Server Containers.
+完了した次の項目を含む、システムは、Windows Server のコンテナーの準備ができてする必要があります。
 
-##Next Steps - Start Using Containers
+##次の手順 - は、コンテナーの使用を開始します。
 
-Now that you are running Windows Server Containers, jump to the following guides to begin working with Windows Server Containers and Windows Server Container images.
+Windows Server のコンテナーを実行していることは、Windows Server のコンテナーおよび Windows Server のコンテナーのイメージでの作業を開始する、次のガイドにジャンプします。
 
-[Quick Start: Windows Server Containers and Docker](./manage_docker.md)
+[クイック スタート:Windows Server のコンテナーと Docker](./manage_docker.md)
 
-[Quick Start: Windows Server Containers and PowerShell](./manage_powershell.md)
+[クイック スタート:Windows Server のコンテナーと PowerShell](./manage_powershell.md)
 
 -------------------
 
-[Back to Container Home](../containers_welcome.md)[Known Issues for Current Release](../about/work_in_progress.md)
+[コンテナーのホームに戻る](../containers_welcome.md)[現在のリリースに関する既知の問題](../about/work_in_progress.md)
 
 

@@ -1,7 +1,7 @@
-ms.ContentId: 1C108951-97FF-4BA3-A929-27A4FEF160D2
-title: In this section - User Guide
+ms。ContentId:1C108951-97FF-4BA3-A929-27A4FEF160D2
+タイトル:このセクションにユーザー ガイド
 
-#In this section
+#このセクションの内容
 
 <table border="1" style="background-color:FFFFCC;border-collapse:collapse;border:1px solid FFCC00;color:000000;width:100%" cellpadding="15" cellspacing="3">
   <tr>

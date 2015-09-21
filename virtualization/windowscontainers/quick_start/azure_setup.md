@@ -1,67 +1,67 @@
-ms.ContentId: 1ab7bfe1-da35-4ff1-916f-936fedf536a0
-title: Setup Windows Containers in Azure
+ms。ContentId:1ab7bfe1-da35-4ff1-916f-936fedf536a0
+タイトル:Azure での Windows のコンテナーをセットアップします。
 
-#Preparing Microsoft Azure for Windows Server Containers
+#Microsoft Azure の Windows Server のコンテナーの準備
 
-Before creating and managing Windows Server Containers in Azure you will need to deploy a Windows Server 2016 Technical Preview image which has been pre-configured with the Windows Server Containers feature.
-This guide will walk you through this process.
+作成と Azure での Windows Server のコンテナーを管理する前に、Windows Server のコンテナーの機能が、あらかじめ設定されている Windows Server 2016 に関するテクニカル プレビュー イメージを展開する必要があります。
+このガイドでは、このプロセスを説明します。
 
-> Other getting started guides:
+> その他のファースト ステップ ガイド。
 > 
 
-*   Run Windows Server Containers in [a new Hyper-V virtual machine](./container_setup.md).
-*   Run Windows Server Containers in [an existing virtual machine](./inplace_setup.md)
-*   Setup Windows Server Containers [on a physical Windows Server Core installation](./inplace_setup.md)
+*   Windows Server のコンテナーを実行します。 [新しい HYPER-V 仮想マシン](./container_setup.md)。
+*   Windows Server のコンテナーを実行します。 [既存のバーチャル マシン](./inplace_setup.md)
+*   Windows Server のコンテナーをセットアップします。 [物理的な Windows Server Core インストール上](./inplace_setup.md)
 
-##Start Using Azure Portal
+##Azure ポータルの使用を開始します。
 
-If you have an Azure account, skip straight to [Create a Container Host VM](#CreateacontainerhostVM).
+Azure アカウントがある場合は場合、は、すぐに省略します。 [コンテナーのホスト仮想マシンを作成します。](#CreateacontainerhostVM)。
 
-1.  Go to [azure.com](https://azure.com) and follow the steps for an [Azure Free Trial](https://azure.microsoft.com/en-us/pricing/free-trial/).
-2.  Sign in with your Microsoft account.
-3.  When your account is ready to go, sign into the [Azure Management Portal](https://portal.azure.com).
+1.  参照してください。 [azure.com](https://azure.com) 手順を実行して、 [Azure 無料評価版](https://azure.microsoft.com/en-us/pricing/free-trial/)。
+2.  Microsoft アカウントでサインインします。
+3.  サインイン アカウントは、準備ができましたが、ときに、 [Azure 管理ポータル](https://portal.azure.com)。
 
-##Create a Container Host VM
+##コンテナーのホスト仮想マシンを作成します。
 
-Click on the following link to start the VM creation process – [New Windows Server Container Host in Azure](https://portal.azure.com/#gallery/Microsoft.WindowsServer2016TechnicalPreviewwithContainers).
+VM の作成プロセスを開始するには、次のリンクをクリックします。 [Azure での新しい Windows Server コンテナー ホスト](https://portal.azure.com/#gallery/Microsoft.WindowsServer2016TechnicalPreviewwithContainers)。
 
-You can also search for the image in the Azure gallery.
+Azure のギャラリーのイメージを検索することもできます。
 
-Click on the `create` button.
+クリックして、 `create` ボタンをクリックします。
 
 !(./media/newazure1.png)
 
-Give the Virtual Machine a name, select a user name and a password.
+により、仮想マシンの名前は、ユーザー名とパスワードを選択します。
 
 !(media/newazure2.png)
 
-Select Optional Configuration > Endpoints > and enter an HTTP endpoint with a private and public port of 80 as seen below.
-When completed click ok two times.
+オプションの構成の選択 > エンドポイント > 以下に示すように、プライベートおよびパブリック ポートは 80 の HTTP エンドポイントを入力します。
+ときに完了した] をクリックには、2 回が [ok] です。
 
 !(./media/newazure3.png)
 
-Select the `create` button to start the Virtual Machine deployment process.
+選択します `create` 仮想マシンの展開プロセスを開始するボタンをクリックします。
 
 !(media/newazure2.png)
 
-When the VM deployment is complete, select the connect button to start an RDP session with the Windows Server Container Host.
+VM の展開が完了すると、Windows Server のコンテナーのホストで RDP セッションを開始する [接続] ボタンを選択します。
 
 !(media/newazure6.png)
 
-Log into the VM using the username and password specified during the VM creation wizard.
-Once logged in you will be looking at a Windows command prompt.
+ユーザー名と、VM の作成ウィザードの中に指定されたパスワードを使用して VM にログインします。
+Windows のコマンド プロンプトで、そのでする検索は 1 回ログに記録します。
 
 !(media/newazure7.png)
 
-##Video Walkthrough
+##ビデオ チュートリアル
 
 <iframe src="https://channel9.msdn.com/Blogs/containers/Quick-Start-Configure-Windows-Server-Containers-in-Microsoft-Azure/player" width="800" height="450" allowFullScreen="true" frameBorder="0" scrolling="no" caps_internal_Id="5162a6c0-597a-4873-ab64-1e8374efa46c" />
 
-##Next Steps - Start Using Containers
+##次の手順 - は、コンテナーの使用を開始します。
 
-Now that you have a Windows Server 2016 system running the Windows Server Container feature jump to the following guides to begin working with Windows Server Containers and Windows Server Container images.
+Windows Server のコンテナーの機能を実行しているシステムがイメージを Windows のサーバーのコンテナーおよび Windows Server のコンテナーを作業を開始する、次のガイドにジャンプ、Windows Server 2016 をしたとします。
 
-[Quick Start: Windows Server Containers and Docker](./manage_docker.md)[Quick Start: Windows Server Containers and PowerShell](./manage_powershell.md)
+[クイック スタート:Windows Server のコンテナーと Docker](./manage_docker.md)[クイック スタート:Windows Server のコンテナーと PowerShell](./manage_powershell.md)
 
 -------------------
 [Back to Container Home](../containers_welcome.md)  

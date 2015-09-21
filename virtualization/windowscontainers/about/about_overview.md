@@ -1,94 +1,94 @@
-ms.ContentId: 526e4f1a-2936-4c61-b3be-d41b4cf9d10f
-title: About Windows Server Containers
+ms。ContentId:526e4f1a-2936-4c61-b3be-d41b4cf9d10f
+タイトル:Windows Server のコンテナーについて
 
-#Windows Server Containers
+#Windows Server のコンテナー
 
-Applications fuel innovation in the cloud and mobile era.
-Containers, and the ecosystem that is developing around them, will empower software developers to create the next generation of applications experiences.
+アプリケーションでは、クラウドとモバイルの時代 (年号) で技術革新を燃料します。
+コンテナー、および、その周囲が開発している、エコシステムを次世代のアプリケーション エクスペリエンスを作成するソフトウェア開発者が提供されます。
 
-Watch a short overview: [Windows-based containers: Modern app development with enterprise-grade control](https://youtu.be/Ryx3o0rD5lY).
+簡単な概要を確認してください。 [Windows ベースのコンテナーの場合:エンタープライズ レベルの制御を使用した最新のアプリの開発](https://youtu.be/Ryx3o0rD5lY)。
 
-##What are containers?
+##コンテナーとは
 
-They are an isolated, resource controlled, and portable operating environment.
+これらは、分離性、リソース制御、およびポータブル オペレーティング環境です。
 
-Basically, a container is an isolated place where an application can run without affecting the rest of the system and without the system affecting the application.
-Containers are the next evolution in virtualization.
+基本的には、コンテナーとは、分離された場所をアプリケーションが、システムの残りの部分に影響を与えずにし、アプリケーションに影響を与えるシステムなしに実行できます。
+コンテナーは、仮想化では、次の進化です。
 
-If you were inside a container, it would look very much like you were inside a freshly installed physical computer or a virtual machine.
-And, to [Docker](https://www.docker.com/), a Windows Server Container can be managed in the same way as any other container.
+コンテナーの内部場合は、なります非常に近いものが新たにインストールされている物理コンピューターまたは仮想マシン内と同様にします。
+と、 [Docker](https://www.docker.com/)、Windows Server のコンテナーは、他の任意のコンテナーと同じ方法で管理できます。
 
-##Container Fundamentals
+##コンテナーの基礎
 
-When you begin working with containers you will notice many similarities between a container and a virtual machine.
-A container runs an operating system, has a file system and can be accessed over a network just as if it was a physical or virtual computer system.
-That said, the technology and concepts behind containers are very different from that of virtual machines.
-[This blog post](http://azure.microsoft.com/blog/2015/08/17/containers-docker-windows-and-trends/) by Mark Russinovich explains containers well.
+コンテナーの操作を開始するときに、コンテナーとバーチャル マシンの間の数多くの類似点が生じることがわかります。
+コンテナーは、オペレーティング システムを実行するには、ファイル システムおよび物理または仮想コンピューターのシステムが場合と同様に、ネットワーク経由でアクセスできます。
+ただし、テクノロジ、およびコンテナーの背後にある概念は仮想マシンの場合と大きく異なります。
+[このブログの投稿](http://azure.microsoft.com/blog/2015/08/17/containers-docker-windows-and-trends/) Mark Russinovich 社もコンテナーについて説明します。
 
-The following key concepts will be helpful as you begin creating and working with Windows Server Containers.
+次の主要な概念が役に立つように作成を開始して、Windows Server のコンテナーを操作します。
 
-**Container Host:** Physical or Virtual computer system configured with the Windows Server Container feature.
-The container host will run one or more Windows Server Containers.
+**コンテナーのホスト。** 物理または仮想コンピューターのシステム構成、Windows Server のコンテナーの機能を使用します。
+コンテナーのホストは、1 つまたは複数の Windows Server のコンテナーで実行されます。
 
-**Container Image:** As modifications are made to a containers file system or registry, such as with software installation they are captured in the sandbox.
-In many cases you may want to capture this state such that new containers can be created that inherit these changes.
-That’s what an image is – once the container has stopped you can either discard that sandbox or you can convert it into a new container image.
-For example, let’s imagine that you have deployed a container from the Windows Server Core OS image.
-You then install MySQL into this container.
-Creating a new image from this container would act as a deployable version of the container.
-This image would only contain the changes made (MySQL), however would work as a layer on top of the Container OS Image.
+**コンテナーの画像:** コンテナーのファイル システムまたはレジストリの変更となどでは、ソフトウェアのインストールがキャプチャ、サンド ボックスでされます。
+新しいコンテナーを作成できるように、この状態をキャプチャすることも多くの場合は、これらの変更を継承します。
+その目的イメージは – をいずれかを破棄することができますが、コンテナーが停止した後、または新しいコンテナーのイメージに変換することができます。
+たとえば、Windows Server のコア OS イメージからのコンテナーを配置したとします。
+MySQL をインストールするには、このコンテナーにします。
+このコンテナーから、新しいイメージを作成する展開可能なバージョンのコンテナーとして機能します。
+このイメージでは、(MySQL) に加えられた変更のみを含めると、ただし、コンテナーの OS イメージの上位層として機能します。
 
-**Sandbox:** Once a container has been started, all write actions such as file system modifications, registry modifications or software installations are captured in this ‘sandbox’ layer.
+**サンド ボックス:** コンテナーが開始されると、すべての書き込み、ファイル システムの変更などのアクション レジストリを変更したり、ソフトウェアのインストールは、この 'サンド ボックス' のレイヤーにキャプチャされます。
 
-**Container OS Image:** Containers are deployed from images.
-The container OS image is the first layer in potentially many image layers that make up a container.
-This image provides the operating system environment.
-A Container OS Image is Immutable, it cannot be modified.
+**OS イメージのコンテナー。** コンテナーは、イメージから展開されます。
+コンテナーの OS イメージは、場合によっては多数のイメージ レイヤーのコンテナーを構成するには、最初のレイヤーです。
+このイメージは、オペレーティング システム環境を提供します。
+コンテナーの OS イメージは変更不可で、これを変更することはできません。
 
-**Container Repository:** Each time a container image is created the container image and its dependencies are stored in a local repository.
-These images can be reused many times on the container host.
-The container images can also be stored in a public or private repository such as DockerHub so that they can be used across many different container host.
+**コンテナーのリポジトリ。** たびに、コンテナーのイメージがイメージを作成、コンテナーとその依存関係は、ローカル リポジトリに格納されます。
+コンテナーのホストでは、これらのイメージを何度も再利用できます。
+多くの別のコンテナーのホスト間で使用できるように、コンテナーのイメージも DockerHub などのパブリックまたはプライベートのリポジトリに格納できます。
 
-**Container Management Technology:** Windows Server Containers can be managed using both PowerShell and Docker.
-With either one of these tools you can create new containers, container images as well as manage the container lifecycle.
+**コンテナーの管理テクノロジ:** Windows Server のコンテナーを管理するには、PowerShell、Docker の両方を使用します。
+これらのツールのいずれかにすることができます新しいコンテナーをコンテナーのイメージを作成するだけでなくコンテナーのライフ サイクルを管理します。
 
-<center>!(media/containerfund.png)</center>
+< センター >!(media/containerfund.png)</センター >
 
-##Containers for Developers
+##開発者のためのコンテナー
 
-From a developer’s desktop to a testing machine to a set of production machines, a Docker image can be created that will deploy identically across any environment in seconds.
-This story has created a massive and growing ecosystem of applications packaged in Docker containers, with DockerHub, the public containerized-application registry that Docker maintains, currently publishing more than 180,000 applications in the public community repository.
+テスト マシンを一連の実稼働コンピューターの場合は、任意の環境全体にわたる秒単位で同じ展開は Docker のイメージを作成することができます開発者のデスクトップから。
+この話は、大規模なが作成され、Docker を管理している現在パブリック コミュニティのリポジトリに複数の 180,000 でアプリケーションを公開するパブリック コンテナー詰めアプリケーション レジストリ DockerHub を使用して、Docker コンテナーでパッケージ化するアプリケーションのエコシステムの成長します。
 
-When you containerize an app, only the app and the components needed to run the app are combined into an "image".
-Containers are then created from this image as you need them.
-You can also use an image as a baseline to create another image, making image creation even faster.
-Multiple containers can share the same image, which means containers start very quickly and use fewer resources.
-For example, you can use containers to spin up light-weight and portable app components – or ‘micro-services’ – for distributed apps and quickly scale each service separately.
+アプリを containerize するときに、アプリのみと、アプリの実行に必要なコンポーネントは、「イメージ」に結合されます。
+コンテナーは、必要に応じてこのイメージから作成されます。
+さらに高速のイメージの作成を行う別のイメージを作成するのに、基準としてイメージを使用することもできます。
+複数のコンテナーには、コンテナーが非常に短時間で起動しをより少ないリソースを使用して、同じイメージを共有できます。
+たとえば、軽量のスピンアップにコンテナーを使用することができ、ポータブル アプリケーション コンポーネント (または ' マイクロ サービス ') のアプリを配布され、迅速に各サービスを個別に拡張します。
 
-Because the container has everything it needs to run your application, they are very portable and can run on any machine that is running Windows Server 2016.
-You can create and test containers locally, then deploy that same container image to your company's private cloud, public cloud or service provider.
-The natural agility of Containers supports modern app development patterns in large scale, virtualized and cloud environments.
+コンテナーは、アプリケーションを実行する必要があるためは非常に移植性し、Windows Server 2016 を実行している任意のコンピューター上で実行できます。
+作成してテスト コンテナーをローカルにし、会社のプライベート クラウド、パブリック クラウドまたはサービス プロバイダーをそのコンテナーのイメージを展開することができます。
+コンテナーの自然な機敏性は、大規模な環境で最新のアプリの開発パターンをサポートしています、仮想化され、クラウド環境です。
 
-With containers, developers can build an app in any language.
-These apps are completely portable and can run anywhere - laptop, desktop, server, private cloud, public cloud or service provider - without any code changes.
+コンテナーでは、開発者は任意の言語でアプリを構築できます。
+これらのアプリケーションは完全に移植し、ラップトップ、デスクトップ、サーバー、プライベート クラウド、パブリック クラウドまたはサービス プロバイダーのコード変更を加えずに任意の場所に実行できます。
 
-Containers helps developers build and ship higher-quality applications, faster.
+コンテナーには、ビルド、および高品質のアプリケーションの出荷を高速の開発者が役立ちます。
 
-##Containers for IT Professionals
+##IT プロフェッショナル向けのコンテナー
 
-IT Professionals can use containers to provide standardized environments for their development, QA, and production teams.
-They no longer have to worry about complex installation and configuration steps.
-By using containers, systems administrators abstract away differences in OS installations and underlying infrastructure.
+IT プロフェッショナルは、コンテナーを使用して、開発、品質保証、および運用チームの標準化された環境を提供することができます。
+不要になった、複雑なインストールと構成手順について心配する必要があります。
+コンテナーを使用すると、システム管理者には、OS のインストールと基になるインフラストラクチャ退席中の違いが抽象化します。
 
-Containers help admins create an infrastructure that is simpler to update and maintain.
+コンテナーでは、更新し、保守をより簡単であるインフラストラクチャを作成する管理者を支援します。
 
-##Video Overview
+##概要に関するビデオ
 
 <iframe src="https://channel9.msdn.com/Blogs/containers/Containers-101-with-Microsoft-and-Docker/player" width="960" height="540" allowFullScreen="true" frameBorder="0" scrolling="no" caps_internal_Id="0ee33f4a-490b-498e-a5f6-898e998c27a3" />
 
-##Try Windows Server Containers
+##Windows Server のコンテナーを実行してください。
 
-[Get started with Windows Server Containers in Windows Azure](../quick_start/azure_setup.md)[Get started with Windows Server Containers Locally](../quick_start/container_setup.md)
+[Windows Azure での Windows Server のコンテナーを使ってみる](../quick_start/azure_setup.md)[ローカルでサーバーのコンテナーを Windows を使ってみる](../quick_start/container_setup.md)
 
 -------------------
 [Back to Container Home](../containers_welcome.md)

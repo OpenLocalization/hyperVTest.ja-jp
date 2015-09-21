@@ -1,60 +1,61 @@
-ms.ContentId: 6C7EB25D-66FB-4B6F-AB4A-79D6BB424637
-title: Make a new management service
+ms。ContentId:6C7EB25D-66FB-4B6F-AB4A-79D6BB424637
+タイトル:新しい管理サービスを作成します。
 
-#Make a new management service
+#新しい管理サービスを作成します。
 
-This document introduces VM Services built on Hyper-V sockets and how to get started using them.
+このドキュメントには、HYPER-V のソケットとそれを使用して開始する方法で構築された VM のサービスが導入されています。
 
-##What is a VM Service?
+##仮想マシン サービスとは何ですか。
 
-VM Services are services that span the Hyper-V host and virtual machines running on the host.
+ホー HB プロセスをテストするためには、この文を追加します。
+VM のサービスは、HYPER-V ホストおよびホスト上で実行する仮想マシンにまたがるサービスです。
 
-Hyper-V now (Windows 10 and Server 2016+) provides a non-network connection which allows you to create services spanning the host/virtual machine boundary while preserving Hyper-V’s fundamental requirements around tenant/hoster isolation, control, and diagnosable.
+HYPER-V ようになりました (Windows 10 およびサーバー 2016年 +) を使用すると、サービスとホスト側のテナントの分離、コントロールに関連する HYPER-V の基本的な要件を維持しながら、ホストと仮想マシンの境界のまたがりメモリ割り当てを作成すると、ネットワークへの接続を提供すると共にとします。
 
-Hyper-V will continue to provide a base set of in-box services (integration services) for basics (such as time sync) and for common requests we receive, but now anyone can write and deploy a VM service as needed.
+HYPER-V では、(時間の同期) などの基本と、共通の要求は、ボックス内のサービス (integration services) の基本セットを提供する続行されますが、記述し、必要に応じて、仮想マシン サービスを展開だれでもようになりました。
 
-PowerShell Direct is an in-box example of a VM Service.
+PowerShell のダイレクトでは、仮想マシンのサービスのボックスの例を示します。
 
-##What is a Hyper-V socket?
+##HYPER-V のソケットとは何ですか。
 
-Hyper-V sockets are TCP-like sockets with no dependence on networking.
-Using Hyper-V sockets, services can run independently of the networking stack and all data flow stays on host memory.
+HYPER-V ソケットは、ネットワークへの依存しない付きソケットの TCP と同様です。
+HYPER-V のソケットを使用するには、サービスは、ネットワーク スタックとは別に実行でき、すべてのデータ フローは、ホストのメモリに保持します。
 
-##System Requirements
+##システム要件
 
-**Supported Host OS**
-
-*   Windows 10
-*   Windows Server Technical Preview 3
-*   Future releases (Server 2016 +)
-
-**Supported Guest OS**
+**サポートされているホスト OS**
 
 *   Windows 10
-*   Windows Server Technical Preview 3
-*   Future releases (Server 2016 +)
+*   Windows Server に関するテクニカル プレビュー 3
+*   今後のリリース (サーバー 2016年 +)
+
+**サポートされているゲスト OS**
+
+*   Windows 10
+*   Windows Server に関するテクニカル プレビュー 3
+*   今後のリリース (サーバー 2016年 +)
 *   Linux
 
-##Capabilities and Limitations
+##機能と制限事項
 
-Kernel mode or user mode  
-Data stream only    
-No block memory so not the best for backup/video  
+カーネル モードまたはユーザー モード
+データのストリームのみ  
+ブロックのメモリのバックアップ/ビデオに最適ではありません。 がありません。  
 
-##Getting started
+##はじめに
 
-This guide assumes you're familiar with socket programming in C/C++.
+このガイドでは、ソケットの C と C++ でプログラミングに慣れていると仮定します。
 
-###Step 1 - Register your service on the Hyper-V host
+###手順 1 - HYPER-V ホストにサービスを登録
 
-In order to use a custom service integrated with Hyper-V, the new service must be registered with the Hyper-V Host's registry.
+HYPER-V と統合されて、カスタム サービスを使用するのには、HYPER-V ホストのレジストリと、新しいサービスを登録する必要があります。
 
-By registering the service in the registry, you get:
+によって、サービス レジストリに登録すると、次の操作を取得します。
 
-*   WMI management for enable, disable, and listing available services
-*   Onto the list of services allowed to communicate with virtual machines directly.
+*   WMI 管理を有効にする、無効化、および利用可能なサービスを一覧表示します。
+*   サービスの一覧を使用して仮想マシンと直接通信できます。
 
-** Registry location and information **
+** は、レジストリの場所と情報 **
 
 
 ```
@@ -62,18 +63,18 @@ HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Virtualization\V
 
 ```
 
-In this registry location, you'll see several GUIDS.
-Those are our in-box services.
+このレジストリの場所では、いくつかの GUID が表示されます。
+これらは、マイクロソフトのボックスでのサービスです。
 
-Information in the registry per service:
+サービスごとのレジストリ内の情報。
 
 *   `Service GUID`
     
-    *   `ElementName (REG_SZ)` -- this is the service's friendly name
+    *   `ElementName (REG_SZ)` -これは、サービスのフレンドリ名
 
-To register your own service, create a new registry key using your own GUID and friendly name.
+独自のサービスを登録するには、独自の GUID と表示名を使用して新しいレジストリ キーを作成します。
 
-The registry entry will look like this:
+レジストリ エントリは、次のようになります。
 
 
 ```
@@ -86,9 +87,9 @@ HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Virtualization\G
 ```
 
 
-> ** Tip: **  To generate a GUID in PowerShell and copy it to the clipboard, run:  
-> ``` PowerShell
-> [System.Guid]::NewGuid().ToString() | clip.exe
+> ** ヒント:: **  PowerShell で GUID の生成をクリップボードにコピーするには、次のコマンドを実行します。
+> '' PowerShell
+> [System.Guid]::NewGuid() です。ToString() |clip.exe
 > 
 
 
@@ -110,19 +111,19 @@ Since Hyper-V sockets do not depend on a networking stack, TCP/IP, DNS, etc. the
 
 ```
 
-*   Service ID – GUID under which the service is registered in the Hyper-V host registry.
-    See [Registering a New Service](#GettingStarted).
+*   サービス ID]: GUID をサービスが HYPER-V ホストのレジストリに登録されています。
+    記憶域スペース構成からすべてを完全に消去するときに役立つスクリプトについては、「 [新しいサービスを登録します。](#GettingStarted)。
 
-For connections from a service on the host to the service on a VM:  
-VMID and Service ID
-For connections from a service on a VM to the service on the host:  
-Zero GUID and Service ID
+仮想マシン上のサービスをホスト上のサービスからの接続。
+VMID とサービスの ID
+ホスト上のサービスにバーチャル マシン上のサービスからの接続。
+0 個の GUID とサービスの ID
 
-##Supported socket commands
+##サポートされているソケット コマンド
 
 Socket()
 Bind()
-Connect ()
+() を接続します。
 Send()
 Listen()
 Accept()

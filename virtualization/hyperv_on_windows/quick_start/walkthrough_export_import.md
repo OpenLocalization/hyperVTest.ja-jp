@@ -1,58 +1,58 @@
-ms.ContentId: B971C429-CEF0-4DAB-8456-3B08AEC0C233
-title: Step 7: Export and import a virtual machine
+ms。ContentId:B971C429-CEF0-4DAB-8456-3B08AEC0C233
+タイトル:手順 7:エクスポートして、仮想マシンをインポート
 
-#Step 7: Export and import a virtual machine
+#手順 7:エクスポートして、仮想マシンをインポート
 
-You can quickly copy a virtual machine or move a virtual machine by using the export and import functionality.
+仮想マシンをコピー、エクスポートを使用して、仮想マシンを移動またはおよびインポート機能を簡単にできます。
 
-##Export the VM
+##VM をエクスポートします。
 
-Exporting a virtual machine exports all of the pieces of the VM, including the checkpoints.
+仮想マシンをエクスポートすると、すべての部分、チェックポイントなど、VM のエクスポートします。
 
-1.  In Hyper-V Manager, right-click the virtual machine and select **Export**.
+1.  HYPER-V マネージャーでは、仮想マシンを右クリックし、選択 **エクスポート**。
     
     !(media/select_export1.png)
-2.  Click **Browse** in the dialog box and navigate to  C:\Users\Public and then click **Select Folder**.
-3.  In the **Export Virtual Machine** dialog, make sure the path looks okay and then click **Export**.
+2.  [ **参照** ダイアログ ボックス、C:\Users\Public に移動し] をクリックして **フォルダーを選択します。**。
+3.  「 **仮想マシンをエクスポートします。** ダイアログ ボックスで、パスは正常に見えるかどうかを確認し、 **エクスポート**。
     
     !(media/click_export.png)
-4.  While the VM is being exported, you can see the progress in the Status section:
+4.  VM のエクスポート中には、[状態] セクションで進行状況を確認できます。
     
     !(media/export_progress.png)
 
-##Did the export work?
+##エクスポートが動作しましたか。
 
-To verify that the virtual machine was exported, right-click on your **Start** menu and select **File Explorer**.
+仮想マシンのエクスポートになっていることを確認するを右クリックし、 **管理者として** メニューをクリック **エクスプローラー**。
 
-1.  Navigate to C:\Users\Public\Windows Walkthrough VM.
-2.  You should see another folder called Windows Walkthrough VM and inside that folder should be three folders with the files for your exported virtual machine:
+1.  C:\Users\Public\Windows チュートリアルの VM に移動します。
+2.  別のフォルダーは、Windows チュートリアルの仮想マシンと呼ばれ、そのフォルダー内の 3 つのフォルダーと、エクスポートされた仮想マシン用ファイルとする必要がありますが表示されます。
     
-    *   Snapshots
-    *   Virtual Hard Disks
-    *   Virtual Machines 
+    *   スナップショット
+    *   仮想ハード ディスク
+    *   仮想マシン 
     
     !(media/export_confirm.png)
 
-##Import the VM
+##VM をインポートします。
 
-Before we import the VM, we are going to delete the original VM.
-Right-click on the VM and select **Delete**.
+私たちは、VM をインポートする前にしようとして、元の VM を削除します。
+クリックし、VM を右クリックし **削除**。
 
-1.  In **Hyper-V Manager**, in the **Action** menu, click **Import Virtual Machine**.
-2.  In the **Locate Folder** section, click Browse and navigate to C:\Users\Public\Windows Walkthrough VM  and then click **Next**.
-3.  In the **Select virtual machine to import** screen click **Next**.
-4.  In the **Choose Import Type** section, select **Register the virtual machine in place** and then click **Next**.
-5.  In the **Choose Destination** section, leave the default and click **Next**.
-6.  In Choose Storage folders, leave the default path and click **Next**.
-7.  On the summary page you'll see a list of the paths where the new VM files will be located.
-    Click **Finish** to start the import.
+1.  既定により、 **Hyper V マネージャー**、で、 **操作** メニューの **仮想マシンのインポート**。
+2.  「 **フォルダーに移動します。** セクションで参照] をクリックし、C:\Users\Public\Windows チュートリアルの VM に移動し、順にクリックしてください **次へ**。
+3.  「 **インポートする仮想マシンを選択します。** 画面] をクリックします **次へ**。
+4.  「 **インポートの種類を選択します。** セクションで、 **場所に、仮想マシンを登録します。** クリックし、 **次へ**。
+5.  「 **変換先を選択します。** セクションで、既定のままにし、をクリックしてください **次へ**。
+6.  記憶域の選択のフォルダーの既定のパスをそのまま使用し、] をクリックしてください **次へ**。
+7.  [概要] ページでは、新しい仮想マシン ファイルが配置されるパスの一覧が表示されます。
+    [ **完了** インポートを開始します。
 
-##Did the import work?
+##インポートが動作しましたか。
 
-To make sure the import worked, just double-click the VM in **Hyper-V Manager** and launch VMConnect to check the VM.
+確認するには、インポートをダブルクリックするだけで、VM **Hyper V マネージャー** VM をチェックする VMConnect を起動します。
 
-##Next Step:
+##次の手順:
 
-[Step 8: Experiment with Windows Powershell](walkthrough_powershell.md)
+[手順 8:Windows Powershell を使用したテストします。](walkthrough_powershell.md)
 
 

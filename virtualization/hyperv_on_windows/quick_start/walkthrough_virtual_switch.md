@@ -1,42 +1,41 @@
-ms.ContentId: 95FE9554-3968-4EED-B65D-E03F06A7598D
-title: Step 3: Create a virtual switch
+ms。ContentId:95FE9554-3968-4EED-B65D-E03F06A7598D
+タイトル:手順 3:仮想スイッチを作成する
 
-#Step 3: Create a virtual switch
+#手順 3:仮想スイッチを作成する
 
-A virtual switch allows you to create a network connection for your virtual machine.
-They are used just like the network adapter (NIC) on your physical computer.
+仮想スイッチでは、仮想マシンのネットワーク接続を作成することができます。
+物理コンピューター上のネットワーク アダプター (NIC) と同じように使用されます。
 
-For this example, we are going to create an External switch.
-The external switch will allow your virtual machine to access the host machine's network adapter.
-If your host machine is connected to the internet, your virtual machine will be as well.
+この例では、外部スイッチを作成するここします。
+外部スイッチはマシンのネットワーク アダプターに仮想マシンをホストへのアクセスに、できます。
+ホスト マシンがインターネットに接続されている場合は、仮想マシンは同様になります。
 
-We'll also set the switch to allow the host to share this network adapter.
-This makes it so both the virtual machines and the host can use the same network.
+このネットワーク アダプタを共有するホストを許可するへの切り替えも設定します。
+これにより、そのため、両方の仮想マシンと、ホストは、同じネットワークを使用できます。
 
 
-1.  In Hyper-V manager, click **Virtual Switch Manager**.
+1.  HYPER-V マネージャーでは、次のようにクリックします。 **仮想スイッチ マネージャー**。
     
     !(media/virtual_switch_manager1.png)
-2.  Select **New virtual network switch**.
+2.  選択 **新しい仮想ネットワーク スイッチ**。
     
     !(media/new_switch.png)
-3.  Select **External** and **Create Virtual Switch**.
+3.  選択 **外部リンク** 」と「 **仮想スイッチを作成します。**。
     
     !(media/new_switch_createbutton.png)
-4.  Under **Name**, type **External**.
-5.  Under **External network**, select the correct network adapter (there will probably only be one option).
-6.  Select **Allow management operating system to share this network adapter** and click **OK**.
+4.  下にあります。 **名前**] ボタンをクリックし、 **外部リンク**。
+5.  下にあります。 **外部ネットワーク**、正しいネットワーク アダプターを選択して (おそらくは 1 つのオプションは、必ず)。
+6.  選択 **このネットワーク アダプタを共有するオペレーティング システムの管理を許可します。** をクリック **OK**。
     
     !(media/share_nic.png)
-7.  You'll get a message warning you that your network might disconnect while the virtual switch is created.
-    Just click **Yes**.
-    Your network will be unavailable for a short time.
+7.  ネットワーク接続が切断される仮想スイッチの作成中に警告するメッセージが表示されます。
+    クリックするだけ **はい**。
+    ネットワークは、短い時間は使用できません。
     
     !(media/network_warning.png)
 
-##Next step:
+##次の手順:
 
-[Step 4: Create a Windows virtual machine from an .iso file](walkthrough_create_vm.md)
+[手順 4:.Iso ファイルから Windows の仮想マシンを作成します。](walkthrough_create_vm.md)
 
 
-n .iso file](walkthrough_create_vm.md)

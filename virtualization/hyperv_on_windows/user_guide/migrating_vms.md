@@ -1,15 +1,15 @@
-ms.ContentId: 34D5925A-D724-4552-9403-C2703A973234 
-title: Migrating and upgrading virtual machines
+ms。ContentId:34D5925A-D724-4552-9403-C2703A973234
+タイトル:移行して、仮想マシンのアップグレード
 
-#Migrate and upgrade virtual machines
+#移行し、仮想マシンのアップグレード
 
-If you move virtual machines to your Windows 10 host that were originally created with Hyper-V in Windows 8.1 or earlier, you won't be able to use the new virtual machine features until you manually update the virtual machine configuration version.
+Hyper-V では、Windows 8.1 またはそれ以前で作成された Windows 10 ホストにバーチャル マシンを移動する場合、仮想マシンの構成バージョンを手動で更新するまでに、新しい仮想マシンの機能を使用できません。
 
-To upgrade the configuration version, shut down the virtual machine and then select to Upgrade Virtual Machine Configuration in Hyper-V Manager.
-You can also open an elevated Windows PowerShell command prompt, and type:
+構成のバージョンをアップグレードするには、仮想マシンをシャット ダウンしには、HYPER-V Manager でのバーチャル マシン構成のアップグレード] をクリックします。
+管理者特権を開くことも Windows PowerShell コマンド プロンプト、および種類。
 
- ```PowerShell
-Update-VmVersion <vmname> | <vmobject>
+ '' PowerShell
+更新プログラム-VmVersion < vmname > |< vmobject >
 
 
 ```
@@ -27,90 +27,85 @@ The PowerShell command produces the following sample output:
 
 ```
 
-Name        State       CPUUsage(%) MemoryAssigned(M)   Uptime              Status                  Version
+名前状態 CPUUsage(%)MemoryAssigned(M) 稼働時間のステータスのバージョン
 
-Atlantis    Running         0       1024                00:04:20.5910000    Operating normally      5.0
+5.0 が正常に動作するアトランティス 0 1024年を実行している 00:04:20.5910000
 
-SGC VM      Running         0       538                 00:02:44.8350000    Operating normally      6.2
+6.2 が正常に動作する SGC 0 538 に、VM で実行されている 00:02:44.8350000
 ```
 
-##What happens if I do not upgrade the configuration version?
+##構成のバージョンにアップグレードしないとすると、どうなりますか。
 
-If you have virtual machines that you created with an earlier version of Hyper-V, some features may not work with those virtual machines until you update the VM version.
+以前のバージョンの HYPER-V で作成した仮想マシンがあれば、[VM のバージョンを更新するまでこれらのバーチャル マシンをいくつかの機能可能性があります機能しません。
 
-Minimum VM configuration version for new Hyper-V features:
+最低限の VM の構成が HYPER-V の新機能のバージョン:
 
-| **Feature Name**| **Minimum VM version**| |
+| **機能名**| **仮想マシンの最小バージョン**| |
 | :------------------------------------- | -----------------: ||
-| Hot Add/Remove Memory| 6.0| |
-| Hot Add/Remove Network Adapters| 5.0| |
-| Secure Boot for Linux VMs| 6.0| |
-| Production Checkpoints| 6.0| |
-| PowerShell Direct| 6.2| |
-| Virtual Trusted Platform Module (vTPM)| 6.2| |
-| Virtual Machine Grouping| 6.2| |
+| ホット アド/リムーブのメモリ| 6.0| |
+| ホット アド/リムーブのネットワーク アダプター| 5.0| |
+| Linux vm のセキュア ブート| 6.0| |
+| 実稼働のチェックポイント| 6.0| |
+| PowerShell のダイレクト| 6.2| |
+| 仮想のトラステッド プラットフォーム モジュール (vTPM)| 6.2| |
+| 仮想マシンのグループ化| 6.2| |
 
-##Virtual Machine Configuration Version
+##仮想マシンの構成のバージョン
 
-When you move or import a virtual machine to a host running Hyper-V on Windows 10 from host running Windows 8.1, the virtual machine’s configuration file isn't automatically upgraded.
-This allows the virtual machine to be moved back to a host running Windows 8.1.
-You won't have access to new virtual machine features until you manually update the virtual machine configuration version.
+移動するか、または Windows の 10 の Windows 8.1 を実行しているホストから HYPER-V を実行しているホストに仮想マシンをインポートするときに、バーチャル マシンの構成ファイルが自動的にアップグレードではありません。
+これにより、仮想マシンは、Windows 8.1 を実行するホストに移動します。
+仮想マシンの構成バージョンを手動で更新するまでは、新しい仮想マシンの機能へのアクセスを必要はありません。
 
-The virtual machine configuration version represents what version of Hyper-V the virtual machine’s configuration, saved state, and snapshot files it's compatible with.
-Virtual machines with configuration version 5 are compatible with Windows 8.1 and can run on both Windows 8.1 and Windows 10.
-Virtual machines with configuration version 6 are compatible with Windows 10 and won't run on Windows 8.1.
+仮想マシンの構成のバージョンでは、HYPER-V のバージョンのバーチャル マシンの構成が保存された状態では、およびスナップショットと互換性があるファイルを表します。
+バーチャル マシンの構成バージョン 5 には、Windows 8.1 と互換性があると、Windows 8.1 と Windows の 10 の両方で実行できます。
+バージョン 6 の構成を持つ仮想マシンを使用して、Windows 10 互換性があり、Windows 8.1 では動作しません。
 
-It is not necessary to upgrade all of your virtual machines simultaneously.
-You can choose to upgrade specific virtual machines when required.
-However, you won't have access to new the virtual machine features until you manually update the configuration version for each virtual machine.
+場合によっては、すべての仮想マシンを同時にアップグレードする必要はありません。
+必要な場合に、特定の仮想マシンをアップグレードすることができます。
+ただし、各仮想マシンの構成のバージョンを手動で更新するまでは、新しい仮想マシンの機能へのアクセスを必要はありません。
 
 ----------------
 **Important **
 
-• After you upgrade the virtual machine configuration version, you can't move the virtual machine to a host that runs Windows 8.1.
+•、仮想マシンの構成バージョンをアップグレードした後は、Windows 8.1 を実行しているホストに、仮想マシンを移動することはできません。
 
-• You can't downgrade the virtual machine configuration version from version 6 to version 5.
+• が 5 のバージョンに 6 のバージョンから仮想マシンの構成のバージョンをダウン グレードすることはできません。
 
-• You must turn off the virtual machine to upgrade the virtual machine configuration.
+• を仮想マシンの構成をアップグレードするバーチャル マシンをオフにする必要があります。
 
-• After the upgrade, the virtual machine uses the new configuration file format.
-For more information, see New virtual machine configuration file format.
+• アップグレード後、仮想マシンでは、新しい構成ファイルの形式を使用します。
+詳細については、新しいバーチャル マシン構成ファイルの形式を参照してください。
 
 --------
 
-##What happens when I upgrade the version of a virtual machine?
+##どのようなエラーは、仮想マシンのバージョンをアップグレードするとどうなりますか。
 
-When you manually upgrade the configuration version of a virtual machine to version 6.x, you'll change the file structure that is used for storing the virtual machines configuration and checkpoint files.
+手動でにアップグレードすると、仮想マシンの構成バージョン バージョン 6.x、仮想マシンの構成とチェックポイント ファイルを格納するために使用されるファイルの構造を変更します。
 
-Upgraded virtual machines use a new configuration file format, which is designed to increase the efficiency of reading and writing virtual machine configuration data.
-The upgrade also reduces the potential for data corruption in the event of a storage failure.
+アップグレード後の仮想マシンでは、仮想マシンの構成データの読み書きの効率を上げるために設計された、新しい構成ファイル形式を使用します。
+アップグレードでは、記憶域の障害発生時のデータの破損が発生する可能性も減少します。
 
-The following table lists the binary file locations and extension information for an upgraded virtual machine.
+次の表には、バイナリ ファイルの場所とアップグレード済みのバーチャル マシンの拡張機能の情報が一覧表示します。
 
-| **Virtual machine configuration and checkpoint files (version 6.x)**| **Description**| |
+| **バーチャル マシンの構成とチェックポイント ファイル (バージョン 6.x)**| **説明**| |
 |:---------------|:----------------||
-| **Virtual machine configuration**| Configuration information is stored in a binary file format that uses the .vmcx extension.| |
-| **Virtual machine Runtime State**| Runtime state data is stored in a binary file format that uses the .vmrs extension.| |
-| **Virtual machine virtual hard disk**| The virtual hard disk files for the virtual machine.They use .vhd or .vhdx file extensions.| |
-| **Automatic  virtual hard disk files**| The differencing disk files used for virtual machine checkpoints.They use the .avhdx file extensions.| |
-| **Checkpoint Files**| Checkpoints are stored in multiple checkpoint files.Each checkpoint creates a configuration file and runtime state file.Checkpoint files use the .vmrs and .vmcx file extensions.These new file formats are also used for production checkpoints and standard checkpoints.| |
-After you upgrade the virtual machine configuration version to version 6.x, it is not possible to downgrade from version 6.x to version 5.
+| **仮想マシンの構成**| 構成情報については、.vmcx 拡張機能を使用するバイナリ ファイル形式で格納されます。| |
+| **仮想マシンの実行時の状態**| 実行時データの状態は、.vmrs 拡張機能を使用するバイナリ ファイル形式で格納されます。| |
+| **仮想マシンのバーチャル ハード ディスク**| 仮想マシンの仮想ハード ディスク ファイルです。.Vhd または .vhdx ファイルの拡張機能を使用します。| |
+| **自動の仮想ハード ディスク ファイル**| バーチャル マシンのチェックポイントで使用する差分ディスク ファイルです。.Avhdx ファイル拡張機能を使用します。| |
+| **チェックポイント ファイル**| チェックポイントは、複数のチェックポイント ファイルに格納されます。各チェックポイントでは、構成ファイルと実行時の状態のファイルを作成します。チェックポイント ファイルは、.vmrs と .vmcx ファイルの拡張機能を使用します。実稼働のチェックポイントと標準のチェックポイントもこれらの新しいファイル形式が使用されます。| |
+仮想マシンの構成をアップグレードした後、バージョン 6.x ことはできませんバージョンからダウン グレードする 6.x バージョン 5 にします。
 
-The virtual machine must be turned off to upgrade the virtual machine configuration.
+仮想マシンの構成をアップグレードする、仮想マシンをオフにする必要があります。
 
-The following table lists the default file locations for new or upgraded virtual machines.
+次の表は、新しいまたはアップグレード後の仮想マシンの既定の場所を一覧表示します。
 
-| **Virtual Machine Files (Version 6.x)**| **Description**| |
+| **バーチャル マシンのファイル (バージョン 6.x)**| **説明**| |
 |:-----|:-----||
-| **Virtual machine configuration file**| C:\ProgramData\Microsoft\Windows\Hyper-V\Virtual Machines| |
-| **Virtual machine runtime state file**| C:\ProgramData\Microsoft\Windows\Hyper-V\Virtual Machines| |
-| **Checkpoint Files (.vmrs, .vmcx)**| C:\ProgramData\Microsoft\Windows\Snapshots| |
-| **Virtual hard disk file (.vhd/.vhdx)**| C:\Users\Public\Documents\Hyper-V\Virtual Hard Disks| |
-| **Automatic virtual hard disk files (.avhdx)**| C:\Users\Public\Documents\Hyper-V\Virtual Hard Disks| |
-
-
-Users\Public\Documents\Hyper-V\Virtual Hard Disks ||
-
-
+| **バーチャル マシン構成ファイル**| C:\ProgramData\Microsoft\Windows\Hyper-V\Virtual マシン| |
+| **バーチャル マシンの実行時の状態のファイル**| C:\ProgramData\Microsoft\Windows\Hyper-V\Virtual マシン| |
+| **チェックポイント ファイル (.vmrs、.vmcx)**| C:\ProgramData\Microsoft\Windows\Snapshots| |
+| **バーチャル ハード ディスク ファイル (.vhd/.vhdx)**| C:\Users\Public\Documents\Hyper-V\Virtual ハード_ディスク| |
+| **自動の仮想ハード ディスク ファイル (.avhdx)**| C:\Users\Public\Documents\Hyper-V\Virtual ハード_ディスク| |
 
 

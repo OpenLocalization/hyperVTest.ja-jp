@@ -1,25 +1,25 @@
-ms.ContentId: 248565F7-5EE6-46C6-B29E-8F1D44658563
-title: Walktrough Overview
+ms。ContentId:248565F7-5EE6-46C6-B29E-8F1D44658563
+タイトル:Walktrough の概要
 
-#Walkthrough Hyper-V on Windows 10
+#チュートリアル: Hyper-v について Windows 10
 
-These topics will help your get acquainted with Hyper-V on Windows 10.
-We'll walk you through all of the steps needed to get a computer up and running with Hyper-V and check out some of the new features and old favorites.
+これらのトピックは、get に役立つ Windows 10 では、HYPER-V の詳細についてです。
+すべてのコンピューターの電源を始めるに必要な手順と HYPER-V で実行する手順を説明して、いくつかの新機能および古いお気に入りを調べて行います。
 
-[Step 1: Make sure your machine is compatible](walkthrough_compatibility.md)
+[手順 1:コンピューターが互換性のあることを確認します。](walkthrough_compatibility.md)
 
-[Step 2: Install Hyper-V on Windows 10](walkthrough_install.md)
+[手順 2:10 の Windows での HYPER-V をインストールします。](walkthrough_install.md)
 
-[Step 3: Create a virtual switch](walkthrough_virtual_switch.md)
+[手順 3:仮想スイッチを作成する](walkthrough_virtual_switch.md)
 
-[Step 4: Create a Windows virtual machine from an .iso file](walkthrough_create_vm.md)
+[手順 4:.Iso ファイルから Windows の仮想マシンを作成します。](walkthrough_create_vm.md)
 
-[Step 5: Connect to the virtual machine and finish the installation](walkthrough_vmconnect.md)
+[手順 5:仮想マシンに接続し、インストールを完了](walkthrough_vmconnect.md)
 
-[Step 6: Experiment with checkpoints](walkthrough_checkpoints.md)
+[手順 6:チェックポイントを使用して試してみる](walkthrough_checkpoints.md)
 
-[Step 7: Export and import a virtual machine](walkthrough_export_import.md)
+[手順 7:エクスポートして、仮想マシンをインポート](walkthrough_export_import.md)
 
-[Step 8: Experiment with Windows Powershell](walkthrough_powershell.md)
+[手順 8:Windows Powershell を使用したテストします。](walkthrough_powershell.md)
 
 

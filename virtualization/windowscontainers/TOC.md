@@ -1,37 +1,37 @@
 #HypeV
 
-##[EULA](EULA.md)
+##[使用許諾契約書](EULA.md)
 
-##About
+##の概要
 
-###[about overview](about/about_overview.md)
+###[概要] には(about/about_overview.md)
 
-###[container ecosystem](about/container_ecosystem.md)
+###[コンテナーのエコシステム](about/container_ecosystem.md)
 
-###[faq](about/faq.md)
+###[に関する faq](about/faq.md)
 
-###[work in progress](about/work_in_progress.md)
+###[進行中の作業](about/work_in_progress.md)
 
-##Quick Start
+##クイック スタート
 
 ###[azure setup](quick_start/azure_setup.md)
 
-###[container setup](quick_start/container_setup.md)
+###[コンテナー setup](quick_start/container_setup.md)
 
-###[inplace setup](quick_start/inplace_setup.md)
+###[インプレース setup](quick_start/inplace_setup.md)
 
-###[manage docker](quick_start/manage_docker.md)
+###[docker を管理する](quick_start/manage_docker.md)
 
-###[manage powershell](quick_start/manage_powershell.md)
+###[powershell の管理](quick_start/manage_powershell.md)
 
-###[quickstart](quick_start/quickstart.md)
+###[クイック スタート](quick_start/quickstart.md)
 
-##Reference
+##参照先
 
-###[app compat](reference/app_compat.md)
+###[アプリケーションの互換性](reference/app_compat.md)
 
-###[powershell overview](reference/powershell_overview.md)
+###[powershell の概要](reference/powershell_overview.md)
 
-###[ps docker comparison](reference/ps_docker_comparison.md)
+###[ps docker 比較](reference/ps_docker_comparison.md)
 
 

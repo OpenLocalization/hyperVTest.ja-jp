@@ -1,40 +1,40 @@
-ms.ContentId: 347fa279-d588-4094-90ec-8c2fc241f5b6
-title: Manage Windows Server Containers with Docker
+ms。ContentId:347fa279-d588-4094-90ec-8c2fc241f5b6
+タイトル:Docker と Windows Server のコンテナーを管理します。
 
-#Quick Start: Windows Server Containers and Docker
+#クイック スタート:Windows Server のコンテナーと Docker
 
-This article will walk through the fundamentals of managing windows Server Containers with Docker.
-Items covered will include creating Windows Server Containers and Windows Server Container Images, removing Windows Server Containers and Container Images and finally deploying an application into a Windows Server Container.
-The lessons learned in this walkthrough should enable you to begin exploring deployment and management of Windows Server Containers using Docker.
+この記事は windows Docker を使用してコンテナーをサーバーの管理の基礎について説明します。
+Windows Server のコンテナーとサーバーのコンテナーの Windows イメージを作成する、Windows Server のコンテナーおよびコンテナーのイメージの削除、および最後に、アプリケーションを Windows Server のコンテナーに展開する対象となるアイテムが含まれます。
+このチュートリアルで得られた教訓では、Docker を使用して、Windows のサーバー コンテナの展開と管理の調査を開始するを有効にする必要があります。
 
-Have questions?
-Ask them on the [Windows Containers forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowscontainers).
+ご質問があるでしょうか。
+依頼、 [Windows のコンテナーのフォーラム](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowscontainers)。
 
-> **Note:** Windows Containers created with PowerShell can not currently be managed with Docker and visa versa.
-> To create containers with PowerShell, see  [Quick Start: Windows Server Containers and PowerShell](./manage_powershell.md).
-> <br /><br /> If you want to know more, [read the FAQ](../about/faq.md#WhydoIhavetopickbetweenDockerandPowerShellforWindowsServerContainermanagement).
+> **注: ** PowerShell で作成された Windows コンテナーいない現在管理できます Docker と逆です。
+> PowerShell では、コンテナーを作成するを参照してください。  [クイック スタート:Windows Server のコンテナーと PowerShell](./manage_powershell.md)。
+> < br/>< br/> を詳細を知りたい場合 [読み取り、よく寄せられる質問](../about/faq.md#WhydoIhavetopickbetweenDockerandPowerShellforWindowsServerContainermanagement)。
 > 
 
-##Prerequisites
+##前提条件
 
-In order to complete this walkthrough the following items need to be in place.
+このチュートリアルを完了するのには、次の項目を適所に配置する必要があります。
 
-*   Windows Server 2016 TP3 or later configured with the Windows Server Container Feature.
-    If you have completed the setup guide, this is the VM that was created in Azure or Hyper-V.
-*   This system must be connected to a network and able to access the internet.
+*   Windows Server 2016 TP3 か、後で、Windows Server のコンテナーの機能を構成します。
+    セットアップ ガイドを完了したら、これが Azure または HYPER-V で作成された VM です。
+*   このシステムは、ネットワークに接続されていると、インターネットにアクセスすることである必要があります。
 
-If you need to configure the container feature, see the following guides: [Container Setup in Azure](./azure_setup.md) or [Container Setup in Hyper-V](./container_setup.md).
+コンテナーの機能を構成する必要がある場合は、次のガイドを参照してください。 [Azure でのコンテナーのセットアップ](./azure_setup.md) または [HYPER-V のコンテナーのセットアップ](./container_setup.md)。
 
-##Basic Container Management with Docker
+##Docker で基本的なコンテナーの管理
 
-This first example will walk through the basics of creating and removing Windows Server Containers and Windows Server Container Images with Docker.
+この最初の例は、作成および Windows Server のコンテナーと Docker での Windows サーバー コンテナーのイメージを削除するための基本事項について説明します。
 
-To begin the walk through, log into your Windows Server Container Host System, you will see a Windows command prompt.
+Windows Server のコンテナーのホスト システムにログを通じてウォークを開始するには、Windows のコマンド プロンプトが表示されます。
 
 !(media/cmd.png)
 
-Start a PowerShell session by typing `powershell`.
-You will know that you are in a PowerShell session when the prompt changes from `C:\directory>` to `PS C:\directory>`.
+」と入力して、PowerShell セッションを開始します。 `powershell`。
+プロンプトを変更するときに、PowerShell セッションであることがわかります `C:\directory>` で仮想ネットワーク アダプター `PS C:\directory>`。
 
 
 ```
@@ -47,11 +47,11 @@ PS C:\>
 ```
 
 
-> This quick start will be focused on Docker commands however some steps such as managing firewall rules and copying files will be run with PowerShell commands.
-> Work through this walkthrough from a PowerShell session.
+> このクイック スタートは、PowerShell コマンドを使用してファイアウォール ルールを管理して、ファイルのコピーなどのいくつかの手順を実行します。 ただし、Docker コマンドに注目が。
+> PowerShell セッションからには、このチュートリアルを使用します。
 > 
 
-Next make sure that your system has a valid IP Address using `ipconfig` and take note of this address for later use.
+次に、システムでは、有効な IP アドレスを使用して、持っていることを確認します。 `ipconfig` 後で使用するのには、このアドレスを書き留めます。
 
 
 ```
@@ -67,22 +67,22 @@ Ethernet adapter Ethernet 3:
 
 ```
 
-If you are working from an Azure VM instead of using `ipconfig` you will need to get the public IP address of the Azure Virtual Machine.
+使用せずに Azure の仮想マシンで作業している場合 `ipconfig` Azure の仮想マシンのパブリック IP アドレスを取得する必要があります。
 
 !(media/newazure9.png)
 
-###Step 1 - Create a New Container
+###手順 1 - 新しいコンテナーを作成します。
 
-Before creating a Windows Server Container with Docker you will need the name or ID of an exsisitng Windows Server Container image.
+Docker と Windows Server のコンテナーを作成する前に、名前または exsisitng サーバー コンテナーの Windows イメージの ID が必要です。
 
-To see all images loaded on the container host use the `docker images` command.
+使用してに、コンテナーのホストに読み込まれるイメージがすべて表示するには `docker images` コマンドなど) を指定します。
 
-``` PowerShell
-docker images
+'' PowerShell
+docker イメージ
 
-REPOSITORY          TAG                 IMAGE ID            CREATED             VIRTUAL SIZE
-windowsservercore   latest              9eca9231f4d4        30 hours ago        9.613 GB
-windowsservercore   10.0.10254.0        9eca9231f4d4        30 hours ago        9.613 GB
+リポジトリ タグ イメージ ID には仮想サイズが作成されました。
+windowsservercore 最新 9eca9231f4d4 30 時間前 9.613 GB
+windowsservercore 10.0.10254.0 9eca9231f4d4 30 時間前 9.613 GB
 
 
 ```
@@ -94,14 +94,14 @@ docker run -it --name dockerdemo windowsservercore cmd
 
 ```
 
-When the command completes you will be working in a console session on the container.
+コマンドの完了時に、処理するコンソール セッションで、コンテナーにします。
 
-Working in a container is almost identical to working with Windows installed on a virtual or physical machine.
-You can run commands such as `ipconfig` to return the IP address of the container, `mkdir` to create a new directory, or `powershell` to start a PowerShell session.
-Go ahead and make a change to the container such as creating a file or folder.
-For example, the following command will create a file which contains network configuration data about the container.
+コンテナーでの作業は、仮想または物理コンピューターにインストールされているウィンドウの操作とほぼ同じです。
+などのコマンドを実行することができます。 `ipconfig` コンテナー内の IP アドレスを返す `mkdir` 新しいディレクトリを作成するか、 `powershell` PowerShell セッションを開始します。
+ファイルまたはフォルダーの作成などのコンテナーを変更してください。
+たとえば、次のコマンドでは、コンテナーに関するネットワーク構成データを格納するファイルが作成されます。
 
-``` PowerShell
+'' PowerShell
 ipconfig > c:\ipconfig.txt
 
 
@@ -122,9 +122,9 @@ Ethernet adapter vEthernet (Virtual Switch-94a3e12ad262b3059e08edc4d48fca3c8390e
 
 ```
 
-Now that the container has been modified, run the following to stop the console session placing you back in the console session of the container host.
+コンテナーを変更すると、これでは、バックアップを作成するコンテナーのホストのコンソール セッションに配置するコンソール セッションを停止するのには、次を実行します。
 
-``` PowerShell
+'' PowerShell
 exit
 
 
@@ -141,16 +141,16 @@ CONTAINER ID        IMAGE               COMMAND        CREATED             STATU
 ```
 
 
-###Step 2 - Create a New Container Image
+###手順 2 - 新しいコンテナーのイメージを作成します。
 
-An image can now be made from this container.
-This image will behave like a snapshot of the container and can be re-deployed many times.
+このコンテナーから、イメージを行うようになりましたことができます。
+このイメージは、コンテナーのスナップショットのように動作し、再展開できます何度もします。
 
-To create a new image run the following.
-This command instructs the Docker engine to create a new image named 'newcontainerimage' that will include all changes made to the 'deckerdemo' container.
+次のコマンド実行の新しいイメージを作成します。
+このコマンドは、'newcontainerimage'、'deckerdemo' コンテナーに加えられたすべての変更に含まれるという名前の新しいイメージを作成するには、Docker エンジンに指示します。
 
-``` PowerShell
-docker commit dockerdemo newcontainerimage
+'' PowerShell
+docker コミット dockerdemo newcontainerimage
 
 
 ```
@@ -168,12 +168,12 @@ windowsservercore   10.0.10254.0        9eca9231f4d4        30 hours ago        
 ```
 
 
-###Step 3 - Create New Container From Image
+###ステップ 3 - イメージから新しいコンテナーを作成します。
 
-Now that you have a custom container image, deploy a new container named 'newcontainer' from 'newcontainerimage' and open an interactive shell session with the container.
+コンテナーのカスタム イメージがある場合は、これでは、'newcontainerimage' から '新しい' がコンテナーをという名前の新しいコンテナーを展開し、コンテナーに、対話型シェル セッションを開きます。
 
-``` PowerShell
-docker run –it --name newcontainer newcontainerimage cmd
+'' PowerShell
+実行するには – docker その名前の新しいコンテナー newcontainerimage cmd
 
 
 ```
@@ -189,17 +189,17 @@ exit
 
 ```
 
-This exercise has shown that an image taken from a modified container will include all modifications.
-While the example here was a simple file modification, the same would apply if you were to install software into the container such as a web server.
-Using these methods, custom images can be created that will deploy application ready containers.
+ここでは、変更されたコンテナーから取得したイメージのすべての変更が含まれる説明しました。
+次の例では、単純なファイルの変更でしたが、web サーバーなどのコンテナー内にソフトウェアをインストールした場合は、同じ適用されます。
+これらのメソッドを使用して、カスタム イメージを作成できますが、アプリケーションの準備完了のコンテナーを展開します。
 
-###Step 4 - Remove Containers and Images
+###手順 4.-コンテナーを削除して、イメージ
 
-To remove a container after it is no longer needed use the `docker rm` command.
-The following command will remove the container name 'newcontainer'.
+不要になった後に、コンテナーを削除するを使用するために必要な `docker rm` コマンドなど) を指定します。
+次のコマンドでは、コンテナー名 '新しいコンテナー' が削除されます。
 
-``` PowerShell
-docker rm newcontainer
+'' PowerShell
+docker rm の新しいコンテナー
 
 
 ```
@@ -215,21 +215,21 @@ Deleted: 4f8ebcf0a334601e75070a92294d993b0f182abb6f4c88740c75b05093e6acff
 ```
 
 
-##Host a Web Server in a Container
+##コンテナー内の Web サーバーをホストします。
 
-This next example will demonstrate a more practical use case for Windows Server Containers.
-The steps included in this exercise will guide you through creating a web server container image that can be used for deploying web applications hosted inside of a Windows Server Container.
+次の例では、Windows Server のコンテナーのより実用的な使用例を示します。
+この演習では含まれている手順で Windows Server のコンテナー内でホストされる web アプリケーションを展開するために使用できる web サーバー コンテナーのイメージを作成する手順を説明します。
 
-###Step 1 - Download Web Server Software
+###ステップ 1 - Web サーバーのソフトウェアのダウンロード
 
-Before creating a container image the web server software will need to be downloaded and staged on the container host.
-We will be using the nginx for Windows software for this example.
-**Note** that this step will require the container host to be connected to the internet.
-If this step produces a connectivity or name resolution error check the network configuration of the container host.
+Web コンテナーのイメージを作成する前に、サーバー ソフトウェアは、ダウンロードして、コンテナーのホストで事前設定する必要があります。
+私たちに使用する、nginx この例については、Windows ソフトウェア。
+**注意** この手順には、インターネットに接続するコンテナーのホストが必要です。
+この手順を生成した場合、接続、または名前の解決エラーは、コンテナーのホストのネットワーク構成を確認します。
 
-Run the following command on the container host to create the directory structure that will be used for this example.
+この例で使用されるディレクトリ構造を作成するコンテナーのホスト上には、次のコマンドを実行します。
 
-``` PowerShell
+'' PowerShell
 mkdir c:\build\nginx\source
 
 
@@ -242,10 +242,10 @@ wget -uri 'http://nginx.org/download/nginx-1.9.3.zip' -OutFile "c:\nginx-1.9.3.z
 
 ```
 
-Finally the following command will extract the nginx software to 'C:\build\nginx\source'.
+最後に、次のコマンドでは、'C:\build\nginx\source' nginx ソフトウェアが抽出されます。
 
-``` PowerShell
-Expand-Archive -Path C:\nginx-1.9.3.zip -DestinationPath C:\build\nginx\source -Force
+'' PowerShell
+[アーカイブ-パス C:\nginx-1.9.3.zip-destinationpath C:\build\nginx\source の強制
 
 
 ```
@@ -261,7 +261,7 @@ new-item -Type File c:\build\nginx\dockerfile
 
 ```
 
-Open the dockerfile with notepad.
+メモ帳で、dockerfile を開きます。
 
 
 ```
@@ -269,12 +269,12 @@ notepad.exe c:\build\nginx\dockerfile
 
 ```
 
-Copy and paste the following text into notepad, save the file and close notepad.
+コピーし、次のテキストをメモ帳を閉じる、ファイルの保存、メモ帳に貼り付けます。
 
-``` PowerShell
-FROM windowsservercore
-LABEL Description="nginx For Windows" Vendor="nginx" Version="1.9.3"
-ADD source /nginx
+'' PowerShell
+Windowsservercore から
+ラベルの説明 ="Windows nginx"ベンダー ="nginx"バージョン =「1.9.3」
+ソース/nginx を追加します。
 
 
 ```
@@ -287,22 +287,22 @@ docker build -t nginx_windows C:\build\nginx
 
 ```
 
-This command instructs the docker engine to use the dockerfile located at `C:\build\nginx` to create an image named 'nginx_windows'.
+このコマンドが、docker のエンジンにある dockerfile を使用するように指示します。 `C:\build\nginx` 'nginx_windows' をという名前のイメージを作成します。
 
-The output will look similar to this:
+出力は、次のようになります。
 
 !(media/docker1.png)
 
-When completed, take a look at the images on the host using the `docker images` command.
-You should see a new image named 'nginx_windows'.
-``` PowerShell
-docker images
+完了したらを見て、イメージを使用してホストで、 `docker images` コマンドなど) を指定します。
+'Nginx_windows' という名前の新しいイメージを表示する必要があります。
+'' PowerShell
+docker イメージ
 
-REPOSITORY          TAG                 IMAGE ID            CREATED             VIRTUAL SIZE
+リポジトリ タグ イメージ ID には仮想サイズが作成されました。
 
-nginx_windows       latest              d792268338d0        5 seconds ago       9.613 GB
-windowsservercore   10.0.10254.0        9eca9231f4d4        35 hours ago        9.613 GB
-windowsservercore   latest              9eca9231f4d4        35 hours ago        9.613 GB
+nginx_windows 最新 d792268338d0 5 秒前 9.613 GB
+windowsservercore 10.0.10254.0 9eca9231f4d4 35 時間前 9.613 GB
+windowsservercore 最新 9eca9231f4d4 35 時間前 9.613 GB
 
 
 ```
@@ -317,17 +317,17 @@ if (!(Get-NetFirewallRule | where {$_.Name -eq "TCP80"})) {
 
 ```
 
-Next if you are working from Azure and have not already created a Virtual Machine endpoint you will need to create one now.
-For more information on Azure VM Endpoints see this article: [Set up Azure VM Endpoints](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-set-up-endpoints/).
+次に Azure から作業しているし、仮想マシンのエンドポイントにまだ作成していない場合には、ここで作成する必要があります。
+Azure VM のエンドポイントの詳細については、この記事を参照してください。 [Azure の仮想マシンのエンドポイントをセットアップします。](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-set-up-endpoints/)。
 
-###Step 4 - Deploy Web Server Ready Container
+###手順 4 - Web サーバーの準備完了のコンテナーを展開します。
 
-To deploy a Windows Server Container based off of the 'nginx_windows' container run the following command.
-This will create a new container named 'nginxcontainer' and start an console session on the container.
-The –p 80:80 portion of this command creates a port mapping between port 80 on the host to port 80 on the container.
+'Nginx_windows' に基づく Windows Server のコンテナーを展開するのには、コンテナーは、次のコマンドを実行します。
+'Nginxcontainer' という名前の新しいコンテナーを作成、コンテナーでコンソール セッションを開始します。
+このコマンドの – p 80:80 部分では、コンテナーのポート 80 へのホスト上のポート 80 の間のポート マッピングを作成します。
 
-``` powershell
-docker run -it --name nginxcontainer -p 80:80 nginx_windows cmd
+'' powershell
+実行 - docker その名前 nginxcontainer-p 80:80 nginx_windows cmd
 
 
 ```
@@ -338,9 +338,9 @@ cd c:\nginx\nginx-1.9.3
 
 ```
 
-Start the nginx web server.
-``` powershell
-start nginx
+Nginx の web サーバーを起動します。
+'' powershell
+nginx を開始します。
 
 
 ```
@@ -359,29 +359,29 @@ powershell wget -uri 'https://raw.githubusercontent.com/Microsoft/Virtualization
 
 ```
 
-After the website has been updated, navigate back to `http://containerhost-ipaddress`.
+Web サイトが更新された後の移動します。 `http://containerhost-ipaddress`。
 
 !(media/hello.png)
 
-> **Note:** If you would like to change the Docker Daemon settings (such as to change the port it listens to, to connect to a container remotely), you will need to edit the file "C:\ProgramData\docker\runDockerDaemon.cmd" in the container, and then you will need to restart the service with PowerShell, using `Restart-Service docker`.
+> **注: ** 使用して (がリッスンするポートを変更するか、コンテナーにリモート接続するなど) Docker デーモンの設定を変更するには、コンテナーにファイル"C:\ProgramData\docker\runDockerDaemon.cmd"を編集する必要があります、および PowerShell を使用したサービスを再起動する必要がある場合。 `Restart-Service docker`。
 > 
 
-##Video Walkthrough
+##ビデオ チュートリアル
 
 <iframe src="https://channel9.msdn.com/Blogs/containers/Quick-Start-Deploying-and-Managing-Windows-Server-Containers-with-Docker/player" width="800" height="450" allowFullScreen="true" frameBorder="0" scrolling="no" caps_internal_Id="cf847b1f-7a69-4ace-b7f2-643f4b26d875" />
 
-##Next Steps
+##次の手順
 
-Now that you have containers set up and an introduction to the tools, go build your own containerized apps.
+コンテナーを設定し、ツールの概要がある場合は、これでは、コンテナー化、独自のアプリの構築を参照してください。
 
-Remember, this is a **preview** there are bugs and we have a lot of work in progress.
-[This page](../about/work_in_progress.md) contains many of our known issues.
+ただし、これは、 **プレビュー** バグがあるし、多数の進行中の作業があります。
+[このページ](../about/work_in_progress.md) 既知の問題の多くが含まれます。
 
-Be aware that there are some known Docker commands that [don't work](../about/work_in_progress.md#DockermanagementDockercommandsthatdontworkwithWindowsServerContainers) and some that only [partially work](../about/work_in_progress.md#DockermanagementDockercommandsthatpartiallyworkwithWindowsServerContainers)
+いくつかの既知の Docker コマンド、注意してください。 [機能しません。](../about/work_in_progress.md#DockermanagementDockercommandsthatdontworkwithWindowsServerContainers) いくつかのみです。 [部分的に作業します。](../about/work_in_progress.md#DockermanagementDockercommandsthatpartiallyworkwithWindowsServerContainers)
 
-We are also monitoring the [forums](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowscontainers) very closely.
+監視も、 [フォーラム](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowscontainers) 非常に密接にします。
 
-There are also pre-made samples on [GitHub](https://github.com/Microsoft/Virtualization-Documentation/tree/master/windows-server-container-samples).
+上にあるも作成済みのサンプル [GitHub](https://github.com/Microsoft/Virtualization-Documentation/tree/master/windows-server-container-samples)。
 
 -----------------------------------
 [Back to Container Home](../containers_welcome.md)   

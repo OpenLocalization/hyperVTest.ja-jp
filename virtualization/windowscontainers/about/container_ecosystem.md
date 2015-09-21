@@ -1,42 +1,42 @@
-ms.ContentId: fbd49f81-b6cb-4030-9296-413d68a9428f
-title: Container Ecosystem
+ms。ContentId: fbd49f81-b6cb-4030-9296-413d68a9428f
+タイトル:コンテナーのエコシステム
 
-#Building a Container Ecosystem
+#コンテナーのエコシステムを構築します。
 
-To understand why building a container ecosystem is so important, let's first talk about Docker.
+コンテナーのエコシステムを構築が非常に重要な理由については、説明しましょう。 まず Docker です。
 
-##Docker’s Appeal
+##Docker の魅力
 
-The concept of containers (namespace isolation and resource governance) has been around for a long time, going back to BSD Jails, Solaris Zones and the basic UNIX chroot (change root) mechanism.
-What Docker has done is provide a common toolset, packaging model, and deployment mechanism.
-By doing so, Docker greatly simplified the containerization and distribution of applications.
-Those applications can then run anywhere on any Linux host, a capability we're providing on Windows as well.
+コンテナー (名前空間の分離とリソース管理) の概念が経ちましたが、長時間 BSD の途中、Solaris ゾーンおよび UNIX chroot (ルートを変更する) の基本的なメカニズムに戻されることです。
+行った Docker は、共通のツールセット、モデルのパッケージ化、および配置メカニズムを提供します。
+これにより、Docker 大幅に簡略化、コンテナリゼーションとアプリケーションの配布します。
+これらのアプリケーションで任意の Windows でも提供しています。 機能 Linux ホストは、どこにでも実行できます。
 
-This ubiquitous technology not only simplifies management by offering the same management commands against any host, it also creates a unique opportunity for seamless DevOps.
+この一般的なテクノロジは、任意のホストに対して、同じ管理コマンドを提供することにより管理を合理化するだけでなく、シームレスな DevOps の貴重な機会も作成されます。
 
-From a developer’s desktop to a testing machine to a set of production machines, a Docker image can be created that will deploy identically across any environment in seconds.
-This story has created a massive and growing ecosystem of applications packaged in Docker containers, with DockerHub, the public containerized-application registry that Docker maintains.
+テスト マシンを一連の実稼働コンピューターの場合は、任意の環境全体にわたる秒単位で同じ展開は Docker のイメージを作成することができます開発者のデスクトップから。
+この話は、大規模なが作成され、Docker を保持する、パブリック コンテナー詰めアプリケーション レジストリ DockerHub を使用して、Docker コンテナーでパッケージ化するアプリケーションのエコシステムを拡大します。
 
-Docker provides a great foundation for development.
+Docker では、開発のための優れた基盤を提供します。
 
-Now let's talk about that ecosystem of applications and how you can build on Docker concepts to create a development and deployment workflow suited to your needs.
+これで、アプリケーションのエコシステムについて説明し、開発と展開のワークフローを作成する Docker 概念を構築する方法が、ニーズに合ったしましょう。
 
-##Components in a container ecosystem
+##コンテナーのエコシステム内のコンポーネント
 
-Windows Server Containers are a key component of a large container ecosystem.
-We’re working across the industry to deliver developer choice at each layer of the solution stack.
+Windows Server のコンテナーは、コンテナーの大規模なエコシステムの重要なコンポーネントです。
+ソリューション スタックの各レイヤーにおいて開発者の選択肢を提供する業界全体にわたって取り組んでいます。
 
-The container ecosystem provides ways to manage containers, share containers and develop apps that run in containers.
+コンテナーのエコシステムでは、コンテナーの管理、コンテナーの共有、およびコンテナーで実行されるアプリケーションを開発する方法を提供します。
 
 !(media/containerEcosystem.png)
 
-Microsoft wants to empower developer choice and productivity as they build these next-gen apps.
-Our goal is to fuel developer productivity which means enabling applications to target any Microsoft cloud without having to modify, rewrite, or reconfigure code.
+Microsoft は、これらの次世代のアプリを構築すると、開発者の選択肢と生産性を高めるしようとしました。
+この記事の目的では、変更、書き換える、またはコードを再構成することがなく、Microsoft のクラウドを対象とするアプリケーションを有効にするには、燃料開発者の生産性です。
 
-Microsoft is committed to being open and ecosystem friendly.
-We actively support the coming together of multiple developer ecosystems of interest – such as Windows and Linux – to drive innovation.
+マイクロソフトで開くと表示のエコシステムに努めています。
+– Windows と Linux – などに役立つ革新の開発者のエコシステムを複数の同時受信積極的にサポートされています。
 
-Over the coming months, we will be providing more information about additional partners in this developing ecosystem.
+今後数か月、経由お提供する詳細については、この開発のエコシステムでパートナーを追加します。
 
 -------------------
 [Back to Container Home](../containers_welcome.md)

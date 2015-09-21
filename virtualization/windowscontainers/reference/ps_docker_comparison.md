@@ -1,32 +1,32 @@
-ms.ContentId: 4981828d-1a08-4d8c-a99d-874a926a153f
-title: PowerShell to Docker Comparison
+ms。ContentId:4981828d-1a08-4d8c-a99d-874a926a153f
+タイトル:PowerShell Docker 比較する
 
-#PowerShell to Docker comparison for managing Windows Server Containers
+#PowerShell と Windows Server のコンテナーを管理するための Docker 比較
 
-There are many ways to manage Windows Server Containers using both in-box Windows tools (PowerShell, in this preview) and Open Source management tools such as Docker.
-Guides outlining both individually available here:
+インボックス Windows ツール (このプレビューでは、PowerShell) と Docker などのオープン ソースの管理ツールの両方を使用して Windows Server のコンテナーの管理に多くの方法はあります。
+ここではアウトラインの両方を個別に使用可能なガイド:
 
-*   [Manage Windows Server Containers with Docker](../quick_start/manage_docker.md)
-*   [Manage Windows Server Containers with PowerShell](../quick_start/manage_powershell.md)
+*   [Docker と Windows Server のコンテナーを管理します。](../quick_start/manage_docker.md)
+*   [PowerShell を使用した Windows Server のコンテナーを管理します。](../quick_start/manage_powershell.md)
 
-This page is a more in depth reference comparing the Docker tools and PowerShell management tools.
+このページでは、Docker ツールと PowerShell 管理ツールの比較の深さの参照になります。
 
-##PowerShell for containers versus Hyper-V VMs
+##HYPER-V Vm とコンテナー用 PowerShell
 
-You can create, run, and interact with Windows Server Containers using PowerShell cmdlets.
-Everything you need to get going is available in-box.
+作成し、実行、および PowerShell コマンドレットを使用して Windows Server のコンテナーと対話できます。
+開始するに必要なすべては、ボックス内の利用可能なです。
 
-If you’ve used Hyper-V PowerShell, the design of the cmdlets should be pretty familiar to you.
-A lot of the workflow is similar to how you’d manage a virtual machine using the Hyper-V module.
-Instead of `New-VM`, `Get-VM`, `Start-VM`, `Stop-VM`, you have `New-Container`, `Get-Container`, `Start-Container`, `Stop-Container`.
-There are quite a few container-specific cmdlets and parameters, but the general lifecycle and management of a Windows container looks roughly like that of a Hyper-V VM.
+PowerShell の HYPER-V を使用した場合、コマンドレットの設計がよく知っている場合があります。
+ワークフローの多くは、HYPER-V モジュールを使用して、仮想マシンを管理する方法に似ています。
+代わりに `New-VM`, `Get-VM`, `Start-VM`, `Stop-VM`、があります。 `New-Container`, `Get-Container`, `Start-Container`, `Stop-Container`。
+多くのコンテナーに固有のコマンドレットとパラメーターが、全般的なライフ サイクルがあるし、Windows コンテナーの管理は、HYPER-V の仮想マシンの場合と同様にほぼ探します。
 
-##How does PowerShell management compare to Docker?
+##PowerShell 管理は Docker にどのような比較をするでしょうか。
 
-The Containers PowerShell cmdlets expose an API that isn’t quite the same as Docker's; as a general rule, the cmdlets are more granular in operation.
-Some Docker commands have pretty straightforward parallels in PowerShell:
+Docker の; とまったく同じではない API を公開する、コンテナーの PowerShell コマンドレット一般的な規則として、コマンドレットは、さらに詳細に操作します。
+Docker のいくつかのコマンドでは、PowerShell で緯線の非常に簡単ですがあります。
 
-| Docker command| PowerShell Cmdlet|
+| Docker コマンド| PowerShell コマンドレット|
 |----|----|
 | `docker ps -a`| `Get-Container`|
 | `docker images`| `Get-ContainerImage`|
@@ -38,161 +38,161 @@ Some Docker commands have pretty straightforward parallels in PowerShell:
 | `docker save`| `Export-ContainerImage`|
 | `docker start`| `Start-Container`|
 | `docker stop`| `Stop-Container`|
-The PowerShell cmdlets are not an exact perfect parity, and there are a fair number of commands that we’re not providing PowerShell replacements for* (notably `docker build` and `docker cp`).
-But what might leap out at you is that there’s no single one-line replacement for `docker run`.
+PowerShell コマンドレットは、正確な完璧なパリティの場合ではないとは、かなり多くのコマンド用の PowerShell の置換が提供されていないことを * (特に `docker build` 」と「 `docker cp`).
+1 つの代わりに 1 行がないことにはどのような場合がありますに留まりますが、 `docker run`。
 
-\* Subject to change.
+\ * 変更される可能性があります。
 
-###But I need docker run! What’s going on?
+###Docker 必要がありますが、実行します。 何が起こっているでしょうか。
 
-We’re doing a couple things here to provide a slightly more familiar interaction model for users who know their way around PowerShell already.
-Of course, if you’re used to the way docker operates, this will be a bit of a mental shift.
+PowerShell には、その方法を既に知っているユーザーに若干の他の一般的な対話モデルを提供する次の点をここで行ってきました。
+もちろん、docker の動作に慣れて、これは少し観念の移行のなります。
 
-1.  The lifecycle of a container in the PowerShell model is slightly different.
-    In the Containers PowerShell module, we expose the more granular operations of `New-Container` (which creates a new container that’s stopped) and `Start-Container`.
+1.  PowerShell のモデルのコンテナーのライフ サイクルは若干異なります。
+    コンテナーの PowerShell モジュールでは、公開のより詳細な操作 `New-Container` (が停止するための新しいコンテナーを作成する) と `Start-Container`。
     
-    In between creating and starting the container, you can also configure the container’s settings; for TP3, the only other configuration we’re planning to expose is the ability to set the network connection for the container.
-    using the (Add/Remove/Connect/Disconnect/Get/Set)-ContainerNetworkAdapter cmdlets.
-2.  You can’t currently pass a command to be run inside the container on start. However, you can still get an interactive PowerShell session to a running container using `Enter-PSSession -ContainerId <ID of a running container>`, and you can execute a command inside a running container using `Invoke-Command -ContainerId <container id> -ScriptBlock { code to run inside the container }` or `Invoke-Command -ContainerId <container id> -FilePath <path to script>`.  
-    Both of these commands allow the optional `-RunAsAdministrator` flag for high privilige actions.  
+    作成して、コンテナーの開始、間に、コンテナーの設定を構成することもTP3、コンテナーのネットワーク接続を設定する機能は、その他の構成のみを公開することを計画してです。
+    (追加/削除/接続/切断/取得/設定) を使用して-ContainerNetworkAdapter コマンドレットです。
+2.  現在、コンテナー内の起動時に実行するコマンドを渡すことはできません。 ただし、実行されているコンテナーを使用して、対話型の PowerShell セッションを取得できますも `Enter-PSSession -ContainerId <ID of a running container>`を使用して実行されているコンテナー内のコマンドを実行して `Invoke-Command -ContainerId <container id> -ScriptBlock { code to run inside the container }` または `Invoke-Command -ContainerId <container id> -FilePath <path to script>`。  
+    これらのコマンドのどちらも省略可能なします。 `-RunAsAdministrator` 高 privilige アクションのフラグです。  
 
-##Caveats and known issues
+##注意事項と既知の問題
 
-1.  Right now, the Containers cmdlets have no knowledge about any containers or images created through Docker, and Docker does not know anything about containers and images created through the PowerShell.
-    If you created it in Docker, manage it with Docker; if you created it through PowerShell, manage it through PowerShell.
-2.  We have quite a bit of work we'd like to do to improve the end user experience -- better error messages, better progress reporting, invalid event strings, and so forth.
-    If you happen to run into a situation where you wish you were getting more or better info, please feel free to send suggestions to the forums.
+1.  現在、コンテナーのコマンドレットを使用しないため、コンテナーまたは Docker、によって作成されたイメージに関するに関する知識を持って Docker が認識していないすべてのコンテナーとイメージ、PowerShell を使用して作成します。
+    Docker 内で作成した場合は Docker; で管理します。powershell で作成した場合は、PowerShell を使って管理します。
+2.  多くの作業をエラー メッセージの向上より優れた進行状況レポート、無効なイベント文字列、およびなど--、エンド ユーザー エクスペリエンスを向上させるために必要があります。
+    状況の詳細を受け取っている場合に実行した場合や、情報の向上、ご自由にフォーラムをご提案を送信します。
 
-##A quick runthrough
+##クイック runthrough
 
-Here is a walk through of some common workflows.
+ここでは、いくつかの一般的なワークフローの説明です。
 
-This assumes you've installed an OS container image named "ServerDatacenterCore" and created a virtual switch named "Virtual Switch" (using New-VMSwitch).
+これには、"ServerDatacenterCore"という名前の OS コンテナー イメージをインストールし、「仮想スイッチ」(New-vmswitch を使用) という名前の仮想スイッチを作成したと仮定しています。
 
-``` PowerShell
+'' PowerShell
 
-###1. Enumerating images
+###1.イメージを列挙します。
 
-#At this point, you can enumerate the images on the system:
+#この時点で、システム上のイメージを列挙できます。
 
-Get-ContainerImage
+Get ContainerImage
 
-#Get-ContainerImage also accepts filters.
+#Get ContainerImage では、フィルターも受け入れます。
 
-#For example, this will return all container images whose Name starts with S (case-insensitive):
+#たとえば、S が小文字で始まる名前を持つすべてのコンテナーのイメージを返します。
 
-Get-ContainerImage -Name S*
+Get ContainerImage-名前 S *
 
-#You can save the results of this to a variable.
+#この結果は、変数に保存できます。
 
-#(If you're not familiar with PowerShell, the "$" denotes a variable.)
+#(PowerShell に慣れていない場合は、「$」変数を表します。)
 
-$baseImage = Get-ContainerImage -Name ServerDatacenterCore
+$baseImage = get ContainerImage-名前 ServerDatacenterCore
 $baseImage
 
-###2. Creating and enumerating containers
+###2.作成して、コンテナーの列挙
 
-#Now, we can create a new container using this image:
+#ここで、このイメージを使用して、新しいコンテナーを作成できます。
 
-New-Container -Name "MyContainer" -ContainerImage $baseImage -SwitchName "Virtual Switch"
+新しいコンテナーの名前"MyContainer"ContainerImage $baseImage SwitchName「仮想スイッチ」
 
-#Now we can enumerate all containers.
+#これですべてのコンテナーを列挙することができます。
 
-Get-Container
+Get コンテナー
 
-#Similarly, we can save this container to a variable:
+#同様に、このコンテナーを変数に保存します。
 
-$container1 = Get-Container -Name "MyContainer"
+$container1 = Get コンテナー-"MyContainer"という名前を
 
-###3. Starting containers, interacting with running containers, and stopping containers
+###3.コンテナーでは、コンテナーを実行していると、コンテナーの停止との対話を開始します。
 
-#Now let's go ahead and start the container.
+#これで、コンテナーを開始してみましょう。
 
-Start-Container -Name "MyContainer"
+開始コンテナーの名前を「MyContainer」
 
-#(We could've also started this container using "Start-Container -Container $container1".)
+#(私たちでしたも開始したこのコンテナーを使用して"開始コンテナーのコンテナー ドル container1"です)。
 
-#With the container now running, let's go ahead and enter an interactive PowerShell session:
+#現在実行中、コンテナーでは、先に進んでし、対話型の PowerShell セッションを入力します。
 
-Enter-PSSession -ContainerId $container1.Id
+入力 PSSession-ContainerId $ container1 します。Id
 
-#This should eventually bring up a PowerShell prompt from inside the container.
+#これが、コンテナーの内部からの PowerShell プロンプトを最終的に表示されます。
 
-#You can try all the things that you did in the interactive cmd prompt given by "docker run -it".
+#指定された対話型のコマンド プロンプトで行ったすべての処理を試すことができます"の実行 - docker こと"です。
 
-#For now, just to prove we've been here, we can create a new file:
+#ここでは、経験を証明するためにここでは、新しいファイルを作成できます。
 
 cd \
-mkdir Test
-cd Test
-echo "hello world" > hello.txt
+mkdir テスト
+cd のテスト
+エコー"hello world"> hello.txt
 exit
 
-#Now we should be back in the outside world. Even though we've exited the PowerShell session,
+#これで、外部の世界に戻っておにする必要があります。 にもかかわらず終了後に、PowerShell セッションでは、
 
-#the container itself is still running, as you can see by printing out the container again:
+#コンテナー自体がまだ実行中、ように、コンテナーにもう一度出力を確認できます。
 
-$container1
+container1 ドル
 
-#Before we can commit this container to a new image, we need to stop the container.
+#新しいイメージには、このコンテナーをコミットすることが、前に、コンテナーを停止する必要があります。
 
-#Let's do that now.
+#今すぐに操作してみましょう。
 
-Stop-Container -Container $container1
+コンテナーに停止コンテナー container1 ドル
 
-###4. Creating a new container image
+###4.新しいコンテナーのイメージを作成します。
 
-#And now let's commit it to a new image.
+#新しいイメージにコミットしてみましょう。
 
-$image1 = New-ContainerImage -Container $container1 -Publisher Test -Name Image1 -Version 1.0
+$image1 = ContainerImage で新しい-コンテナー ドル container1-パブリッシャーは、次のテスト: Image1 という名前を-バージョン 1.0
 
-#Enumerate all the images again, for sanity's sake:
+#正当性のためにここでも、すべてのイメージを列挙します。
 
-Get-ContainerImage
+Get ContainerImage
 
-#Rinse and repeat! Make another container based on the new image.
+#例を繰り返します。 新しいイメージに基づいて別のコンテナーを確認します。
 
-$container2 = New-Container -Name "MySecondContainer" -ContainerImage $image1 -SwitchName "Virtual Switch"
+ドル container2 = 新しいコンテナーの名前を「仮想スイッチ」を"MySecondContainer"- ContainerImage ドル image1 SwitchName
 
-#(If you like, you can start the second container and verify that the new file
+#(必要な場合は、2 つ目のコンテナーを開始していることを確認、新しいファイル
 
-#"\Test\hello.txt" is there as expected.)
+#"\Test\hello.txt"は予期したとおり) です。
 
-###5. Removing a container
+###5.コンテナーの削除
 
-#The first container we created is now stopped. Let's get rid of it:
+#作成した最初のコンテナーが現在停止しています。 それではこれを取り除きます。
 
-Remove-Container -Container $container1
+削除するコンテナーのコンテナー container1 ドル
 
-#And confirm that it's gone:
+#それになったことを確認します。
 
-Get-Container
+Get コンテナー
 
-###6. Exporting, removing, and importing images
+###6.エクスポート、削除、および画像の読み込み
 
-#For images that aren't the base OS image, we can export them into an .appx package file.
+#イメージ ベースの OS イメージではないに、.appx パッケージ ファイルにエクスポートおできます。
 
-Export-ContainerImage -Image $image1 -Path "C:\exports"
+エクスポート ContainerImage-ドル image1 をイメージのパス"C:\exports"
 
-#This should create a .appx file in the C:\exports folder.
+#これにより、C:\exports フォルダーに .appx ファイルが作成する必要があります。
 
-#If you've given your image the same publisher, name, and version we used earlier,
+#以前では、使用して同じのパブリッシャー、名、およびバージョン、イメージを指定した場合
 
-#you'd expect the resulting .appx to be named "CN=Test_Image1_1.0.0.0.appx".
+#名前が返される結果の .appx お察し"CN = Test_Image1_1.0.0.0.appx"です。
 
-#Before we can try importing the image again, we need to remove the image.
+#イメージを再度インポートしよう、前に、イメージを削除する必要があります。
 
-#(If you have any running containers that depend on this image, you'll want to stop them first.)
+#(このイメージに依存する任意の実行中のコンテナーがある場合をする場合に最初に停止します。)
 
-Remove-ContainerImage -Image $image1
+削除 ContainerImage-image1 ドルの画像
 
-#Now let's import the image again:
+#これで、イメージをもう一度インポートしてみましょう。
 
-Import-ContainerImage -Path C:\exports\CN=Test_Image1_1.0.0.0.appx
+インポート ContainerImage-パス C:\exports\CN=Test_Image1_1.0.0.0.appx
 
-#We'd previously created a container dependent on this image. You should be able to start it:
+#お以前に作成したコンテナーこのイメージに依存します。 開始することができます。
 
-Start-Container -Container $container2 
+開始コンテナーのコンテナー container2 ドル 
 
 
 ```
@@ -231,13 +231,13 @@ function Run-Container ([string]$ContainerImageName, [string]$Name="fancy_name",
 
 ##Docker
 
-Windows Server Containers can be managed with Docker commands.
-While Windows containers should be comparable to their Linux counterparts and have the same management experience through Docker, there are some Docker commands that simply don't make sense with a Windows container.
-Others simply haven't been tested (we're getting there).
+Docker コマンドでは、Windows Server のコンテナーを管理できます。
+Docker を通じて Windows コンテナーが Linux 対応する比較を実行できるし、同じ管理する必要がありますが発生する、中には、意味のある単にない Windows コンテナーといくつかの Docker コマンド。
+他のユーザーだけではまだされてテスト (取得があります)。
 
-In an effort to not duplicate the API documentation available in Docker, here is a link to their management APIs.
-Their walkthroughs are fantastic.
+いない Docker で利用可能な API のドキュメントを複製するために、次に、管理 Api へのリンクを示します。
+そのチュートリアルではすばらしいです。
 
-We're tracking things that do and don't work in the Docker APIs in our Work in Progress document.
+いるものと、進行中の作業の文書の Docker Api では機能しない管理するいるとします。
 
 

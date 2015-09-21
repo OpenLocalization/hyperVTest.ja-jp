@@ -1,60 +1,60 @@
-ms.ContentId: 040B1B51-0F25-4295-B317-8CC4DE0A1AFF
-title: Export and import virtual machines
+ms。ContentId:040B1B51-0F25-4295-B317-8CC4DE0A1AFF
+タイトル:エクスポートおよび仮想マシンのインポート
 
 
-#Export and Import virtual machines
+#エクスポートとインポートの仮想マシン
 
-You can use the export and import functionality to quickly duplicate virtual machines or to move them from one host to another.
-You don't need to export a virtual machine to be able to import it.
-You can simply copy a virtual machine and its associated files to the new host, and then use the **Import Virtual Machine** wizard to specify the location of the files.
-This registers the virtual machine with Hyper-V and makes it available to be used.
+エクスポートを使用して、インポート機能を仮想マシンをすばやく複製またはから別のホストに移動したいできます。
+インポートすることができる仮想マシンをエクスポートする必要はありません。
+単に、新しいホストにバーチャル マシンとその関連ファイルをコピーして使用し、 **仮想マシンのインポート** ファイルの場所を指定するウィザード。
+これにより、hyper-v、仮想マシンを登録しするために使用できるようにします。
 
-##Export virtual machines
+##仮想マシンをエクスポートします。
 
-An easy way to prepare virtual machines to be imported is the **Export Virtual Machine** wizard.
+簡単な方法をインポートする仮想マシンを準備するのには、 **仮想マシンをエクスポートします。** ウィザード。
 
-1.  In Hyper-V Manager, select one or multiple virtual machines, right-click on your selection and select **Export**.
-2.  Click **Browse** in the dialog box and choose where you would like to put the exported VM(s) and then click **Select Folder**.
-3.  In the **Export Virtual Machine** dialog, click **Export**.
+1.  HYPER-V マネージャーでは、1 つまたは複数の仮想マシンを選択して、選択した項目を右クリックし、選択 **エクスポート**。
+2.  [ **参照** ダイアログ ボックスし、エクスポートされたことに留意を配置してからクリックをしたい場所を選択します。 **フォルダーを選択します。**。
+3.  「 **仮想マシンをエクスポートします。** ダイアログ ボックスで、をクリックして **エクスポート**。
 
-For information about using Windows PowerShell to export virtual machines, see [Export-VM](https://technet.microsoft.com/library/hh848491.aspx)
+Windows PowerShell を使用して、仮想マシンをエクスポートする方法の詳細については、次を参照してください。 [Export-VM](https://technet.microsoft.com/library/hh848491.aspx)
 
-##Import virtual machines
+##仮想マシンにインポートします。
 
-1.  In **Hyper-V Manager**, in the **Action** menu, click **Import Virtual Machine**.
-2.  In the Locate Folder section, click Browse and navigate to where the virtual machine files are located.
-    <!-- to check if this is resolved - this behavior is a bug from my perspective--> Please note that using the wizard you can import one VM at a time and have to select the VM's folder instead of the general export folder.
-    Click **Next** when finished.
-3.  Select the virtual machine to import and then click **Next**.
-4.  In the Choose Import Type section, you can choose how to import the virtual machine:
+1.  既定により、 **Hyper V マネージャー**、で、 **操作** メニューの **仮想マシンのインポート**。
+2.  [フォルダーの検索] セクションでは、[参照] をクリックし、バーチャル マシン ファイルがある場所に移動します。
+    <! - - 解決の場合、この動作は筆者の観点からバグを確認するウィザードを使用して、一度に 1 つの VM をインポートおよびできる一般的なエクスポート フォルダーではなく、VM のフォルダーを選択する必要があるに注意してください--> です。
+    [ **次へ** 完了するとします。
+3.  クリックして、インポートするには、仮想マシンを選択します。 **次へ**。
+4.  インポートの種類の選択] セクションでは、仮想マシンをインポートする方法を選択できます。
     
-    *   **Register** - Uses the existing unique ID of the virtual machine and registers it in-place.
-        Choose this option if the virtual machines files are already in the correct location.
-    *   **Restore** - Uses the original virtual machine’s unique ID and also copies the virtual machine files to the default location specified for the host.
-    *   **Copy** - Creates a new unique ID for the virtual machine and also copies the virtual machine files to the default location specified for the host.
-5.  After selecting how to import the VM, click **Next**.
-6.  In the Choose Destination section, you can choose where to store the files for the virtual machine or leave them in their current location.
-    When you are finished, click **Next**.
-7.  In Choose Storage folders, you can select another place to store the .vhdx file or leave them where they are.
-    When you are finished, click **Next**.
-8.  When you have finished importing the VM, you'll see the summary page describing where the new VM files are located.
+    *   **登録する** -仮想マシンの既存の一意の ID を使用して、インプレースを登録します。
+        仮想マシン ファイルが正しい場所に既に置かれている場合は、このオプションを選択します。
+    *   **復元** -元のバーチャル マシンの一意の ID を使用し、ホストの指定された既定の場所にも、バーチャル マシン ファイルをコピーします。
+    *   **コピー** -仮想マシンの新しい一意の ID を作成し、ホストの指定された既定の場所にも、バーチャル マシン ファイルをコピーします。
+5.  VM をインポートする方法を選択すると、次のようにクリックします。 **次へ**。
+6.  [場所の選択] セクションでは、仮想マシンのファイルを保存または、現在の場所のままにする場所を選択できます。
+    完了したら、次のように] をクリックします。 **次へ**。
+7.  記憶域の選択のフォルダーには、ここでは .vhdx ファイルを格納したり、それらのままにする別の場所を選択できます。
+    完了したら、次のように] をクリックします。 **次へ**。
+8.  VM のインポートが完了したらが新しい VM ファイルの場所を記述する、概要ページが表示されます。
 
-The Import Virtual Machine wizard also walks you through the steps of addressing incompatibilities when you import the virtual machine to the new host—so this wizard can help with configuration that is associated with physical hardware, such as memory, virtual switches, and virtual processors.
+仮想マシンのインポート ウィザードも手順について説明する新しいホストにバーチャル マシンをインポートする場合は、非互換性をアドレス指定のこのウィザードは、メモリ、仮想スイッチ、仮想プロセッサなどの物理ハードウェアに関連付けられている構成で使用できるようにします。
 
-To import a virtual machine, the wizard does the following:
+仮想マシンをインポートする場合、ウィザードによって次の手順が実行されます。
 
-1.  Creates a copy of the virtual machine configuration file.
-    This is done as a precaution in case an unexpected restart occurs on the host, such as from a power outage.
-2.  Validates hardware.
-    Information in the virtual machine configuration file is compared to hardware on the new host.
-3.  Compiles a list of errors.
-    This list identifies what needs to be reconfigured and determines which pages appear next in the wizard.
-4.  Displays the relevant pages, one category at a time.
-    The wizard explains each incompatibility to help you reconfigure the virtual machine so it is compatible with the new host.
-5.  Removes the copy of the configuration file.
-    After the wizard does this, the virtual machine is ready to be started.
+1.  仮想マシン構成ファイルのコピーを作成します。
+    これは、停電などにより、ホストで予期せず再起動が行われる場合の予防措置として行われます。
+2.  ハードウェアを検証します。
+    仮想マシンの構成ファイルの情報と新しいホストのハードウェアを比較します。
+3.  エラーの一覧を作成します。
+    この一覧には再構成が必要な項目が示されており、それによって次にウィザードに表示されるページが決まります。
+4.  関連性のページでは、一度に 1 つのカテゴリが表示されます。
+    ウィザードでは、新しいホストと互換性があるために、仮想マシンを再構成するための各非互換性について説明します。
+5.  構成ファイルのコピーを削除します。
+    この処理が完了すると、仮想マシンが起動可能な状態になります。
 
-In addition to the wizard, the Hyper-V module for Windows PowerShell includes cmdlets for importing virtual machines.
-For more information, see [Import-VM](https://technet.microsoft.com/library/hh848495.aspx).
+Windows PowerShell 用の Hyper-V モジュールには、ウィザードに加えて、仮想マシンをインポートするコマンドレットが用意されています。
+詳細については、このトピックの後半の「 [Import-VM](https://technet.microsoft.com/library/hh848495.aspx)。
 
 

@@ -1,17 +1,17 @@
-ms.ContentId: B9414110-BEFD-423F-9AD8-AFD5EE612CDA
-title: Step 8: Experiment with Windows PowerShell
+ms。ContentId:B9414110-BEFD-423F-9AD8-AFD5EE612CDA
+タイトル:手順 8:Windows PowerShell を使用したテストします。
 
-#Step 8: Experiment with Windows PowerShell
+#手順 8:Windows PowerShell を使用したテストします。
 
-Now that you have walked through the basics of deploying Hyper-V, creating virtual machines and managing these virtual machines, let’s explore how you can automate many of these activities with PowerShell.
+これで、HYPER-V を展開し、バーチャル マシンの作成および、これらの仮想マシンを管理するための基本事項を確認、PowerShell でこれらのアクティビティの多くを自動化する方法について説明します。
 
-###Return a list of Hyper-V commands
+###HYPER-V のコマンドの一覧を返します
 
-1.  Click on the Windows start button, type **PowerShell**.
-2.  Run the following command to display a searchable list of PowerShell commands available with the Hyper-V PowerShell Module.
+1.  [Windows の [スタート] ボタンの種類] をクリックします。 **PowerShell**。
+2.  PowerShell コマンドと、HYPER-V の PowerShell モジュールで利用可能な検索可能な一覧を表示するには、次のコマンドを実行します。
     
-    ```powershell
-    get-command –module hyper-v | out-gridview
+    '' powershell
+    get コマンドの場合 – モジュール hyper-v の概要 |アウト gridview
 
 
 ```
@@ -26,28 +26,28 @@ get-help get-vm
 
 ```
 
- The output shows you how to structure the command, what the required and optional parameters are, and the aliases that you can use.
+ 出力では、コマンド、必須およびオプションのパラメーターとは何か、および別名を使用することができますを構成する方法を示します。
 
 !(media\get_help.png)
 
-###Return a list of virtual machines
+###仮想マシンの一覧を返します
 
-Use the `get-vm` command to return a list of virtual machines.
+「 `get-vm` 仮想マシンの一覧を取得するコマンドです。
 
-1.  In PowerShell, run the following command:
+1.  PowerShell では、次のコマンドを実行します。
     
     `powershell
     get-vm
     `
-    This displays something like this:
+    これは、次のように何かが表示されます。
     
     !(media\get_vm.png)
-2.  To return a list of only powered on virtual machines add a filter to the `get-vm` command.
-    A filter can be added by using the where-object command.
-    For more information on filtering see the [Using the Where-Object](https://technet.microsoft.com/en-us/library/ee177028.aspx) documentation.
+2.  フィルターを追加するだけの電源投入時に仮想マシンの一覧を返すには `get-vm` コマンドなど) を指定します。
+    Where オブジェクトのコマンドを使用して、フィルターを追加できます。
+    フィルターの詳細については、次を参照してください、。 [は、Where-object を使用します。](https://technet.microsoft.com/en-us/library/ee177028.aspx) ドキュメントです。
     
-    ```powershell
-    get-vm | where {$_.State –eq ‘Running’}
+    '' powershell
+    get vm |ここで {$_ です。状態の – eq 'Running'}
 
 
  ```
@@ -59,12 +59,12 @@ Use the `get-vm` command to return a list of virtual machines.
  ```
 
 
-###Start and shut down virtual machines
+###起動し、仮想マシンをシャット ダウン
 
-1.  To start a particular virtual machine, run the following command with name of the virtual machine:
+1.  特定のバーチャル マシンを開始するには、仮想マシンの名前で、次のコマンドを実行します。
     
-    ```powershell
-    Start-vm –Name <virtual machine name>
+    '' powershell
+    仮想マシンの開始-名前 < 仮想マシン名 >
 
 
  ```
@@ -76,10 +76,10 @@ Use the `get-vm` command to return a list of virtual machines.
 
  ```
 
-1.  To shut down all running virtual machines, run this:
+1.  実行中のすべてのバーチャル マシンを停止するには、これを実行します。
     
-    ```powershell
-    get-vm | where {$_.State –eq ‘Running’} | stop-vm
+    '' powershell
+    get vm |ここで {$_ です。状態の – eq 'Running'}。仮想マシンの停止
 
 
  ```
@@ -93,39 +93,39 @@ To create a checkpoint using PowerShell, select the virtual machine using the `g
 
  ```
 
-For example, here is a checkpoint with the name DEMOCP:
+たとえば、チェックポイント DEMOCP という名前の次に示します。
 
 !(media\POSH_CP2.png)
 
-###Create a new virtual machine
+###新しい仮想マシンを作成する
 
-The following example shows how to create a new virtual machine in the PowerShell Integrated Scripting Environment (ISE).
-This is a simple example and could be expanded on to include additional PowerShell features and more advanced VM deployments.
+次の例では、PowerShell Integrated Scripting Environment (ISE) で、新しいバーチャル マシンを作成する方法を示します。
+これは、単純な例であり、PowerShell の機能を追加しより高度な VM の配置を対象に拡張することです。
 
-1.  To open the PowerShell ISE click on start, type **PowerShell ISE**.
-2.  Run the following code to create a virtual machine.
-    See the [New-VM](https://technet.microsoft.com/en-us/library/hh848537.aspx) documentation for detailed information on the New-VM command.
+1.  起動時に PowerShell ISE のクリックを開くには、次のように入力します。 **PowerShell ISE**。
+2.  仮想マシンを作成するには、次のコードを実行します。
+    参照してください、 [New-VM](https://technet.microsoft.com/en-us/library/hh848537.aspx) 詳細については、新規 VM のコマンドは、ドキュメントです。
     
-    ```powershell
-    $VMName = "VMNAME"
+    '' powershell
+    $VMName ="VMNAME"
     
     $VM = @{
-     Name = $VMName 
-     MemoryStartupBytes = 2147483648
-     Generation = 2
-     NewVHDPath = "C:\Virtual Machines\$VMName\$VMName.vhdx"
-     NewVHDSizeBytes = 53687091200
-     BootDevice = "VHD"
-     Path = "C:\Virtual Machines\$VMName "
-     SwitchName = (get-vmswitch).Name[0]
+    名前 = $VMName
+    MemoryStartupBytes 2147483648 を =
+    生成 = 2
+    NewVHDPath ="C:\Virtual Machines\$VMName\$VMName.vhdx"
+    NewVHDSizeBytes 53687091200 を =
+    一 ="VHD"
+    パス ="C:\Virtual Machines\$ VMName"
+    SwitchName = (get vmswitch)。名前 [0]
     }
     
-    New-VM @VM
+    新しい VM @VM
     ```
 
-##Wrap up and References
+##ラップし、参照
 
-This document has shown some simple steps to explorer the Hyper-V PowerShell module as well as some sample scenarios.
-For more information on the Hyper-V PowerShell module, see the [Hyper-V Cmdlets in Windows PowerShell reference](https://technet.microsoft.com/%5Clibrary/Hh848559.aspx).
+このドキュメントはいくつかのサンプル シナリオと同様に、HYPER-V の PowerShell モジュールに、エクスプ ローラーにいくつかの簡単な手順を説明しました。
+PowerShell HYPER-V モジュールの詳細については、次を参照してください、。 [Windows PowerShell での HYPER-V コマンドレットを参照します。](https://technet.microsoft.com/%5Clibrary/Hh848559.aspx)。
 
 

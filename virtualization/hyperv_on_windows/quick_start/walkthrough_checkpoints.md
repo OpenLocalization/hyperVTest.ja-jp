@@ -1,130 +1,130 @@
-ms.ContentId: FBBAADE6-F1A1-4B5C-8FD2-BDCA3FCF81CA
-title: Step 6: Experiment with checkpoints
+ms。ContentId:FBBAADE6-F1A1-4B5C-8FD2-BDCA3FCF81CA
+タイトル:手順 6:チェックポイントを使用して試してみる
 
-#Step 6: Experiment with checkpoints
+#手順 6:チェックポイントを使用して試してみる
 
-Checkpoints are a helpful tool when you want to save the present state of a virtual machine before making a change such as applying an update, installing software, or changing a setting.
-If the change causes issues, you can restore the checkpoint and go back.
+チェックポイントでは、更新プログラムを適用する、ソフトウェアのインストール設定を変更するなどの変更を行う前に、仮想マシンの現在の状態を保存するときに便利なツールは。
+変更に問題が発生した場合は、チェックポイントを復元して戻ます。
 
-There are two types of checkpoints:  
-**Production checkpoints**: Used mainly on servers in production environments.
-**Standard checkpoints**: Used in development or testing environments
+チェックポイントの 2 つの種類があります。  
+**実稼働のチェックポイント**:実稼働環境でのサーバーでは主に使用されます。
+**標準的なチェックポイント**:開発またはテスト環境で使用されます。
 
-Production checkpoints are the default for Hyper-V on Windows 10.
+実稼働のチェックポイントは、Windows 10 では、HYPER-V の既定値です。
 
-##Change the checkpoint type
+##チェックポイントの種類を変更します。
 
-We'll start by trying out the older style of checkpoints, **standard checkpoints**.
-Since production checkpoints are the default, we need to go into the settings for the VM and change the checkpoint type.
+まず、チェックポイントの古いスタイルをダウンロードして **標準的なチェックポイント**。
+実稼働のチェックポイントは、既定では、仮想マシンの設定に、チェックポイントの種類を変更する必要があります。
 
-1.  Right-click on **Windows Walkthrough VM** and select **Settings**.
-2.  In the **Management** section, select **Checkpoints**.
-3.  Select **Standard checkpoints**.
-    The dialog should look like this:
+1.  右クリックし **Windows のチュートリアルの仮想マシン** 選択 **Settings**。
+2.  「 **管理** セクションで、 **チェックポイント**。
+3.  選択 **標準的なチェックポイント**。
+    ダイアログ ボックスは、次のようになります。
     
     !(media/standard1.png)
-4.  Click **OK** to close the dialog box.
+4.  [ **OK** ダイアログ ボックスを閉じます。
 
-##Open Notepad to test checkpoints
+##チェックポイントをテストするメモ帳を開く
 
-In order to see what happens with each type of checkpoint, we'll run an application in the VM.
+チェックポイントの種類ごとで発生する内容を表示するのには、VM で、アプリケーションを実行おをします。
 
-1.  Right-click on **Windows Walkthrough VM** and select **Connect**.
-2.  In the virtual machine, open **Notepad** by clicking on the **Start** menu and typing **Notepad** and then select it from the results.
-3.  In Notepad, type **This is a test of checkpoints.** The file should look like this:
+1.  右クリックし **Windows のチュートリアルの仮想マシン** 選択 **[接続ドライブ]**。
+2.  仮想マシンを開きます **メモ帳** クリックして、 **管理者として** メニューと入力すること **メモ帳** して、結果から選択します。
+3.  メモ帳で、次のように入力します。 **これは、チェックポイントのテストです。** ファイルは、次のようになります。
     
     !(media/standard_notepad.png)
-4.  Save the file as **test.txt**, but don't close Notepad.
-    Leave it running in the virtual machine.
+4.  としてファイルを保存します。 **test.txt**、メモ帳を閉じますはありませんが。
+    仮想マシンで実行されていることをそのまま使用します。
 
-##Create a standard checkpoint
+##標準的なチェックポイントを作成します。
 
-1.  To create the checkpoint, click on the !(media/checkpoint_button.png)**Checkpoint** button in the menu bar.
-2.  In the checkpoint name dialog, type **Standard**.
-    The dialog should look like this:
+1.  チェックポイントを作成する] をクリックします !(media/checkpoint_button.png)**Checkpoint** メニュー バーのボタンをクリックします。
+2.  チェックポイントの名前] ダイアログ ボックスで次のように入力します。 **標準**。
+    ダイアログ ボックスは、次のようになります。
     
     !(media/save_standard.png)
-3.  When the process is complete, the checkpoint will appear under **Checkpoints** in the **Hyper-V Manager**.
+3.  チェックポイントが下に表示されますが、プロセスが完了すると、 **チェックポイント** で、 **Hyper V マネージャー**。
     
     !(media/standard_complete.png)
 
-##Create a production checkpoint
+##実稼働のチェックポイントを作成します。
 
-Now, we need to change change the type of checkpoint that we want to take back to **Production checkpoints** before taking a second checkpoint.
+ここで、変更する必要があるためにバックアップする必要があるチェックポイントの種類の変更 **実稼働のチェックポイント** 前に、2 番目のチェックポイントを取得します。
 
-1.  Right-click the virtual machine, and click **Settings**.
-2.  In the **Management** section, select **Checkpoints**.
-3.  Select **Production checkpoints**.
-4.  Clear the fall-back option.
-    If the system can't take a production checkpoint, we want it to fail instead of taking a standard checkpoint.
+1.  仮想マシンを右クリックし、をクリックしてください **Settings**。
+2.  「 **管理** セクションで、 **チェックポイント**。
+3.  選択 **実稼働のチェックポイント**。
+4.  フォールバック オプションをオフにします。
+    システムが実稼働のチェックポイントを実行できない場合に、標準的なチェックポイントを使用せずに失敗します。
     
     !(media/production.png)
-5.  click **OK** to close the dialog box.
-6.  Right-click on the VM again and select **Connect**.
-7.  In Notepad in the VM, type another line that reads **This is a test of a production checkpoint** and save the file again.
-8.  Click on the !(media/checkpoint_button.png)**Checkpoint** button in the menu bar.
-9.  When asked, name it **Production** and then click **Yes**.
+5.  をクリックします **OK** ダイアログ ボックスを閉じます。
+6.  VM でもう一度右クリックして **[接続ドライブ]**。
+7.  VM でメモ帳は、別の行を読み取るを入力します。 **これは実稼働のチェックポイントのテスト** もう一度ファイルを保存します。
+8.  クリックして、 !(media/checkpoint_button.png)**Checkpoint** メニュー バーのボタンをクリックします。
+9.  入力を求めるメッセージが表示されたら、という名前を付けます **から Production** クリックし、 **はい**。
     
     !(media/production_CheckpointName.png)
-10.  Close VMConnect.
-    The VM will continue running, you just won't be connected to it anymore.
-11.  In Hyper-V manager, your list of checkpoints will now look like this:
+10.  VMConnect を閉じます。
+    VM が実行を継続、するだけに接続されませんがこれ以上。
+11.  HYPER-V マネージャーでは、チェックポイントの一覧は次のようになりますようになりました。
     
     !(media/production_complete.png)
 
-##Apply the standard checkpoint
+##標準のチェックポイントを適用します。
 
-1.  In **Hyper-V Manager**, in the **Checkpoints** section, right-click the one titled **Standard** and click **Apply**.
-2.  In the pop-up dialog, click **Create Checkpoint and Apply**.
+1.  既定により、 **Hyper V マネージャー**、で、 **チェックポイント** セクションで、」というタイトルの 1 つを右クリックし、 **標準** をクリック **適用**。
+2.  ポップアップ ダイアログ ボックスで、次のようにクリックします。 **チェックポイントを作成および適用**。
     
     !(media/apply_standard.png)
-3.  When the finished, your list of checkpoints will now look something like this:
+3.  ときに、完了したら、チェックポイントの一覧を次のようになります。
     
     !(media/standard_applied.png)
-4.  When this finishes, right-click the VM and the click **Connect** to connect to the VM.
-5.  When you connect to the VM, the VM should be running, with Notepad open, but the line about production checkpoints will be missing:
+4.  これが完了すると、] をクリックし、VM を右クリックしてください。 **[接続ドライブ]** 仮想マシンに接続します。
+5.  VM に接続するときに、メモ帳を開くと、VM を実行する必要が、実稼働のチェックポイントについて行は失われます。
     
     !(media/standard_applied_notepad.png)
-6.  Close VMConnect, but leave the VM running.
+6.  VMConnect の場合を終了し、実行中の VM のままです。
 
-##Apply the production checkpoint
+##実稼働のチェックポイントを適用します。
 
-Now, let's go back to Hyper-V manager and apply the production checkpoint and see how our VM looks afterwards.
+HYPER-V マネージャーに戻りましょう、実稼働のチェックポイントを適用して、仮想マシンを後で表示する方法を参照してください。 ここで、します。
 
-1.  In the Checkpoints section, right-click the one titled **Production Checkpoint** and click **Apply**.
-2.  In the pop-up dialog, pick **Create Checkpoint and Apply**.
-3.  When this finishes, right-click the VM and the click **Connect** to launch the VM.
-4.  You'll notice that the VM is not running.
-    Click on the !(media/start.png) Start button in the menu bar to start the VM.
-5.  Open open test.txt in Notepad.
-    You should see the line in the file about testing production checkpoints:
+1.  [チェックポイント] セクションでは、」というタイトルの 1 つを右クリックし **実稼働のチェックポイント** をクリック **適用**。
+2.  ポップアップ ダイアログ ボックスで、次のように選択します。 **チェックポイントを作成および適用**。
+3.  これが完了すると、] をクリックし、VM を右クリックしてください。 **[接続ドライブ]** VM を起動します。
+4.  VM が実行されていないことがわかります。
+    クリックして、 !(media/start.png) VM を起動するには、メニュー バーでは、ボタンを起動します。
+5.  メモ帳で開いている test.txt を開きます。
+    テストの実稼働のチェックポイントは、ファイル内の行が表示されます。
     
     !(media/production_notepad.png)
 
-##Rename a checkpoint
+##チェックポイントの名前を変更します。
 
-1.  Right-click the last checkpoint in the tree and click Rename.
-2.  Name the checkpoint **Delete me**.
+1.  ツリーで、前回のチェックポイントを右クリックし、[名前の変更] をクリックします。
+2.  チェックポイントの名前 **私を削除します。**。
     
     !(media/delete_me.png)
 
-##Delete a checkpoint
+##チェックポイントを削除します。
 
-The previous step has probably given you a hint about what we'll do next.
-We are going to delete the checkpoint that you just renamed.
+前の手順の次にやってみましょうについてのヒントを指定した可能性があります。
+名前を変更したチェックポイントを削除しようとしています。
 
-1.  Right-click on the checkpoint named **Delete me** and click **Delete checkpoint**.
+1.  という名前のチェックポイントを右クリックすると、 **私を削除します。** をクリック **チェックポイントを削除します。**。
     
     !(media/delete_checkpoint.png)
-2.  In the warning dialog, click **Delete**.
+2.  [警告] ダイアログ ボックスで、次のようにクリックします。 **削除**。
     
     !(media/delete_warn.png)
-3.  After the checkpoint is deleted, your list should look something like this:
+3.  チェックポイントが削除されると、一覧は次のようになります。
     
     !(media/after_delete.png)
 
-##Next Step:
+##次の手順:
 
-[Step 7: Export and import a virtual machine](walkthrough_export_import.md)
+[手順 7:エクスポートして、仮想マシンをインポート](walkthrough_export_import.md)
 
 

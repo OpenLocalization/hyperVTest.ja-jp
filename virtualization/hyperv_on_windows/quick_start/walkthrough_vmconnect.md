@@ -1,50 +1,49 @@
-ms.ContentId: 178899C9-8EA6-4D82-A0B0-8BE4DDD78DAE
-title: Step 5: Connect to the virtual machine and finish the installation
+ms。ContentId:178899C9-8EA6-4D82-A0B0-8BE4DDD78DAE
+タイトル:手順 5:仮想マシンに接続し、インストールを完了
 
-#Step 5: Connect to the virtual machine and finish the installation
+#手順 5:仮想マシンに接続し、インストールを完了
 
-In order to finish building your virtual machine, you need to start the VM and walk through the operating system installation.
+仮想マシンの作成を完了するには、VM を起動して、オペレーティング システムのインストールを順番にする必要があります。
 
-##Connect to the VM
+##VM に接続します。
 
-1.  In **Hyper-V Manager**, double-click on the virtual machine.
-    This will launch the VMConnect tool.
-2.  In VMConnect, click on the green **Start** button !(media/start.png).
-    This is like hitting the power button on a physical computer.
-3.  The VM will boot into setup and you can walk through the installation like you would on a physical computer.
+1.  既定により、 **Hyper V マネージャー**で、仮想マシンをダブルクリックします。
+    これにより、VMConnect ツールが起動します。
+2.  VMConnect の場合に、緑の] をクリックします。 **管理者として** ボタン !(media/start.png)。
+    これは、物理コンピューターの電源ボタンを押すなどです。
+3.  セットアップ、VM が起動して、物理コンピューターと同様に、インストールまで行ってきたことができます。
 
-> **Note:** Unless you're running a volume licensed version of Windows 10, you do need a seperate license for Windows running inside a virtual machine.
-> The virtual machine's operating system is completely independent of the host operating system.
+> **注: ** Windows 10 のボリューム ライセンス バージョンを実行している場合を除き、仮想マシン内で実行されている Windows の個別のライセンスを必要があります操作を行います。
+> 仮想マシンのオペレーティング システムでは、ホスト オペレーティング システムの完全に独立してます。
 > 
 
-##Other stuff you can do in VMConnect
+##その他のデータの VMConnect で行うことができます。
 
-Here are all of the buttons and shortcut keys, mapped to what they do.
+すべてのボタンに、それらが何にマップのショートカット キーを次に示します。
 
-| **To do this…**| Click this...| **Or, do this…**| |
+| **これを行う.**| これをクリックします。| **または、これを行う.**| |
 | ----- | ----- | ----- | ----- |
-| Start the virtual machine| !(media/start.png)| CTRL+S| |
-| Turn off the VM| !(media/turnoff.png)| | |
-| Shut down a VM| !(media/shutdown.png)| | |
-| Save| !(media/save.png)| | |
-| Pause| !(media/pause.png)| | |
-| Reset| !(media/reset.png)| | |
-| Mouse release| !(media/ctrlaltdel.png)| CTRL+ALT+LEFT arrow| |
-| Send CTRL+ALT+DELETE to the virtual machine| | CTRL+ALT+END| |
-| Switch from full-screen mode back to windowed mode| | CTRL+ALT+BREAK| |
-| Use enhanced session mode| !(media/basic.png)| | |
-| Open the settings for the virtual machine| | CTRL+O| |
-| Create a checkpoint| !(media/checkpoint.png)| CTRL+N or select **Action** > **Checkpoint**| |
-| Revert to a checkpoint| !(media/revert.png)| CTRL+E| |
-| Do a screen capture| | CTRL+C| |
-| Return mouse clicks or keyboard input to the physical computer| | Press CTRL+ALT+LEFT arrow and then move the mouse pointer outside of the virtual machine window.This is the **mouse release key combination** and it can be changed in the **Hyper-V settings** in **Hyper-V Manager**.| |
-| Send mouse clicks or keyboard input to the virtual machine| | Click anywhere in the virtual machine window.The mouse pointer may appear as a small dot when you connect to a running virtual machine.| |
-| Change the settings of the virtual machine| | Select **File** > **Settings**.| |
-| Connect to a DVD image (.iso file) or a virtual floppy disk (.vfd file)| | Click **Media** on the menu.Virtual floppy disks are not supported for generation 2 virtual machines.| |
+| 仮想マシンを起動します。| !(media/start.png)| Ctrl + S| |
+| VM をオフにします。| !(media/turnoff.png)| | |
+| バーチャル マシンをシャット ダウンします。| !(media/shutdown.png)| | |
+| 上書き保存| !(media/save.png)| | |
+| ［一時停止］| !(media/pause.png)| | |
+| リセット| !(media/reset.png)| | |
+| マウスのリリース| !(media/ctrlaltdel.png)| CTRL + ALT キーを押しながら左方向キー| |
+| CTRL + ALT + DEL を仮想マシンに送信します。| | CTRL + ALT + END| |
+| 全画面表示モード ウィンドウ表示モードに切り替える| | CTRL + ALT + BREAK| |
+| 拡張セッション モードを使用します。| !(media/basic.png)| | |
+| 仮想マシンの設定] を開きます| | Ctrl + O| |
+| チェックポイントを作成します。| !(media/checkpoint.png)| CTRL キーを押しながら N キーまたは選択 **操作** > **Checkpoint**| |
+| チェックポイントを元に戻す| !(media/revert.png)| CTRL キーを押しながら E キー| |
+| 画面のキャプチャを行う| | CTRL キーを押しながら C| |
+| 戻り値のマウスのクリックや物理コンピューターのキーボード入力| | Ctrl キーを押しながら ALT キーを押しながら左方向キーを押しながら、仮想マシン ウィンドウの外部でマウス ポインターを移動します。これは、 **マウス リリースのキーの組み合わせです。** には、 **Hyper-V の設定** ( **Hyper V マネージャー**。| |
+| マウスのクリックや仮想マシンにキーボード入力を送信します。| | 仮想マシンのウィンドウで、任意の場所をクリックします。実行中の仮想マシンに接続するときが小さな点として、マウス ポインターがあります。| |
+| 仮想マシンの設定を変更します。| | 選択 **ファイル** > **Settings**。| |
+| DVD イメージ (.iso ファイル)、またはバーチャル フロッピー ディスク (.vfd ファイル) への接続します。| | [ **メディア** [メニューします。第 2 世代仮想マシンでは、バーチャル フロッピー ディスクはサポートされていません。| |
 
-##Next Step:
+##次の手順:
 
-[Step 6: Experiment with checkpoints](walkthrough_checkpoints.md)
+[手順 6:チェックポイントを使用して試してみる](walkthrough_checkpoints.md)
 
 
-th checkpoints](walkthrough_checkpoints.md)

@@ -1,34 +1,34 @@
-ms.ContentId: D1D4969F-52FD-43A2-982B-B531B0343D2B 
-title: Troubleshooting
+ms。ContentId:D1D4969F-52FD-43A2-982B-B531B0343D2B
+タイトル:トラブルシューティング
 
-#Troubleshoot Hyper-V on Windows 10
+#10 の Windows で HYPER-V のトラブルシューティングを行う
 
-##I updated to Windows 10 and now I can't connect to my downlevel (Windows 8.1 or Server 2012 R2) host
+##Windows 10 に更新して、下位レベル (Windows 8.1 または Server 2012 R2) ホストに接続できないようになりました
 
-In Windows 10, Hyper-V manager moved to WinRM for remote management.
-What that means is now Remote Management has to be enabled on the remote host in order to use Hyper-V manager to manage it.
+HYPER-V マネージャーは、Windows の 10 で、リモート管理の WinRM に移動します。
+つまり、リモート管理には、HYPER-V マネージャーを使用して、それを管理するために、リモート ホストで有効にするようになりました。
 
-For more information see [Managing Remote Hyper-V Hosts](remote_host_management.md)
+詳細については「 [リモートの HYPER-V ホストを管理します。](remote_host_management.md)
 
-##I changed the checkpoint type, but it is still taking the wrong type of checkpoint
+##チェックポイントの種類を変更しても、違う種類のチェックポイントがまだ実行中に、
 
-If you are taking the checkpoint from VMConnect and you change the checkpoint type in Hyper-V manager the checkpoint taken be whatever checkpoint type was specified when VMConnect was opened.
+VMConnect からチェックポイントを実行して、HYPER-V manager チェックポイントの実行でのチェックポイントの種類を変更する場合は、VMConnect を開いたときに、どのようなチェックポイントの種類が指定されたことをします。
 
-Close VMConnect and reopen it to make it take the correct type of checkpoint.
+VMConnect を閉じて、チェックポイントの正しい型を受け取るを確保することを再度開きます。
 
-##When I try to create a virtual hard disk on a flash drive, an error message is displayed
+##フラッシュ ドライブ上のバーチャル ハード_ディスクを作成しようとすると、エラー メッセージが表示されます。
 
-Hyper-V does not support FAT/FAT32 formatted disk drives since these file systems do not provide access control lists (ACLs) and do not support files larger than 4GB.
-ExFAT formatted disks only provide limited ACL functionality and are therefore also not supported for security reasons.
-The error message displayed in PowerShell is "The system failed to create '\[path to VHD\]': The requested operation could not be completed due to a file system limitation (0x80070299)."
+これらのファイル システムは、アクセス制御リスト (Acl) を指定しないと、4 GB を超えるファイルをサポートしていないために、HYPER-V は FAT または FAT32 でフォーマットされたディスク ドライブをサポートしません。
+ExFAT の書式設定されたディスクが提供するだけでは、ACL の機能に制限し、したがってもサポートされていませんセキュリティ上の理由します。
+PowerShell に表示されるエラー メッセージは"を作成できませんでした ' VHD\ に \[path]'。要求された操作できませんでした (0x80070299) ファイル システムの制限によるものです。"
 
-Use a NTFS formatted drive instead.
+使用して、NTFS では、ドライブを代わりに書式設定されます。
 
-##I get this message when I try to install: "Hyper-V cannot be installed: The processor does not support second level address translation (SLAT)."
+##インストールしようとすると、このメッセージが表示されます。"HYPER-V をインストールすることはできません。プロセッサがサポートしていない 2 番目のレベルのアドレス変換 (SLAT) です。"
 
-Hyper-V requires SLAT in order to run virtual machines.
-If you computer does not support SLAT, then it cannot be a host for virtual mahchines.
+HYPER-V では、仮想マシンを実行するのには SLAT が必要です。
+コンピューターが SLAT をサポートしていない場合、仮想 mahchines のホストをすることはできません。
 
-If you are only trying to install the management tools, unselect **Hyper-V Platform** in **Programs and Features** > **Turn Windows features on or off**.
+管理ツールをインストールしようとしてのみ、選択解除します。 **Hyper V のプラットフォーム** ( **プログラムと機能** > **Windows の機能を有効または無効に**。
 
 

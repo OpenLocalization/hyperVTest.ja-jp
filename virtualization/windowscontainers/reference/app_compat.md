@@ -1,140 +1,141 @@
-ms.ContentId: 3fdd690d-4259-4066-8781-360bb0554512
-title: Running Apps in Windows Containers
+ms。ContentId:3fdd690d-4259-4066-8781-360bb0554512
+タイトル:Windows のコンテナーでのアプリの実行
 
-#Application Compatability in Windows Server Containers
+#Windows Server のコンテナー内のアプリケーションとの互換性
 
-Is something not on this list?
-Let us know what fails and succeeds in your environment via [the forums](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowscontainers).
+ホー HB プロセスをテストするためには、この文を追加します。
+何かこの一覧にでしょうか。
+お知らせが失敗し、環境内で成功すると新機能 [フォーラム](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowscontainers)。
 
-##Which applications run in a Windows Server Container
+##Windows Server のコンテナー内で実行するアプリケーション
 
-We have tried to running the following applications in a Windows Server Container.
-These results do not guarantee that the application is working.
-The sole purpose is to share our experience.
+Windows Server のコンテナー内で、次のアプリケーションを実行しているようにしました。
+これらの結果では、アプリケーションが動作することは保証されません。
+唯一の目的では、経験を共有します。
 
-| **Name**| **Version**| **Does it work?**| **Comment**|
+| **名前**| **バージョン**| **動作はしますか。**| **コメント**|
 |:-----|:-----|:-----|:-----|
-| .NET| 3.5| No| Fails to install properly|
-| .NET| 4.6| Yes| Included in base image|
-| .NET CLR| 5 beta 6| Yes| Both, x64 and x86|
-| Active Python| 3.4.1| Yes| |
-| Apache CouchDB| 1.6.1| No| |
-| Apache HTTPD| 2.4| Yes| |
-| Apache Tomcat| 8.0.24 x64| Yes| |
-| ASP.NET| 3.5| No| |
-| ASP.NET| 4.5| No| |
-| ASP.NET| 5 beta 6| Yes| Both, x64 and x86|
-| Erlang/OTP| 18.0| No| |
-| FileZilla FTP Server| 0.9| Yes| Has to be installed through an RDP session  into the container|
-| Go Progamming Language| 1.4.2| Yes| |
-| Internet Information Service| 10.0| Yes| |
-| Java| 1.8.0_51| Yes| Use the server version.The client version does not install properly|
-| Jetty| 9.3| Partially| Running demo-base fails|
-| MineCraft Server| 1.8.5| Yes| |
-| MongoDB| 3.0.4| Yes| |
-| MySQL| 5.6.26| Yes| |
-| NGinx| 1.9.3| Yes| |
-| Node.js| 0.12.6| Partially| Running node with js files works.NPM fails to download packages.Running node interactively does not work properly.|
-| PHP| 5.6.11| Partially| With Apache, IIS via FastCGI currently does not work.|
-| PostgreSQL| 9.4.4| Yes| |
-| Python| 3.4.3| Yes| |
-| R| 3.2.1| No| |
-| RabbitMQ| 3.5.x| Yes| Has to be installed through an RDP session  into the container|
-| Redis| 2.8.2101| Yes| |
-| Ruby| 2.2.2| Yes| Both, x64 and x86|
-| Ruby on Rails| 4.2.3| Yes| |
-| SQLite| 3.8.11.1| Yes| |
-| SQL Server Express| 2014 LocalDB| No| |
-| Sysinternals Tools| *| Yes| Only tried those not requiring a GUI.PsExec does not work by current design|
+| .NET| 3.5| いいえ| 正常にインストールに失敗します。|
+| .NET| 4.6| はい| 基本イメージに含まれる|
+| .NET CLR| 5 beta 6| はい| X64 および x86 の両方、|
+| アクティブな Python| 3.4.1| はい| |
+| Apache CouchDB| 1.6.1| いいえ| |
+| Apache HTTPD| 2.4| はい| |
+| Apache Tomcat| 8.0.24 x64| はい| |
+| ASP.NET| 3.5| いいえ| |
+| ASP.NET| 4.5| いいえ| |
+| ASP.NET| 5 beta 6| はい| X64 および x86 の両方、|
+| アーラン/OTP| 18.0| いいえ| |
+| FileZilla FTP サーバー| 0.9| はい| RDP セッションを経由して、コンテナー内にインストールするには|
+| プログラミング言語を参照してください。| 1.4.2| はい| |
+| インターネット インフォメーション サービス| 10.0| はい| |
+| Java| 1.8.0_51| はい| サーバーのバージョンを使用します。クライアントのバージョンが正しくインストールされません。|
+| Jetty| 9.3| 部分的に| デモ ベースが失敗した場合に実行しています。|
+| MineCraft サーバー| 1.8.5| はい| |
+| MongoDB| 3.0.4| はい| |
+| MySQL| 5.6.26| はい| |
+| NGinx| 1.9.3| はい| |
+| Node.js| 0.12.6| 部分的に| 使用 (js) ファイルによる、node を実行します。NPM では、パッケージをダウンロードに失敗します。ノードを対話的に実行については、正しく機能しません。|
+| PHP| 5.6.11| 部分的に| Apache では、現在の FastCGI 経由での IIS は機能しません。|
+| PostgreSQL| 9.4.4| はい| |
+| Python| 3.4.3| はい| |
+| R| 3.2.1| いいえ| |
+| RabbitMQ| 3.5.x| はい| RDP セッションを経由して、コンテナー内にインストールするには|
+| Redis| 2.8.2101| はい| |
+| Ruby| 2.2.2| はい| X64 および x86 の両方、|
+| Ruby on Rails| 4.2.3| はい| |
+| SQLite| 3.8.11.1| はい| |
+| SQL Server Express| 2014 LocalDB| いいえ| |
+| Sysinternals ツール| *| はい| のみ、GUI を必要としないものをしようとしました。PsExec は、現在のデザインでは機能しません|
 
-##What Optional Windows Features can I install?
+##どのような省略可能な Windows の機能をインストールできますか。
 
-The following Windows Optional Features have been confirmed as being able to install.
-Many do not function once they are installed at this point in time.
+次の Windows の省略可能な機能は、インストールすることと確認されていたことです。
+この時点ではインストール後の多くは機能しません。
 
-*   AD-Certificate
-*   ADCS-Cert-Authority
-*   File-Services
+*   証明書の AD
+*   ADCS-証明書の機関
+*   ファイル サービス
     
-    *   FS-FileServer
-    *   FS-VSS-Agent
-*   DirectAccess-VPN
-*   Routing
-*   Remote-Desktop-Services
+    *   FS FileServer
+    *   FS VSS-エージェント
+*   DirectAccess VPN
+*   ルーティング
+*   リモート デスクトップのサービス
 *   VolumeActivation
-*   Web-Server
-*   Web-WebServer
-*   Web-Common-Http
-*   Web-Default-Doc
-*   Web-Dir-Browsing
-*   Web-Http-Errors
-*   Web-Static-Content
-*   Web-Http-Redirect
-*   Web-DAV-Publishing
-*   Web-Health
-*   Web-Http-Logging
-*   Web-Custom-Logging
-*   Web-Log-Libraries
-*   Web-ODBC-Logging
-*   Web-Request-Monitor
-*   Web-Performance
-*   Web-Stat-Compression
-*   Web-Dyn-Compression
-*   Web-Security
-*   Web-Filtering
-*   Web-Basic-Auth
-*   Web-CertProvider
-*   Web-Client-Auth
-*   Web-Digest-Auth
-*   Web-Cert-Auth
-*   Web-IP-Security
-*   Web-Url-Auth
-*   Web-Windows-Auth
-*   Web-App-Dev
-*   Web-AppInit
-*   Web-CGI
-*   Web-ISAPI-Ext
-*   Web-ISAPI-Filter
-*   Web-Includes
-*   Web-WebSockets
-*   Web-Mgmt-Compat
-*   Web-Metabase
+*   Web サーバー
+*   Web サーバーの web
+*   一般的な Http-web
+*   Web の既定のドキュメント
+*   Web ディレクトリ参照
+*   Web Http-エラー
+*   Web 静的コンテンツ
+*   Web Http のリダイレクト
+*   Web DAV 発行
+*   Web ヘルス
+*   Web Http ログ記録
+*   Web のカスタム ログの記録
+*   Web ログ-ライブラリ
+*   Web の ODBC ログの記録
+*   Web 要求のモニター
+*   Web パフォーマンス
+*   Web の圧縮状態
+*   Web の圧縮 Dyn
+*   Web セキュリティ
+*   Web フィルター処理
+*   Web Basic-認証
+*   Web CertProvider
+*   Web クライアントの認証
+*   Web ダイジェストの認証
+*   Web 証明書の認証
+*   Web IP セキュリティ
+*   Web Url の認証
+*   Windows-認証 web
+*   Web アプリの開発
+*   Web AppInit
+*   Web CGI
+*   Web-ISAPI の拡張
+*   ISAPI-フィルターが web
+*   Web が含まれています
+*   Web Websocket
+*   Web の互換性の管理
+*   Web メタベース
 *   BitLocker
 *   EnhancedStorage
 *   GPMC
-*   Isolated-UserMode
-*   Server-Media-Foundation
-*   MSMQ-DCOM
-*   MultiPoint-Connector-Feature
+*   分離モード
+*   サーバーのメディアの基盤
+*   MSMQ DCOM
+*   MultiPoint コネクタの機能
 *   qWave
 *   RDC
-*   RSAT-Feature-Tools-BitLocker
-*   RSAT-Clustering-PowerShell
-*   RSAT-Clustering-AutomationServer
-*   RSAT-Clustering-CmdInterface
-*   RSAT-Shielded-VM-Tools
-*   RSAT-AD-Tools
-*   RSAT-AD-PowerShell
-*   RSAT-ADDS
+*   RSAT 機能ツール BitLocker
+*   RSAT クラスタ リング PowerShell
+*   RSAT クラスタ リング AutomationServer
+*   RSAT クラスタ リング CmdInterface
+*   RSAT の影響を受けません-VM-ツール
+*   RSAT AD-ツール
+*   RSAT AD-PowerShell
+*   RSAT 追加
 *   RSAT-AD-AdminCenter
-*   RSAT-ADDS-Tools
-*   RSAT-ADLDS
-*   Hyper-V-PowerShell
-*   UpdateServices-API
-*   RSAT-NetworkController
-*   Windows-Fabric-Tools
-*   RSAT-HostGuardianService
-*   FS-SMBBW
-*   Storage-Replica
-*   Telnet-Client
-*   WAS
+*   RSAT 追加ツール
+*   RSAT ADLDS
+*   Hyper V の PowerShell
+*   UpdateServices API
+*   RSAT NetworkController
+*   Windows Fabric のツール
+*   RSAT HostGuardianService
+*   FS SMBBW
+*   記憶域レプリカ
+*   Telnet クライアント
+*   が
     
-    *   WAS-Process-Model
-    *   WAS-Config-APIs
-*   Windows-Server-Backup
-*   Migration
+    *   プロセス モデル
+    *   構成 Api
+*   Windows Server のバックアップ
+*   移行
 
-Is something not on this list?
-Let us know what fails and succeeds in your environment via [the forums](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowscontainers).
+何かこの一覧にでしょうか。
+お知らせが失敗し、環境内で成功すると新機能 [フォーラム](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowscontainers)。
 
 

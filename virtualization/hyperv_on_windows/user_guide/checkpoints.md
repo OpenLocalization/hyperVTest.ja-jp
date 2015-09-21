@@ -1,83 +1,84 @@
-ms.ContentId: 8D89E9D8-2501-46A7-9304-2F19F37AFC85
-title: Working with checkpoints
+ms。ContentId:8D89E9D8-2501-46A7-9304-2F19F37AFC85
+タイトル:チェックポイントの使用
 
-#Using checkpoints to revert virtual machines to a previous state
+#チェックポイントを使用して、以前の状態にバーチャル マシンを戻すには
 
-Checkpoints provide a fast and easy way to revert the virtual machine to a previous state.
-This is especially helpful when you are about to make a change to a virtual machine and you want to be able to roll-back to the present state if that change cause issues.
+ホー HB プロセスをテストするためには、この文を追加します。
+チェックポイントでは、以前の状態にバーチャル マシンを元に戻す早くて簡単な方法を提供します。
+これは、オプションは、[バーチャル マシンを変更しようとしているし、ロールバックには、現在の状態に関する問題の原因を変更する場合に可能にするときに特に便利です。
 
-##Enable or disable checkpoints
+##有効にするか、チェックポイントを無効にします。
 
-1.  In **Hyper-V Manager**, right-click the name of the virtual machine, and click **Settings**.
-2.  In the **Management** section, select **Checkpoints**.
-3.  To allow checkpoints to be taken off this virtual machine, make sure Enable Checkpoints is selected -- this is the default behavior.
-    To disable checkpoints, deselect the **Enable Checkpoints** check box.
-4.  Click **Apply** to apply your changes.
-    If you are done, click **OK** to close the dialog box.
+1.  既定により、 **Hyper V マネージャー**で、仮想マシンの名前を右クリックし、をクリックして **Settings**。
+2.  「 **管理** セクションで、 **チェックポイント**。
+3.  この仮想マシンから除外する、チェックポイントを有効にするには選択かどうかを確認するチェックポイントを許可するには、は、これは既定の動作です。
+    チェックポイントを無効にするには、選択を解除します **チェックポイントを有効にします。** チェック ボックスです。
+4.  [ **適用** 変更を適用します。
+    完了したら、クリックします。 **OK** ダイアログ ボックスを閉じます。
 
-##Choose standard or production checkpoints
+##Standard または実稼働のチェックポイントを選択します。
 
-There are two types of checkpoints:
+チェックポイントの 2 つの種類があります。
 
-*   **Production checkpoints** -- Used mainly on servers in production environments as a form of backup.
-*   **Standard checkpoints** -- Used in development or testing environments to allow rollback if a change fails.
+*   **実稼働のチェックポイント** -バックアップの形式としては、主に、実稼働環境でのサーバーに使用されます。
+*   **標準的なチェックポイント** -変更が失敗した場合は、ロールバックを許可するのには、開発やテスト環境で使用されます。
 
-Both types of checkpoints restore a virtual machine to a previous state.
+どちらの種類のチェックポイントでは、以前の状態にバーチャル マシンを復元します。
 
-Production checkpoints create an application-consistent checkpoint of a virtual machine.
-That means the saved virtual machine will resume with no application state.
+実稼働のチェックポイントでは、仮想マシンのアプリケーション整合性のチェックポイントを作成します。
+つまり、アプリケーション状態なしで、保存されている仮想マシンが再開されます。
 
-Standard checkpoints (formerly known as snapshots) capture the exact memory state of your virtual machine.
-That means the virtual machine will restore with **exactly** the same state in which the checkpoint was taken down to the exact application state.
-Standard checkpoints may contain information about client connections, transactions, and the external network state.
-This information may not be valid when the checkpoint is applied.
-Additionally, if a checkpoint is taken during an application crash, restoring that checkpoint will be in the middle of that crash.
+標準のチェックポイント (スナップショットと呼ばれていました) は、仮想マシンの正確なメモリの状態をキャプチャします。
+つまりとに、仮想マシンが復元されます。 **正確に** チェックポイントの取得アプリケーションの正確な状態に同じ状態です。
+標準のチェックポイントには、クライアント接続、トランザクション、および外部ネットワークの状態に関する情報が含まれます。
+この情報は、チェックポイントが適用されるときに有効なできません。
+さらに、アプリケーションがクラッシュ中にチェックポイントが実行されると、そのチェックポイントを復元できるようになりますそのクラッシュの途中で。
 
-The presence of a standard checkpoint for a virtual machine may impact the disk performance of the virtual machine.
-We do not recommend using standard checkpoints on virtual machines when performance or the availability of storage space is critical.
+バーチャル マシンの標準的なチェックポイントの存在、仮想マシンのディスクのパフォーマンスに影響を与える可能性があります。
+パフォーマンスまたは記憶域の可用性が重要な場合は、仮想マシンで標準的なチェックポイントを使用はお勧めしません。
 
-Applying a production checkpoint involves booting the guest operating system from an offline state.
-This means that no application state or security information is captured as part of the checkpoint process.
+実稼働のチェックポイントを適用するには、オフライン状態から、ゲスト オペレーティング システムを起動するが含まれます。
+これは、チェックポイント処理の一部としてアプリケーションの状態またはセキュリティ情報がキャプチャされてないことを意味します。
 
-The following table shows when to use production checkpoints or standard checkpoints, depending on the state of the virtual machine.
+次の表は、実稼働のチェックポイントまたは仮想マシンの状態によって、標準のチェックポイントを使用する場合を示します。
 
-| **Virtual Machine State**| **Production Checkpoint**| **Standard Checkpoint**|
+| **バーチャル マシンの状態**| **実稼働のチェックポイント**| **標準的なチェックポイント**|
 |:-----|:-----|:-----|
-| **Running with Integration Services**| Yes| Yes|
-| **Running without Integration Services**| No| Yes|
-| **Offline - no saved state**| Yes| Yes|
-| **Offline - with saved state**| No| Yes|
-| **Paused**| No| Yes|
-To see the difference between Standard and Production checkpoints, look at the [checkpoints walkthrough](../quick_start/walkthrough_checkpoints.md).
+| **Integration Services を実行しています。**| はい| はい|
+| **Integration Services せずに実行します。**| いいえ| はい|
+| **オフラインで保存された状態がないです。**| はい| はい|
+| **オフラインからでは、保存済みの状態**| いいえ| はい|
+| **［一時停止］**| いいえ| はい|
+標準と運用環境のチェックポイントの違いを確認するには、参照、 [チェックポイントのチュートリアル](../quick_start/walkthrough_checkpoints.md)。
 
-##Set a default checkpoint type
+##既定のチェックポイントの種類を設定します。
 
-1.  In **Hyper-V Manager**, right-click the name of the virtual machine, and click **Settings**.
-2.  In the **Management** section, select **Checkpoints**.
-3.  Select either production checkpoints or standard checkpoints.
-    If you choose production checkpoints, you can also specify whether the host should take a standard checkpoint if a production checkpoint cannot be taken.
-    If you clear this check box and a production checkpoint cannot be taken, no checkpoint will be selected.
-4.  If you want to change the location where the configuration files for the checkpoint are stored, change the path in the **Checkpoint File Location** section.
-5.  Click **Apply** to apply your changes.
-    If you are done, click **OK** to close the dialog box.
+1.  既定により、 **Hyper V マネージャー**で、仮想マシンの名前を右クリックし、をクリックして **Settings**。
+2.  「 **管理** セクションで、 **チェックポイント**。
+3.  実稼働のチェックポイントまたは標準的なチェックポイントのいずれかを選択します。
+    実稼働のチェックポイントを選択する場合は、実稼働のチェックポイントを取得できない場合に、ホストが、標準のチェックポイントを取得するかどうかも指定できます。
+    このチェック ボックスをオフにすると、実稼働のチェックポイントを実行することはできません、チェックポイントは選択されません。
+4.  チェックポイントの構成ファイルの保存場所を変更する場合のパスを変更します **チェックポイント ファイルの場所** 参照してください。
+5.  [ **適用** 変更を適用します。
+    完了したら、クリックします。 **OK** ダイアログ ボックスを閉じます。
 
-The default behavior in Windows 10 for new virtual machines is to create production checkpoints with fallback to standard checkpoints
+新しいバーチャル マシンの 10 の Windows で既定の動作にフォールバックして、標準的なチェックポイントの実稼働のチェックポイントを作成するには
 
-##Create a checkpoint
+##チェックポイントを作成します。
 
-To create a checkpoint
+チェックポイントを作成するには:
 
-1.  In **Hyper-V Manager**, under **Virtual Machines**, select the virtual machine.
-2.  Right-click the name of the virtual machine, and then click **Checkpoint**.
-3.  When the process is complete, the checkpoint will appear under **Checkpoints** in the **Hyper-V Manager**.
+1.  既定により、 **Hyper V マネージャー**、下にあります。 **仮想マシン**、仮想マシンを選択します。
+2.  仮想マシンの名前を右クリックし、クリックしてください **Checkpoint**。
+3.  チェックポイントが下に表示されますが、プロセスが完了すると、 **チェックポイント** で、 **Hyper V マネージャー**。
 
-##Apply a checkpoint
+##チェックポイントを適用します。
 
-If you want to revert your virtual machine to a previous point-in-time, you can apply an existing checkpoint.
+前の時点に仮想マシンを元に戻す場合は、既存のチェックポイントを適用することができます。
 
-1.  In **Hyper-V Manager**, under **Virtual Machines**, select the virtual machine.
-2.  In the Checkpoints section, right-click the checkpoint that you want to use and click **Apply**.
-3.  A dialog box appears with the following options: 
+1.  既定により、 **Hyper V マネージャー**、下にあります。 **仮想マシン**、仮想マシンを選択します。
+2.  [チェックポイント] セクションでは、チェックポイントを使用し、クリックするを右クリックし **適用**。
+3.  ダイアログ ボックスでは、次のオプションが表示されます。 
 
 
 ```
@@ -90,47 +91,47 @@ If you want to revert your virtual machine to a previous point-in-time, you can 
 ```
 
 
-##Delete a checkpoint
+##チェックポイントを削除します。
 
-To cleanly delete a checkpoint: 
+明確にするには、チェックポイントを削除します。 
 
-1.  In **Hyper-V Manager**, select the virtual machine.
-2.  In the **Checkpoints** section, right-click the checkpoint that you want to delete, and click Delete.
-    You can also delete a checkpoint and all subsequent checkpoints.
-    To do so, right-click the earliest checkpoint that you want to delete, and then click ****Delete Checkpoint** Subtree**.
-3.  You might be asked to verify that you want to delete the checkpoint.
-    Confirm that it is the correct checkpoint, and then click **Delete**.
-4.  The .avhdx and .vhdx files will merge, and when complete, the .avhdx file will be deleted from the file system.
+1.  既定により、 **Hyper V マネージャー**、仮想マシンを選択します。
+2.  「 **チェックポイント** セクションで、削除するチェックポイントを右クリックし、削除] をクリックします。
+    チェックポイントと後続のすべてのチェックポイントを削除することもできます。
+    これを行うには、削除、および順にクリックする最も古いチェックポイントを右クリックします。 *** * チェックポイントを削除します。** * * サブツリー。
+3.  チェックポイントを削除することを確認が求められます可能性があります。
+    正しいチェックポイントであることを確認し、 **削除**。
+4.  .Avhdx と .vhdx ファイルがマージし、.avhdx ファイルをファイル システムから削除が完了するとします。
 
-> **Tip:** You can use Windows Powershell to delete a checkpoint by using the **Remove-VMSnapshot** cmdlet.
+> **ヒント:** 使用して、チェックポイントを削除するのには Windows Powershell を使用して、 **削除 VMSnapshot** コマンドレットを実行して、返されるクォーラム リソースに関する情報を確認できます。
 > 
 
-Checkpoints are stored as .avhdx files in the same location as the .vhdx files for the virtual machine.
-You should not delete the .avhdx files directly.
+チェックポイントは、仮想マシンの .vhdx ファイルと同じ場所に .avhdx ファイルとして保存されます。
+.Avhdx ファイルを直接削除しないでください。
 
-##Change where checkpoint settings and save state files are stored
+##フォルダーを変更するチェックポイントを設定し、ファイルが格納されている状態の保存
 
-If the virtual machine has no checkpoints, you can change where the checkpoint configuration and saved state files are stored.
+仮想マシンにチェックポイントがなければ、チェックポイントの構成ファイルとファイルの保存済みの状態を保存する場所を変更できます。
 
-1.  In **Hyper-V Manager**, right-click the name of the virtual machine, and click **Settings**.
-2.  In the **Management** section, select **Checkpoints** or **Checkpoint File Location**.
-3.  In **Checkpoint File Location**, enter the path to the folder where you would like to store the files.
-4.  Click **Apply** to apply your changes.
-    If you are done, click **OK** to close the dialog box.
+1.  既定により、 **Hyper V マネージャー**で、仮想マシンの名前を右クリックし、をクリックして **Settings**。
+2.  「 **管理** セクションで、 **チェックポイント** または **チェックポイント ファイルの場所**。
+3.  既定により、 **チェックポイント ファイルの場所**、ファイルを保存するフォルダーへのパスを入力します。
+4.  [ **適用** 変更を適用します。
+    完了したら、クリックします。 **OK** ダイアログ ボックスを閉じます。
 
-The default location for storing checkpoint configuration files is: %systemroot%\ProgramData\Microsoft\Windows\Hyper-V\Snapshots.
+チェックポイントの構成ファイルを格納するための既定の場所は。 % systemroot%\ProgramData\Microsoft\Windows\Hyper-V\Snapshots です。
 
 
-##Rename a checkpoint
+##チェックポイントの名前を変更します。
 
-1.  In **Hyper-V Manager**, select the virtual machine.
-2.  Right-click the checkpoint, and then select **Rename**.
-3.  Enter in the new name for the checkpoint.
-    It must be less than 100 characters, and the field cannot be empty.
-4.  Click **ENTER** when you are done.
+1.  既定により、 **Hyper V マネージャー**、仮想マシンを選択します。
+2.  チェックポイントを右クリックし、 **名前の変更**。
+3.  チェックポイントの新しい名前を入力します。
+    100 文字未満をする必要があり、フィールドを空にすることはできません。
+4.  [ **Enter** 完了するとします。
 
-By default, the name of a checkpoint is the name of the virtual machine combined with the date and time the checkpoint was taken.
-This is the standard format:
+既定では、チェックポイントの名前は、日付と時刻、チェックポイントの取得と組み合わせて、仮想マシンの名前です。
+これは、標準の形式です。
 
 
 ```
@@ -138,9 +139,6 @@ virtual_machine_name (MM/DD/YYY –hh:mm:ss AM\PM)
 
 ```
 
-Names are limited to 100 characters or less, and the name cannot be blank.
-
-
-and the name cannot be blank. 
+名は、少ない、または 100 文字に制限して、名前を空白にすることはできません。
 
 

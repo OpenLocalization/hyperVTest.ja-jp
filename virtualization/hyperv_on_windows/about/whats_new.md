@@ -1,22 +1,22 @@
-ms.ContentId: 52DAFFBE-40F5-46D2-96F3-FB8659581594 
-title: What's New in Hyper-V for Windows 10
+ms。ContentId:52DAFFBE-40F5-46D2-96F3-FB8659581594
+タイトル:Windows の 10 の HYPER-V の新機能
 
-#What's New for Hyper-V on Windows 10
+#10 の Windows で HYPER-V の新機能します。
 
-This topic explains the new and changed functionality in Hyper-V on Windows 10®.
+このトピックでは、10 の Windows ® で HYPER-V の追加または変更の機能について説明します。
 
-##Windows PowerShell Direct
+##Windows PowerShell のダイレクト
 
-There is a now an easy and reliable way to run Windows PowerShell commands inside a virtual machine from the host operating system.
-There are no network or firewall requirements or special configuration.
-It works regardless of your remote management configuration.
-To use it, you must run Windows 10 or Windows Server Technical Preview on the host and the virtual machine guest operating system.
+ここで、簡単かつ信頼性の高い方法は、ホスト オペレーティング システムから仮想マシン内の Windows PowerShell コマンドを実行します。
+ネットワークまたはファイアウォールの要件や特別な構成はありません。
+これは、リモート管理の構成に関係なく動作します。
+これを使用するには、ホストとバーチャル マシンのゲスト オペレーティング システムで Windows 10 または Windows Server に関するテクニカル プレビューを実行する必要があります。
 
-To create a PowerShell Direct session, use one of the following commands:
+ダイレクトの PowerShell セッションを作成するには、次のコマンドのいずれかを使用します。
 
-``` PowerShell
-Enter-PSSession -VMName VMName
-Invoke-Command -VMName VMName -ScriptBlock { commands }
+'' PowerShell
+入力 PSSession-VMName VMName
+VMName を Invoke-command VMName ScriptBlock {コマンド。
 
 
 ```
@@ -92,12 +92,12 @@ Get-VM * | Format-Table Name, Version
 ```
 
 
-####How do I upgrade the configuration version of a virtual machine?
+####仮想マシンの構成バージョンをアップグレードする方法
 
-From an elevated Windows PowerShell command prompt, run one of the following commands:
+管理者特権での Windows PowerShell コマンド プロンプトから次のコマンドのいずれかを実行します。
 
-``` PowerShell
-Update-VmConfigurationVersion <vmname>
+'' PowerShell
+更新プログラム-VmConfigurationVersion < vmname >
 
 
 ```
@@ -109,60 +109,60 @@ Update-VmConfigurationVersion <vmobject>
 
 ```
 
-**Important: **
+** 重要: **
 
-*   After you upgrade the virtual machine configuration version, you can't move the virtual machine to a host that runs Windows 8.1.
-*   You can't downgrade the virtual machine configuration version from version 6 to version 5.
-*   You must turn off the virtual machine to upgrade the virtual machine configuration.
-*   After the upgrade, the virtual machine uses the new configuration file format.
-    For more information, see New virtual machine configuration file format.
+*   仮想マシンの構成バージョンをアップグレードした後は、Windows 8.1 を実行しているホストにバーチャル マシンを移動できません。
+*   バージョン 5 に 6 のバージョンから仮想マシンの構成のバージョンにダウン グレードすることはできません。
+*   仮想マシンの構成をアップグレードするバーチャル マシンをオフにする必要があります。
+*   アップグレード後、仮想マシンは、新しい構成ファイルの形式を使用します。
+    詳細については、新しいバーチャル マシン構成ファイルの形式を参照してください。
 
-##New virtual machine configuration file format
+##新しいバーチャル マシン構成ファイルの形式
 
-Virtual machines now have a new configuration file format which is designed to increase the efficiency of reading and writing virtual machine configuration data.
-It's also designed to reduce the potential for data corruption if there's a storage failure.
-The new configuration files use the .VMCX extension for virtual machine configuration data and the .VMRS extension for runtime state data.
+仮想マシンでは、仮想マシンの構成データの読み書きの効率を上げるために設計された新しい構成ファイルの形式があるようになりました。
+記憶域の障害が発生した場合は、データの破損が発生する可能性を減らすために設計もいます。
+新しい構成ファイルを使用します。仮想マシンの構成データの拡張機能を VMCX とします。実行時の状態データの VMRS 拡張機能。
 
-> **Important:** The .VMCX file is a binary format.
-> Directly editing the .VMCX or .VMRS file isn't supported.
+> **重要:** 」を参照します。VMCX ファイルは、バイナリ形式です。
+> 直接編集します。VMCX またはします。VMRS ファイルはサポートされていません。
 > 
 
-##Integration Services delivered through Windows Update
+##Integration Services は、Windows Update を通じて配信
 
-Updates to integration services for Windows guests are now distributed through Windows Update.
+Windows ゲストの integration services への更新プログラムは Windows Update を通じて分散ようになりました。
 
-Integration components (also called integration services) are the set of synthetic drivers which allow a virtual machine to communicate with the host operating system.
-They control services ranging from time sync to guest file copy.
-We've been talking to customers about integration component installation and update over the past year to discover that they are a huge pain point during the upgrade process.
+(Integration services とも呼ばれます) の統合コンポーネントは、これにより、ホスト オペレーティング システムとの通信にバーチャル マシン代理のドライバーのセットです。
+これらは、サービスのゲストのファイル コピー ～ 同期時間の範囲を制御します。
+統合コンポーネントのインストールおよびアップグレードの処理中に大きな問題点をいることを検出する過去の年の顧客に説明してきました。
 
-Historically, all new versions of Hyper-V came with new integration components.
-Upgrading the Hyper-V host required upgrading the integration components in the virtual machines as well.
-The new integration components were included with the Hyper-V host then they were installed in the virtual machines using vmguest.iso.
-This process required restarting the virtual machine and couldn't be batched with other Windows updates.
-Since the Hyper-V administrator had to offer vmguest.iso and the virtual machine administrator had to install them, integration component upgrade required the Hyper-V administrator have administrator credentials in the virtual machines -- which isn't always the case.
+従来は、HYPER-V のすべての新しいバージョンでは、新しい統合コンポーネントに付属します。
+HYPER-V ホストのアップグレードもの仮想マシンでの統合コンポーネントのアップグレードが必要です。
+新しい統合コンポーネントが HYPER-V ホストに付属し、vmguest.iso を使用して仮想マシンにインストールされているします。
+このプロセスでは、仮想マシンを再起動するために必要な他の Windows の更新とバッチ処理できることができませんでした。
+Vmguest.iso と仮想マシンの管理者は、それらをインストールする必要があるを提供する HYPER-V の管理者があるため、HYPER-V の管理者はこれは必ずしもそういうの仮想マシンで管理者資格情報を必要統合コンポーネントのアップグレードが必要です。
 
-In Windows 10 and going forward, all integration components will be delivered to virtual machined through Windows Update along with other important updates.
+Windows の 10 および今後、すべての統合コンポーネントは、仮想に配信されますには、その他の重要な更新プログラムと Windows Update を通じて加工します。
 
-There are updates available today for virtual machines running:
+更新プログラムを実行する仮想マシンの現在利用可能ながあります。
 
 *   Windows Server 2012
 *   Windows Server 2008 R2
 *   Windows 8
 *   Windows 7
 
-The virtual machine must be connected to Windows Update or a WSUS server.
-In the future, integration component updates will have a category ID, for this release, they are listed as KBs.
+仮想マシンは、Windows Update または WSUS サーバーに接続する必要があります。
+統合コンポーネントの更新がカテゴリ ID の場合が今後、サポート技術情報として示されているこのリリースでは、します。
 
-To read more about how we determine applicability, see this [blog post](http://blogs.technet.com/b/virtualization/archive/2014/11/24/integration-components-how-we-determine-windows-update-applicability.aspx).
+詳細は、［ 適用性を確認して方法には、これを表示 [ブログの投稿](http://blogs.technet.com/b/virtualization/archive/2014/11/24/integration-components-how-we-determine-windows-update-applicability.aspx)。
 
-See [this blog](http://blogs.msdn.com/b/virtual_pc_guy/archive/2014/11/12/updating-integration-components-over-windows-update.aspx) post for a detailed walkthrough of installing integration services.
+記憶域スペース構成からすべてを完全に消去するときに役立つスクリプトについては、「 [このブログ](http://blogs.msdn.com/b/virtual_pc_guy/archive/2014/11/12/updating-integration-components-over-windows-update.aspx) integration services のインストールの詳細なチュートリアルについて投稿できます。
 
-> **Important:** The ISO image file vmguest.iso is no longer needed for updating integration components.
-> It's not included with Hyper-V on Windows 10.
+> **重要:** ISO イメージ ファイルの vmguest.iso は統合コンポーネントを更新する必要ありません。
+> これが 10 の Windows では、HYPER-V で含まれていません。
 > 
 
-##Next Step
+##次の手順
 
-[Walk through Hyper-V on Windows 10](..\quick_start\walkthrough.md)
+[10 の Windows での HYPER-V を紹介します。](..\quick_start\walkthrough.md)
 
 
