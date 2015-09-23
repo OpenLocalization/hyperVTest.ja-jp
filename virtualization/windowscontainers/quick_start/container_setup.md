@@ -94,7 +94,7 @@ Get-VM | Get-VMNetworkAdapter | Connect-VMNetworkAdapter -Switchname <switchname
 構成スクリプトの実行が完了すると、仮想マシンを起動します。
 VM では、Windows Server 2016 core が構成されは、次のようになります。
 
-< センター >!(./media/containerhost2.png)</center >< br/>
+<center>!(./media/containerhost2.png)</center><br />
 
 最後に、構成プロセス中に指定したパスワードを使用して仮想マシンにログインし、バーチャル マシンが有効な IP アドレスを持つかどうかを確認します。
 完了した次の項目を含む、システムは、Windows Server のコンテナーの準備ができてする必要があります。
@@ -114,6 +114,9 @@ Windows Server のコンテナーの機能を実行しているシステムが�
 -------------------
 
 [コンテナーのホームに戻る](../containers_welcome.md)[現在のリリースに関する既知の問題](../about/work_in_progress.md)
+
+
+md)
 
 
 
