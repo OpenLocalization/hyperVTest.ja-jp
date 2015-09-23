@@ -101,7 +101,7 @@ VM では、Windows Server 2016 core が構成されは、次のようになり�
 
 ##ビデオ チュートリアル
 
-<iframe src="https://channel9.msdn.com/Blogs/containers/Quick-Start-Configure-Windows-Server-Containers-on-a-Local-System/player" width="800" height="450" allowFullScreen="true" frameBorder="0" scrolling="no" caps_internal_Id="0f9e3ac7-296f-45ec-9be4-6e903d571ccf" />
+<iframe src="https://channel9.msdn.com/Blogs/containers/Quick-Start-Configure-Windows-Server-Containers-on-a-Local-System/player" width="800" height="450" allowFullScreen="true" frameBorder="0" scrolling="no"></iframe>
 
 ##次の手順 - は、コンテナーの使用を開始します。
 
