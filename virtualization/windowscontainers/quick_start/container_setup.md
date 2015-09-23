@@ -49,8 +49,8 @@ wget -uri https://aka.ms/newcontainerhost -OutFile New-ContainerHost.ps1
 
 作成し、コンテナーのホストを構成するには、次のコマンドを実行する場所 `<containerhost>` 仮想マシンの名前になり、 `<password>` パスワードに割り当てる管理者のアカウント。
 
-'' powershell
-.\New-ContainerHost.ps1 – VmName < containerhost >-< パスワード >
+``` powershell
+.\New-ContainerHost.ps1 – VmName <containerhost> -Password < パスワード >
 
 
 ```
@@ -80,7 +80,7 @@ You may receive the following message during the Window Server Container host de
 ```
 
 この VM は、ネットワークに接続されていません。 それを接続するには次の手順を実行します。
-Get VM |Get VMNetworkAdapter |接続 VMNetworkAdapter Switchname の < switchname >
+Get VM |Get VMNetworkAdapter |接続 VMNetworkAdapter Switchname の <switchname>
 
 
 ```
@@ -115,8 +115,6 @@ Windows Server のコンテナーの機能を実行しているシステムが�
 
 [コンテナーのホームに戻る](../containers_welcome.md)[現在のリリースに関する既知の問題](../about/work_in_progress.md)
 
-
-md)
 
 
 
