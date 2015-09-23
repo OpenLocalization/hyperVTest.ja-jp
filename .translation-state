@@ -599,9 +599,9 @@
     "bca267ee574504e3cb6d2c42f2aa095a3ace3619": {
       "SourceFileCommit": "0ccef3c09276e147870ac085b940d3fb095d5c4a",
       "SourceFilePath": "virtualization\\windowscontainers\\quick_start\\container_setup.md",
-      "TargetFileCommit": "ed7b344d6b2b557eea38ed64833212f799fe137b",
+      "TargetFileCommit": "db8be815880b97b4d3f09dfe601c16d1c17394b7",
       "TargetFilePath": "virtualization\\windowscontainers\\quick_start\\container_setup.md",
-      "UpdatedDateTime": "2015-09-21T22:52:05.8934383Z"
+      "UpdatedDateTime": "2015-09-23T21:53:36.0058173Z"
     },
     "439993aa3c0ae15d11beb2046585c1bb19629c87": {
       "SourceFileCommit": "0ccef3c09276e147870ac085b940d3fb095d5c4a",
