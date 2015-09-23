@@ -1,4 +1,4 @@
-ms。ContentId:71a03c62-50fd-48dc-9296-4d285027a96a
+ms.ContentId: 71a03c62-50fd-48dc-9296-4d285027a96a
 タイトル:ローカルの VM で Windows のコンテナーをセットアップします。
 
 #Windows Server のコンテナーのための Windows サーバーに関するテクニカル プレビューの準備
@@ -114,5 +114,6 @@ Windows Server のコンテナーの機能を実行しているシステムが�
 -------------------
 
 [コンテナーのホームに戻る](../containers_welcome.md)[現在のリリースに関する既知の問題](../about/work_in_progress.md)
+
 
 
