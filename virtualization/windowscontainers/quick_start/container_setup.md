@@ -7,6 +7,7 @@ title: ローカルの VM で Windows のコンテナーをセットアップし
 このガイドは、HYPER-V 仮想マシンで Windows Server のコンテナーの構成方法を説明します。
 
 > その他のファースト ステップ ガイド。
+> 
 
 *   Windows Server のコンテナーを実行します。 [Azure](./azure_setup.md)。
 *   Windows Server のコンテナーを実行します。 [既存のバーチャル マシン](./inplace_setup.md)。
@@ -22,6 +23,7 @@ title: ローカルの VM で Windows のコンテナーをセットアップし
     *   HYPER-V ホスト上の管理者のアクセス許可。
 
 > Windows Server のコンテナーでは、このガイドわかりやすくには、Windows Server のコンテナーのホストを実行する HYPER-V 環境が使用されていると仮定していますが、HYPER-V は必要ありません。
+> 
 
 ##新しいバーチャル マシン上の新しいコンテナー ホストのセットアップ
 
@@ -32,20 +34,25 @@ Windows Server のコンテナーは、Windows Server のコンテナーのホ�
 管理者として PowerShell セッションを開始します。
 これは、PowerShell アイコンを右クリックして [管理者として実行] を選択すると、または任意の PowerShell セッションから、次のコマンドを実行して行うことができます。
 
-``` powershell
-start-process powershell -Verb runAs
+'' powershell
+powershell の起動プロセスの動詞 runAs
+
+
 ```
 
 Use the following command to download the configuration script. The script can also be manually downloaded from this location - [Configuration Script](http://aka.ms/newcontainerhost).
 
-``` powershell
+``` PowerShell
 wget -uri https://aka.ms/newcontainerhost -OutFile New-ContainerHost.ps1
+
 ```
 
 作成し、コンテナーのホストを構成するには、次のコマンドを実行する場所 `<containerhost>` 仮想マシンの名前になり、 `<password>` パスワードに割り当てる管理者のアカウント。
 
 ``` powershell
 .\New-ContainerHost.ps1 – VmName <containerhost> -Password < パスワード >
+
+
 ```
 
 When the script begins you will be asked to read and accept licensing terms.
@@ -71,13 +78,17 @@ The script will then begin to download and configure the Windows Server Containe
 You may receive the following message during the Window Server Container host deployment process. 
 
 ```
+
 この VM は、ネットワークに接続されていません。 それを接続するには次の手順を実行します。
 Get VM |Get VMNetworkAdapter |接続 VMNetworkAdapter Switchname の <switchname>
+
+
 ```
 If you do, check the properties of the virtual machine and connect the virtual machine to a virtual switch. You can also run the following PowerShell command where `<switchname>` is the name of the Hyper-V virtual switch that you would like to connect to the virtual machine.
 
 ``` powershell 
 Get-VM | Get-VMNetworkAdapter | Connect-VMNetworkAdapter -Switchname <switchname>
+
 ```
 
 構成スクリプトの実行が完了すると、仮想マシンを起動します。
@@ -90,7 +101,7 @@ VM では、Windows Server 2016 core が構成されは、次のようになり�
 
 ##ビデオ チュートリアル
 
-<iframe src="https://channel9.msdn.com/Blogs/containers/Quick-Start-Configure-Windows-Server-Containers-on-a-Local-System/player" width="800" height="450" allowFullScreen="true" frameBorder="0" scrolling="no"></iframe>
+<iframe src="https://channel9.msdn.com/Blogs/containers/Quick-Start-Configure-Windows-Server-Containers-on-a-Local-System/player" width="800" height="450" allowFullScreen="true" frameBorder="0" scrolling="no" caps_internal_Id="0f9e3ac7-296f-45ec-9be4-6e903d571ccf" />
 
 ##次の手順 - は、コンテナーの使用を開始します。
 
@@ -102,8 +113,7 @@ Windows Server のコンテナーの機能を実行しているシステムが�
 
 -------------------
 
-[コンテナーのホームに戻る](../containers_welcome.md)
-[現在のリリースに関する既知の問題](../about/work_in_progress.md)
+[コンテナーのホームに戻る](../containers_welcome.md)[現在のリリースに関する既知の問題](../about/work_in_progress.md)
 
 
 
