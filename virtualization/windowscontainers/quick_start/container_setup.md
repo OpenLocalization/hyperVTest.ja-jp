@@ -33,24 +33,19 @@ Windows Server のコンテナーは、Windows Server のコンテナーのホ�
 これは、PowerShell アイコンを右クリックして [管理者として実行] を選択すると、または任意の PowerShell セッションから、次のコマンドを実行して行うことができます。
 
 ``` powershell
-powershell の起動プロセスの動詞 runAs
-
-
+start-process powershell -Verb runAs
 ```
 
 Use the following command to download the configuration script. The script can also be manually downloaded from this location - [Configuration Script](http://aka.ms/newcontainerhost).
 
 ``` powershell
 wget -uri https://aka.ms/newcontainerhost -OutFile New-ContainerHost.ps1
-
 ```
 
 作成し、コンテナーのホストを構成するには、次のコマンドを実行する場所 `<containerhost>` 仮想マシンの名前になり、 `<password>` パスワードに割り当てる管理者のアカウント。
 
 ``` powershell
 .\New-ContainerHost.ps1 – VmName <containerhost> -Password < パスワード >
-
-
 ```
 
 When the script begins you will be asked to read and accept licensing terms.
@@ -76,17 +71,13 @@ The script will then begin to download and configure the Windows Server Containe
 You may receive the following message during the Window Server Container host deployment process. 
 
 ```
-
 この VM は、ネットワークに接続されていません。 それを接続するには次の手順を実行します。
 Get VM |Get VMNetworkAdapter |接続 VMNetworkAdapter Switchname の <switchname>
-
-
 ```
 If you do, check the properties of the virtual machine and connect the virtual machine to a virtual switch. You can also run the following PowerShell command where `<switchname>` is the name of the Hyper-V virtual switch that you would like to connect to the virtual machine.
 
 ``` powershell 
 Get-VM | Get-VMNetworkAdapter | Connect-VMNetworkAdapter -Switchname <switchname>
-
 ```
 
 構成スクリプトの実行が完了すると、仮想マシンを起動します。
