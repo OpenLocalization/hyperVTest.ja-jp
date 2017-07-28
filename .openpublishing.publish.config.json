@@ -1,24 +1,36 @@
 {
-    "build_entry_point": "",
-    "docsets_to_publish": [
-        {
-            "docset_name": "hyperV-community",
-            "build_output_subfolder": "virtualization/community",
-            "locale": "ja-jp",
-            "version": 0
-        },
-        {
-            "docset_name": "hyperV-hyperv_on_windows",
-            "build_output_subfolder": "virtualization/hyperv_on_windows",
-            "locale": "ja-jp",
-            "version": 0
-        },
-        {
-            "docset_name": "hyperV-windowscontainers",
-            "build_output_subfolder": "virtualization/windowscontainers",
-            "locale": "ja-jp",
-            "version": 0
-        }
-    ],
-    "notification_subscribers": ["zhenjiao@microsoft.com", "fenxu@microsoft.com", "mayast@microsoft.com"]
+  "build_entry_point": "",
+  "need_generate_pdf": false,
+  "need_generate_intellisense": false,
+  "docsets_to_publish": [
+    {
+      "docset_name": "hyperV-community",
+      "build_output_subfolder": "virtualization/community",
+      "locale": "ja-jp",
+      "open_to_public_contributors": false,
+      "version": 0
+    },
+    {
+      "docset_name": "hyperV-hyperv_on_windows",
+      "build_output_subfolder": "virtualization/hyperv_on_windows",
+      "locale": "ja-jp",
+      "open_to_public_contributors": false,
+      "version": 0
+    },
+    {
+      "docset_name": "hyperV-windowscontainers",
+      "build_output_subfolder": "virtualization/windowscontainers",
+      "locale": "ja-jp",
+      "open_to_public_contributors": false,
+      "version": 0
+    }
+  ],
+  "notification_subscribers": [
+    "zhenjiao@microsoft.com",
+    "fenxu@microsoft.com",
+    "mayast@microsoft.com"
+  ],
+  "continue_with_document_error": true,
+  "skip_source_output_uploading": false,
+  "need_generate_pdf_url_template": false
 }
